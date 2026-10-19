@@ -15,8 +15,17 @@ this page.
 
 | Class | What it is | Used on |
 |---|---|---|
-| `.doc` | The single centred column a page sits inside. One per page, on `<article>`. | Every page |
+| `.doc` | The frame a page sits inside, under the running head. One per page, on `<article>`. | Every page |
 | `.visually-hidden` | Text for screen readers only — a label for an input that shows an icon instead. | Birds |
+
+**The grid.** The running head, `.masthead`, `.abstract`, `.contents`,
+`.section`, a plate's `<figcaption>` and `.colophon` are each laid on the
+same two columns ([design.md](design.md), "The grid"). Each puts its label —
+`.kicker`, `.abstract-label`, `.toc-label`, `.section-heading`,
+`.plate-title`, `.site-links` — in the left column, on the baseline of the
+first line beside it, and everything else in the right column, one row each
+in the order of the markup. Below 860px the label sits above. No markup is
+needed for any of it beyond the classes below.
 
 ## Masthead
 
@@ -24,7 +33,7 @@ The block at the top of a page: kicker, title, subtitle, byline, dateline.
 Only the title is required; omit any other line rather than leave it empty.
 
 ```html
-<header>
+<header class="masthead">
   <p class="kicker">Portfolio</p>
   <h1 class="title">Felipe E. Harker</h1>
   <p class="subtitle">Computational design, architecture, and the tools built alongside them</p>
@@ -38,15 +47,15 @@ Only the title is required; omit any other line rather than leave it empty.
 
 | Class | What it is |
 |---|---|
-| `.kicker` | Uppercase eyebrow above the title: what kind of page this is. |
-| `.title` | The page's `<h1>`. One per page. |
+| `.masthead` | The `<header>` of the page's `<article>`, laid on the grid. |
+| `.kicker` | The bracketed label in the left column, on the baseline of the title's last line: what kind of page this is. |
+| `.title` | The page's `<h1>`, in the right column: very large, in capitals, a word too long for the column breaking rather than overflowing. One per page. |
 | `.subtitle` | One line under the title saying what the subject is. |
 | `.byline` | The author, under the subtitle, where the page needs one. |
 | `.dateline` | Recorded values — place, address, date — in mono, separated by `.sep` spans. Stacks one per line on a phone. |
-| `.masthead--left` | On `<header>`: left-align the block. For a record: a resume, a checklist. |
-| `.masthead--record` | With `.masthead--left`, for a record whose title names a thing rather than the person: a smaller title, and no space under the dateline so a `.facts` grid can follow directly. |
+| `.masthead--record` | With `.masthead`, for a record whose title names a thing rather than the person (a checklist's location): a smaller title. A `.facts` grid can follow the dateline inside the header. |
 
-The front page of a part of the site uses the plain centred masthead.
+Every masthead has the same shape; nothing is centred.
 
 ## Abstract
 
@@ -59,13 +68,13 @@ The front page of a part of the site uses the plain centred masthead.
 
 | Class | What it is |
 |---|---|
-| `.abstract` | One labelled paragraph under the masthead, centred at the reading measure. |
-| `.abstract-label` | Its eyebrow label. |
+| `.abstract` | One labelled paragraph under the masthead, a step larger than body text, in the right column. |
+| `.abstract-label` | Its bracketed label, in the left column. |
 
 ## Contents
 
 ```html
-<nav aria-label="Contents">
+<nav class="contents" aria-label="Contents">
   <p class="toc-label">Contents</p>
   <ul class="toc">
     <li><a href="#sec-map">Map</a></li>
@@ -75,8 +84,9 @@ The front page of a part of the site uses the plain centred masthead.
 
 | Class | What it is |
 |---|---|
-| `.toc-label` | The eyebrow above the index. |
-| `.toc` | The index: one entry per line. |
+| `.contents` | The `<nav>`, laid on the grid. |
+| `.toc-label` | The bracketed label, in the left column. |
+| `.toc` | The index, in the right column: one entry per line. |
 | `.toc--inline` | With `.toc`: entries on one wrapping line. For a short index of one-word entries (the resume). |
 
 Each entry's text is the section heading's text, exactly. Section ids are
@@ -93,8 +103,13 @@ Each entry's text is the section heading's text, exactly. Section ids are
 
 | Class | What it is |
 |---|---|
-| `.section` | A top-level block, opened by a strong hairline. |
-| `.section-heading` | Its `<h2>`. A plain name, never numbered. |
+| `.section` | A top-level block, laid on the grid and opened by an ink rule across the page. |
+| `.section-heading` | Its `<h2>`: a plain name, never numbered, set as a small bracketed label in the left column. |
+
+A `.work-list` or a `.plate` in a section spans both columns, on a row of its
+own under the heading. So should any block of a part's own that leads a
+section and has no text of its own (the birding report's map): beside the
+heading, it would pull the heading down to its foot.
 
 ## Body copy
 
@@ -112,8 +127,8 @@ Each entry's text is the section heading's text, exactly. Section ids are
 
 | Class | What it is |
 |---|---|
-| `.rule` | `<hr>` for a major division: under a masthead. Strong hairline. |
-| `.rule-soft` | `<hr>` for a minor division within a block. Soft hairline. |
+| `.rule` | `<hr>` for a major division: under a masthead. Ink. |
+| `.rule-soft` | `<hr>` for a minor division within a block. Grey. In a work-list tile, a short ink dash under the title. |
 
 ## Tables
 
@@ -188,12 +203,12 @@ the accent).
 
 | Class | What it is |
 |---|---|
-| `.btn` | A text button: small caps in the accent, inside a hairline. |
-| `.tag` | A small accent pill for something the reader should notice ("Incomplete"). |
-| `.tag--neutral` | With `.tag`: a grey pill that merely classifies (a breeding code). |
+| `.btn` | A text button: small caps inside an ink hairline, filled with ink on hover. |
+| `.tag` | A small solid ink block for something the reader should notice ("Incomplete"). |
+| `.tag--neutral` | With `.tag`: a grey one that merely classifies (a breeding code). |
 | `.field` | Wrapper for a text input with an icon inside it. |
-| `.field-icon` | The icon, inside the field on the left. |
-| `.input` | The text input. |
+| `.field-icon` | The icon, at the start of the line. |
+| `.input` | The text input: an ink underline, not a box. |
 | `.toolbar` | A row with a caption on the left and a control on the right. |
 
 ```html
@@ -206,9 +221,10 @@ the accent).
 
 ## Work list
 
-One project or site per row: a cover on the left, its facts on the right.
-Every row has the same seven parts in the same order; a row without one of
-them omits the element.
+One project or site per tile, the tiles side by side across the whole width
+of the page — as many across as fit at 300px or more, so three to a row on a
+wide screen and one on a phone. Every tile has the same seven parts in the
+same order; a tile without one of them omits the element.
 
 ```html
 <ul class="work-list">
@@ -234,19 +250,20 @@ them omits the element.
 
 | Class | What it is |
 |---|---|
-| `.work-list` | The `<ul>`. |
-| `.work` | One row. Hovering anywhere on it lights the cover and the title together. |
-| `.work-cover` | The cover frame: fixed ratio, hairline border. It duplicates the title link, so it is `aria-hidden="true" tabindex="-1"` and its image has `alt=""`. |
+| `.work-list` | The `<ul>`. Spans both columns of a section. |
+| `.work` | One tile. Hovering anywhere on it brings the cover into colour and underlines the title together. |
+| `.work-cover` | The cover frame: fixed ratio, no border. Its image is shown in greys until the tile is hovered. It duplicates the title link, so it is `aria-hidden="true" tabindex="-1"` and its image has `alt=""`. |
 | `.work-cover-placeholder` | Inside `.work-cover` until there is an image: names the project and says the cover is pending. |
 | `.work-cover-placeholder .name` | The project's name in the placeholder. |
 | `.work-cover-placeholder .note` | "Cover pending". |
-| `.work-title` | The row's `<h3>` and its link. |
+| `.work-title` | The tile's `<h3>` and its link. |
 | `.work-summary` | One sentence on what it is. |
 | `.work-stack` | What it is made of or where it is: literals, mono, separated by `.sep`. |
 | `.work-kind` | What kind of work: Academic, Professional, Personal. |
-| `.work-link` | The row's address: "Project Page", "Project Site". |
+| `.work-link` | The tile's address, in small caps: "Project Page", "Project Site". |
 
-`.work-facts` is the right-hand column; it carries no style of its own.
+`.work-facts` holds everything under the cover; it carries no style of its
+own. The `<hr class="rule-soft">` in it is drawn as a short ink dash.
 
 ## Entries
 
@@ -280,9 +297,9 @@ them omits the element.
 
 | Class | What it is |
 |---|---|
-| `.plate` | A full-width drawing or render, with its title and text under it. |
+| `.plate` | A drawing or render across the whole width of the page, with no frame; under it, its `<figcaption>` laid on the grid. |
 | `.plate-lead` | With `.plate`: the plate between the masthead and the first section. |
-| `.plate-title` | The plate's `<h3>`. |
+| `.plate-title` | The plate's `<h3>`, in the left column; its text goes in the right. |
 
 ## References
 
@@ -302,11 +319,38 @@ them omits the element.
 
 | Class | What it is |
 |---|---|
-| `.reference-list` | A plain list of places to go, at the foot of a page. Never numbered, never cited by marker. |
+| `.reference-list` | A plain list of places to go, at the foot of a page. Never numbered, never cited by marker. A link that opens another site carries a drawn arrow. |
 | `.reference-list .name` | An entry's heading when it is a person, not a link. |
 | `.desc` | The entry's line of description. |
 | `.path` | On the heading link, when the heading is itself an address (an email): mono. |
 | `.addr` | A secondary address under the description: how to reach the person. Mono. |
+
+## Running head
+
+The line across the top of every page, before its `<article>`: the owner's
+name in the left column, and a link to every part of felipeharker.org from
+the middle — the same links as the colophon, in the same order, so a reader
+can move around the site from either end of a page.
+
+```html
+<header class="runhead">
+  <a class="runhead-owner" href="/">Felipe E. Harker</a>
+  <nav class="runhead-links" aria-label="Site">
+    <a href="/" aria-current="page">Portfolio</a>
+    <a href="/academic/">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+</header>
+```
+
+| Class | What it is |
+|---|---|
+| `.runhead` | The `<header>` of the page, outside its `<article>`, in the same frame as `.doc` and laid on the grid. |
+| `.runhead-owner` | The owner's name, linking to the front page, in the left column. |
+| `.runhead-links` | The `<nav>` of every part of the site, in the right column. The link to the part the reader is in carries `aria-current="page"` and is bracketed. |
+
+`tools/check.mjs` fails if a page's running head misses a part of the site.
 
 ## Back link
 
@@ -316,7 +360,7 @@ them omits the element.
 
 | Class | What it is |
 |---|---|
-| `.backlink` | Above the masthead of an interior page: the way up to the page that lists it. Its text names that page. |
+| `.backlink` | Above the masthead of an interior page, in small caps: the way up to the page that lists it. Its text names that page. |
 
 ## Colophon
 
@@ -340,10 +384,10 @@ made. It is the last thing inside `.doc`.
 
 | Class | What it is |
 |---|---|
-| `.colophon` | The footer block: a strong hairline, then small muted lines. |
-| `.site-links` | The row of links to every part of the site, in the order of [`tools/sites.mjs`](../../../tools/sites.mjs). |
+| `.colophon` | The footer block, laid on the grid: an ink rule, then the site links on the left and small grey lines on the right. |
+| `.site-links` | The row of links to every part of the site, in small caps, in the order of [`tools/sites.mjs`](../../../tools/sites.mjs). |
 | `.site-links-owner` | The name that leads the row. |
 
 The link to the part the reader is in carries `aria-current="page"` and is
-set in text colour. `tools/check.mjs` fails if a page's site links miss a
+set in ink; the rest are grey. `tools/check.mjs` fails if a page's site links miss a
 part of the site, or if the page does not link `/standards/`.

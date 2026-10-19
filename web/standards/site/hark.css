@@ -19,15 +19,16 @@
    a shared component needs to look different, the standard changes, here.
 
    THE DESIGN, IN ONE PARAGRAPH
-   A quiet, modern document. A neutral sans (Inter) carries every heading and
-   every line of prose; a monospace (IBM Plex Mono) is reserved for recorded
-   values — a date, a place, a count, an address — where the reader benefits
-   from seeing at a glance that something is a literal rather than a sentence
-   about one. Structure is carried by hairline rules and whitespace, not by
-   heavy bars, boxes or drop shadows. Nothing is set bolder than 600. One deep
-   red is the only accent, and it means "interactive or selected" — nothing
-   else. Nothing the reader sees is numbered; the sections of this file are,
-   so a rule can be found.
+   An index printed in ink on white. Every page is laid on one grid of two
+   columns: small bracketed labels down the left, everything a reader reads
+   from the middle of the page, so the edges of every block line up from the
+   top of the page to the foot. The page title is set very large, in capitals;
+   almost everything else is small. A neutral sans (Inter) carries the words;
+   a monospace (IBM Plex Mono) is reserved for recorded values — a date, a
+   place, a count, an address. There is no colour: black, three greys and
+   white. Structure is whitespace and hairlines, never a box, a tint or a
+   shadow, and nothing is rounded. Nothing the reader sees is numbered; the
+   sections of this file are, so a rule can be found.
 
    The reasoning behind each rule, and a table of every token and class, is in
    web/standards/docs/. Every component below is rendered on the specimen
@@ -35,22 +36,22 @@
 
    HOW THIS FILE IS ORGANISED
       1.  Design tokens ............ every colour, font, size and spacing value
-      2.  Document skeleton ........ page frame, resets, base elements
+      2.  Document skeleton ........ page frame, the grid, resets, base elements
       3.  Masthead ................. the title block at the top of a page
       4.  Abstract ................. a summary paragraph under the masthead
       5.  Contents ................. the section index
-      6.  Sections ................. section headings and the hairline above
+      6.  Sections ................. section labels and the rule above them
       7.  Body copy ................ paragraphs, lists, labels, captions, data
       8.  Rules .................... the horizontal dividers
       9.  Tables ................... data tables
      10.  Definition grid .......... label / value pairs
      11.  Disclosure rows .......... a list of rows that open in place
      12.  Controls ................. button, tag, text input, toolbar
-     13.  Work list ................ a project per row: cover left, facts right
+     13.  Work list ................ a project per tile: cover, then its facts
      14.  Entries .................. a job, a school, a dated record
      15.  Plates ................... a full-width image and what is said about it
      16.  References ............... a list of links, each with a description
-     17.  Back link ................ the way up from an interior page
+     17.  Running head, back link .. the bar on top of every page; the way up
      18.  Colophon ................. the page footer and the links between sites
      19.  Responsive ............... narrow-screen overrides
    ========================================================================= */
@@ -60,44 +61,44 @@
    1. DESIGN TOKENS
    Change these, not the rules further down: nearly every rule is written in
    terms of them. A site may override a token in its own stylesheet (the
-   resume narrows --measure); it may not add a colour or a size that has no
-   token behind it.
+   resume's print sheet resizes the type); it may not add a colour or a size
+   that has no token behind it.
    ========================================================================= */
 
 :root {
   /* -- Colour: surfaces ----------------------------------------------------
-     Beyond the page there are two barely-there warm tints. Neither is ever
-     used to shade a region of the page — a section is set off by whitespace
-     and one hairline, not by a panel. They sit behind small drawn objects: a
-     cover placeholder, a hovered control, an inline code span, a tag. */
+     Pure white, so a line drawing on a white sheet sits on the page with no
+     edge around it. The two greys are never used to shade a region of the
+     page; they sit behind small drawn objects only — a cover placeholder, an
+     inline code span, a tag. */
   --color-bg: #ffffff;              /* page background */
-  --color-surface: #faf9f7;         /* cover placeholder, hovered control */
-  --color-surface-hover: #f4f2ef;   /* inline code, neutral tags */
+  --color-surface: #f4f4f4;         /* cover placeholder, hovered control */
+  --color-surface-hover: #ececec;   /* inline code, neutral tags */
 
   /* -- Colour: text --------------------------------------------------------
-     Three steps, in descending emphasis. Anything that is not prose — a date,
-     a place, an eyebrow label — sits on one of the lower two, which is most
-     of what keeps the page feeling light. */
-  --color-text: #1c1a19;            /* headings, titles */
-  --color-text-soft: #4a4643;       /* prose: paragraphs, summaries, lists */
-  --color-text-mute: #7a746e;       /* labels, captions, recorded values */
+     Ink and two greys, in descending emphasis. Anything that is not prose —
+     a date, a place, an eyebrow label — sits on one of the lower two. */
+  --color-text: #111111;            /* headings, titles, labels in the margin */
+  --color-text-soft: #3a3a3a;       /* prose: paragraphs, summaries, lists */
+  --color-text-mute: #6e6e6e;       /* captions, recorded values, eyebrows */
 
   /* -- Colour: accent ------------------------------------------------------
-     One deep red, and the only things allowed to use it are things you can
-     click and things that are selected. The hover step and the faint wash
-     behind a selected control are derived from it, so setting --color-accent
-     alone re-accents every site. */
-  --color-accent: #7c1405;
-  --color-accent-hover: color-mix(in srgb, var(--color-accent) 72%, #000000);
-  --color-accent-wash: color-mix(in srgb, var(--color-accent) 5%, #ffffff);
-  --color-selection: #ffe0d9;       /* ::selection highlight */
+     What can be clicked and what is selected. It is ink: the design has no
+     colour, so a link is told apart by its underline or its place, not its
+     hue. The hover step and the faint wash behind a focused control are
+     derived from it, so setting --color-accent alone (to a red, say)
+     re-accents every site. */
+  --color-accent: #111111;
+  --color-accent-hover: color-mix(in srgb, var(--color-accent) 62%, var(--color-bg));
+  --color-accent-wash: color-mix(in srgb, var(--color-accent) 5%, var(--color-bg));
+  --color-selection: #111111;       /* ::selection — selected text inverts */
 
   /* -- Colour: rules -------------------------------------------------------
-     Structure is hairlines, not bars. Both weights are 1px; they differ only
-     in contrast, and even the strong one is a light grey. A divider should
-     say where a section ends without drawing attention to itself. */
-  --color-rule: #eae7e3;            /* between rows within a section */
-  --color-rule-strong: #d5d0ca;     /* between sections */
+     Both are 1px. The strong one is ink and opens a section, so the top of
+     each block is drawn once, firmly, across the whole page; the soft one is
+     a light grey between the rows inside it. */
+  --color-rule: #e5e5e5;            /* between rows within a section */
+  --color-rule-strong: #111111;     /* above a section, under a masthead */
 
   /* -- Type: families ------------------------------------------------------
      Each family is written as a variable with a fallback name, so one token
@@ -114,39 +115,42 @@
     SFMono-Regular, Menlo, monospace;
 
   /* -- Type: weights -------------------------------------------------------
-     Three weights, and no bold. The step from 400 to 600 is enough to mark a
-     heading when the type around it is calm. 500 is for anything that needs
-     to be noticed without being a heading: a label, a table header, an
-     employer, the name in a reference. */
+     Three weights, and no bold. The display title is only 500: at that size
+     the letters carry themselves, and heavier strokes would fill in. */
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-strong: 600;
 
   /* -- Type: scale ---------------------------------------------------------
-     Smaller than a serif would need at the same apparent size: Inter has a
-     large x-height, so it reads bigger per pixel. */
-  --size-title: 34px;               /* page title */
-  --size-title-record: 27px;        /* page title on a record page */
-  --size-section: 23px;             /* section heading */
-  --size-subtitle: 17px;            /* the line under a page title */
+     Two ends and little between them: a title as large as the column will
+     hold, and small type for everything else. The two title sizes follow the
+     width of the window, between a floor for a phone and a ceiling at which
+     the longest word of a title still fits the content column. */
+  --size-title: clamp(36px, 5.6vw, 84px);         /* page title */
+  --size-title-record: clamp(28px, 3.4vw, 48px);  /* title of a record page */
+  --size-subtitle: 21px;            /* the line under a page title */
+  --size-abstract: 18px;            /* the abstract paragraph */
   --size-subsection: 17px;          /* row and plate titles */
   --size-body: 16px;                /* paragraphs */
-  --size-abstract: 16px;            /* the abstract paragraph */
   --size-table: 15px;               /* lists, table cells, summaries */
   --size-data: 13px;                /* monospace recorded values */
   --size-caption: 13px;             /* captions, descriptions, colophon */
+  --size-section: 12px;             /* section labels, in the left column */
   --size-fine: 12px;                /* the smallest secondary text */
   --size-label: 11px;               /* uppercase eyebrow labels */
 
   /* -- Type: letter-spacing ------------------------------------------------
-     Inter sets slightly loose at display sizes, so large type is tightened
-     and small uppercase type is opened up. */
-  --track-tight: -0.02em;           /* titles and headings */
+     Inter sets loose at display sizes, so large type is drawn in tight and
+     small capitals are opened up. */
+  --track-display: -0.045em;        /* the page title */
+  --track-tight: -0.02em;           /* row titles, the subtitle */
   --track-body: -0.006em;           /* running prose */
-  --track-label: 0.08em;            /* uppercase labels */
+  --track-label: 0.06em;            /* uppercase labels */
 
   /* -- Spacing -------------------------------------------------------------
-     Every margin, padding and gap comes from this scale. */
+     Every margin, padding and gap comes from this scale. The two largest
+     steps are the room between sections and around the masthead: the
+     whitespace is what separates things, so there is a lot of it. */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -154,27 +158,40 @@
   --space-5: 26px;
   --space-6: 40px;
   --space-7: 56px;
+  --space-8: 88px;
+  --space-9: 136px;
 
   /* -- Radius --------------------------------------------------------------
-     Only for things that are drawn objects or controls — a cover, a button,
-     an input, a map. Text and tables stay square; rounding them would read
-     as decoration. */
-  --radius-sm: 4px;                 /* controls, covers, thumbnails, code */
-  --radius-md: 8px;                 /* large framed objects: a map */
+     Nothing is rounded: a cover, a button and an input are all square. The
+     tokens stay so a part with a reason to round something has one value
+     to set. */
+  --radius-sm: 0;                   /* controls, covers, thumbnails, code */
+  --radius-md: 0;                   /* large framed objects: a map */
 
   /* -- Measure -------------------------------------------------------------
-     --measure caps the document column; --measure-text caps running prose
-     inside it, so lines stay readable when the column is wide. */
-  --measure: 1000px;
-  --measure-text: 70ch;
+     --measure caps the page frame, wide enough for a work list three covers
+     across; --measure-text caps running prose inside the content column. */
+  --measure: 1440px;
+  --measure-text: 68ch;
+
+  /* -- The grid ------------------------------------------------------------
+     Two columns, named so a block can say where it goes: `label` on the
+     left, `content` from the middle, `full` across both. They share the
+     width equally until the content column would drop below
+     --grid-content-min; from there the label column gives way. Below 860px
+     all three names are the one column (section 19). */
+  --grid-gap: var(--space-6);
+  --grid-content-min: 560px;
+  --grid: [full-start label-start] minmax(0, 1fr)
+    [label-end content-start] minmax(var(--grid-content-min), 1fr)
+    [content-end full-end];
 
   /* -- Page frame ----------------------------------------------------------
-     Headroom, footroom and the gutter to the window edge. The first two sit
-     outside the spacing scale on purpose: larger than any gap between
-     elements, they are what make a document read as a page rather than as a
-     scrolling feed. */
-  --doc-pad-top: 80px;
-  --doc-pad-bottom: 120px;
+     Headroom, footroom and the gutter to the window edge. Small at the top,
+     because the running head is already there; large at the foot, so the
+     colophon ends the page rather than the window. */
+  --doc-pad-top: var(--space-6);
+  --doc-pad-bottom: var(--space-6);
   --doc-pad-x: 40px;
 
   /* -- Work list geometry --------------------------------------------------
@@ -216,12 +233,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection { background: var(--color-selection); }
+/* Selected text inverts: ink ground, white letters. */
+::selection {
+  background: var(--color-selection);
+  color: var(--color-bg);
+}
 
 /* Links carry the accent. Underlines are set per context: a link inside prose
-   keeps a hairline underline, while a link that is itself a block — a
-   project, a contents entry, a reference — drops it and marks itself
-   another way. */
+   keeps a hairline underline — with no colour to tell it apart, the line is
+   what says it is a link — while a link that is itself a block (a project, a
+   contents entry, a reference) drops it until hovered. */
 a {
   color: var(--color-accent);
   text-decoration-thickness: 1px;
@@ -244,16 +265,90 @@ figure { margin: 0; }
 code {
   font-family: var(--font-mono);
   font-size: 0.88em;
+  white-space: nowrap;              /* a token never breaks at its hyphens */
   background: var(--color-surface-hover);
   border-radius: var(--radius-sm);
   padding: 1px 5px;
 }
 
-/* `.doc` is the single centred column every page sits inside. */
+/* `.doc` is the frame every page sits inside: the page's one <article>. */
 .doc {
   max-width: var(--measure);
   margin: 0 auto;
   padding: var(--doc-pad-top) var(--doc-pad-x) var(--doc-pad-bottom);
+}
+
+/* -- The grid ---------------------------------------------------------------
+   Every block that pairs a label with what it labels — the running head, the
+   masthead, the abstract, the contents, a section, a plate's caption, the
+   colophon — is laid out on the same two columns (--grid), so their edges
+   line up all the way down the page. Each block's label goes in the left
+   column on its first row; everything else in it goes in the right column,
+   one row each, in the order of the markup. A block that needs the whole
+   width (a work list, a plate) spans both columns and takes a row of its
+   own. */
+.runhead,
+.masthead,
+.abstract,
+.contents,
+.section,
+.plate figcaption,
+.colophon {
+  display: grid;
+  grid-template-columns: var(--grid);
+  column-gap: var(--grid-gap);
+  align-items: start;
+}
+
+.masthead > *,
+.abstract > *,
+.contents > *,
+.section > *,
+.plate figcaption > *,
+.colophon > * {
+  grid-column: content;
+  min-width: 0;                     /* a wide table scrolls, never widens the column */
+}
+
+/* The labels in the left column. Their first line sits on the baseline of
+   the first line beside them, whatever that line's size: the label and the
+   thing it labels read as one line across the page. */
+.kicker,
+.abstract-label,
+.toc-label,
+.section-heading,
+.plate figcaption > .plate-title,
+.colophon > .site-links {
+  grid-column: label;
+  grid-row: 1;
+  align-self: baseline;
+}
+
+.abstract-label + *,
+.toc-label + *,
+.section-heading + *,
+.plate-title + *,
+.colophon > .site-links + * { align-self: baseline; }
+
+/* A label that names a block in the left column is bracketed — "[ About ]" —
+   so the eye finds the column of them down the page. The brackets are
+   drawn, not written: a screen reader reads the word alone, and a copied
+   heading comes across clean. The second `content` of each pair carries
+   empty alternative text, for browsers that understand it. */
+.kicker::before,
+.abstract-label::before,
+.toc-label::before,
+.section-heading::before {
+  content: '[\00a0';
+  content: '[\00a0' / '';
+}
+
+.kicker::after,
+.abstract-label::after,
+.toc-label::after,
+.section-heading::after {
+  content: '\00a0]';
+  content: '\00a0]' / '';
 }
 
 /* Anchored sections stop short of the top edge, so a heading the contents
@@ -283,47 +378,61 @@ code {
 
 /* ============================================================================
    3. MASTHEAD
-   kicker, title, subtitle, byline, dateline — each optional but the title,
-   always in that order. Centred by default: a site's front page is the front
-   of a publication. A record — a resume, a checklist — is left-aligned with
-   .masthead--left, and a record whose title names a thing rather than the
-   person adds .masthead--record for a smaller title.
+   <header class="masthead">: kicker, title, subtitle, byline, dateline —
+   each optional but the title, always in that order. The kicker is the
+   label in the left column, set on the baseline of the title's last line;
+   the title and everything under it run from the middle of the page. A
+   record whose title names a thing rather than the person — a checklist's
+   location — adds .masthead--record for a smaller title.
    ========================================================================= */
 
-/* Small tracked caps above the title, saying what kind of page this is. In
-   the body face: monospace caps at this size read as a system message. */
+.masthead { margin-top: var(--space-8); }
+
+/* Small tracked caps saying what kind of page this is. In the body face:
+   monospace caps at this size read as a system message. */
 .kicker {
-  text-align: center;
   font-size: var(--size-label);
   font-weight: var(--weight-medium);
+  line-height: 1.4;
   letter-spacing: var(--track-label);
   text-transform: uppercase;
-  color: var(--color-text-mute);
-  margin: 0 0 var(--space-4);
+  color: var(--color-text);
+  margin: 0;
 }
 
+/* The one large thing on the page. Capitals, drawn in tight, the lines
+   nearly touching: a block of type rather than a line of it. The size
+   follows the window (--size-title), and a word too long for the column
+   breaks rather than running off the page. */
 .title {
-  text-align: center;
   font-size: var(--size-title);
-  font-weight: var(--weight-strong);
-  line-height: 1.15;
-  letter-spacing: var(--track-tight);
-  margin: 0 0 var(--space-3);
+  font-weight: var(--weight-medium);
+  line-height: 0.92;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  margin: 0;
 }
+
+.masthead > .kicker,
+.masthead > .title { align-self: last baseline; }
 
 .subtitle {
-  text-align: center;
   font-size: var(--size-subtitle);
   font-weight: var(--weight-regular);
-  color: var(--color-text-soft);
-  margin: 0 0 var(--space-5);
+  line-height: 1.35;
+  letter-spacing: var(--track-tight);
+  color: var(--color-text);
+  max-width: 30em;
+  text-wrap: balance;
+  margin: var(--space-6) 0 0;
 }
 
 .byline {
-  text-align: center;
-  font-size: var(--size-table);     /* one step under the subtitle */
+  font-size: var(--size-table);
   color: var(--color-text-soft);
-  margin: 0 0 var(--space-1);
+  margin: var(--space-4) 0 0;
 }
 
 /* The masthead's recorded values — a place, an address, a date — so the one
@@ -332,53 +441,46 @@ code {
 .dateline {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: baseline;
   gap: var(--space-1) var(--space-3);
   font-family: var(--font-mono);
   font-size: var(--size-data);
   color: var(--color-text-mute);
-  margin: 0 0 var(--space-6);
+  margin: var(--space-2) 0 0;
 }
 
-.masthead--left .kicker,
-.masthead--left .title,
-.masthead--left .subtitle,
-.masthead--left .byline { text-align: left; }
-.masthead--left .dateline { justify-content: flex-start; }
+.title + .dateline { margin-top: var(--space-5); }
 
 .masthead--record .title {
   font-size: var(--size-title-record);
-  margin-bottom: var(--space-2);
+  line-height: 1;
 }
-.masthead--record .dateline { margin-bottom: 0; }
 
 
 /* ============================================================================
    4. ABSTRACT
    One labelled paragraph under the masthead saying what the reader is
-   looking at. Capped at the reading measure and centred in the column.
+   looking at: the label in the left column, the paragraph, a step larger
+   than body text, in the right.
    ========================================================================= */
 
-.abstract {
-  max-width: var(--measure-text);
-  margin: 0 auto var(--space-6);
-}
+.abstract { margin: 0; }
 
 .abstract-label {
-  text-align: center;
-  font-size: var(--size-label);
+  font-size: var(--size-section);
   font-weight: var(--weight-medium);
+  line-height: 1.4;
   letter-spacing: var(--track-label);
   text-transform: uppercase;
-  color: var(--color-text-mute);
-  margin: 0 0 var(--space-3);
+  color: var(--color-text);
+  margin: 0;
 }
 
-.abstract p {
+.abstract p:not(.abstract-label) {
   font-size: var(--size-abstract);
-  line-height: 1.7;
-  color: var(--color-text-soft);
+  line-height: 1.55;
+  color: var(--color-text);
+  max-width: var(--measure-text);
   margin: 0 0 var(--space-3);
 }
 
@@ -387,8 +489,10 @@ code {
 
 /* ============================================================================
    5. CONTENTS
-   A plain index of the sections below, and on a single-page site the whole
-   of its navigation. No numerals: the list order is the document order.
+   <nav class="contents">: a plain index of the sections below, and on a
+   single-page site the whole of its navigation. The label in the left
+   column, the entries in the right. No numerals: the list order is the
+   document order.
 
    One entry per line by default — the list is the same shape on every
    screen and each entry is a generous tap target. .toc--inline sets a short
@@ -396,12 +500,13 @@ code {
    ========================================================================= */
 
 .toc-label {
-  font-size: var(--size-label);
+  font-size: var(--size-section);
   font-weight: var(--weight-medium);
+  line-height: 1.4;
   letter-spacing: var(--track-label);
   text-transform: uppercase;
-  color: var(--color-text-mute);
-  margin: 0 0 var(--space-3);
+  color: var(--color-text);
+  margin: 0;
 }
 
 .toc {
@@ -413,50 +518,62 @@ code {
 
 .toc a {
   display: block;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
   text-decoration: none;
-  color: var(--color-text-soft);
+  color: var(--color-text);
   transition: color var(--transition);
 }
 
-.toc a:hover { color: var(--color-accent); }
+.toc a:hover { color: var(--color-accent-hover); }
 
 /* Wraps rather than scrolls: an entry scrolled out of view is an entry the
    reader will not find. */
 .toc--inline {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
+  gap: var(--space-1) var(--space-5);
 }
-
-.toc--inline a { padding: var(--space-1) 0; }
 
 
 /* ============================================================================
    6. SECTIONS
-   A section opens with one hairline and a plain heading — "Work", "About",
-   "Experience". Never numbered: the heading and its contents entry carry the
-   same name, which is all a reader needs to navigate by. The generous top
-   margin, not the rule, is what separates one section from the next.
+   A section opens with an ink rule across the whole page, and its name in
+   brackets in the left column — "[ Work ]", "[ About ]". Never numbered: the
+   heading and its contents entry carry the same name, which is all a reader
+   needs to navigate by. The large space above the rule, not the rule, is
+   what separates one section from the next.
    ========================================================================= */
 
 .section {
-  margin-top: var(--space-7);
-  padding-top: var(--space-5);
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
   border-top: 1px solid var(--color-rule-strong);
 }
 
+/* An <h2> set as a label. It does not need size to be found: it is alone
+   in its column. */
 .section-heading {
   font-size: var(--size-section);
-  font-weight: var(--weight-strong);
-  line-height: 1.25;
-  letter-spacing: var(--track-tight);
-  margin: 0 0 var(--space-4);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
 }
 
-/* Whatever follows a heading takes its gap from the heading's own bottom
-   margin, so a block with a top margin of its own drops it here rather than
-   doubling up. */
+/* Blocks that need the whole width span both columns, on a row of their
+   own, under the label. A block with no text of its own that leads a
+   section (a map, an image) belongs here too: beside the label, it would
+   pull the label down to its foot. */
+.section > .work-list,
+.section > .plate { grid-column: full; }
+
+.section-heading + .work-list,
+.section-heading + .plate { margin-top: var(--space-5); }
+
+/* Whatever follows a heading starts level with it, so a block with a top
+   margin of its own drops it there. */
 .section-heading + .body-text,
 .section-heading + .list,
 .section-heading + .caption,
@@ -464,7 +581,6 @@ code {
 .section-heading + .facts,
 .section-heading + .toolbar,
 .section-heading + .field,
-.section-heading + .work-list,
 .section-heading + .entry,
 .section-heading + .reference-list { margin-top: 0; }
 
@@ -475,7 +591,8 @@ code {
 
 .body-text {
   font-size: var(--size-body);
-  line-height: 1.7;
+  line-height: 1.65;
+  text-wrap: pretty;                /* no single word left on the last line */
   color: var(--color-text-soft);
   max-width: var(--measure-text);
   margin: 0 0 var(--space-4);
@@ -485,7 +602,7 @@ code {
 
 .list {
   font-size: var(--size-table);
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--color-text-soft);
   max-width: var(--measure-text);
   margin: var(--space-3) 0 0;
@@ -494,8 +611,10 @@ code {
 
 .list li { margin-bottom: var(--space-2); }
 .list li:last-child { margin-bottom: 0; }
+.list li::marker { color: var(--color-text-mute); }
 
-/* An uppercase tracked eyebrow above a block of content. */
+/* An uppercase tracked eyebrow above a block of content. Unbracketed and
+   grey: brackets belong to the left column. */
 .label {
   font-size: var(--size-label);
   font-weight: var(--weight-medium);
@@ -536,28 +655,28 @@ code {
    across clean and a narrow screen can drop it when the line stacks. Mark it
    aria-hidden: it is drawing, not content. */
 .sep {
-  color: var(--color-rule-strong);
+  color: var(--color-text-mute);
   user-select: none;
 }
 
 
 /* ============================================================================
    8. RULES
-   Both weights are hairlines; they differ in contrast, not thickness.
+   Both are hairlines; the strong one is ink, the soft one a light grey.
    ========================================================================= */
 
 /* A major division — under a masthead. */
 .rule {
   border: none;
   border-top: 1px solid var(--color-rule-strong);
-  margin: 0 0 var(--space-6);
+  margin: var(--space-8) 0 var(--space-4);
 }
 
 /* A minor division within a block. */
 .rule-soft {
   border: none;
   border-top: 1px solid var(--color-rule);
-  margin: 0 0 var(--space-5);
+  margin: var(--space-6) 0;
 }
 
 
@@ -576,16 +695,16 @@ code {
   font-size: var(--size-table);
 }
 
-/* The header row is set apart by case and colour, not by a heavy rule. */
+/* The header row is set apart by case and an ink rule under it. */
 .table th {
   text-align: left;
-  padding: 0 var(--space-4) var(--space-3) 0;
+  padding: 0 var(--space-4) var(--space-2) 0;
   border-bottom: 1px solid var(--color-rule-strong);
   font-size: var(--size-label);
   font-weight: var(--weight-medium);
   letter-spacing: var(--track-label);
   text-transform: uppercase;
-  color: var(--color-text-mute);
+  color: var(--color-text);
   white-space: nowrap;
 }
 
@@ -596,7 +715,7 @@ code {
 }
 
 /* The last column keeps a small trailing gutter. On a plain row it is
-   invisible; on a tinted, selected row a flush number reads as cut off. */
+   invisible; on a selected row a flush number reads as cut off. */
 .table th:last-child,
 .table td:last-child { padding-right: var(--space-3); }
 
@@ -699,13 +818,14 @@ code {
   border-radius: var(--radius-sm);
 }
 
-/* Title left, hint right. Neutral tracking: this is a name, not prose. */
+/* Title left, hint right. Regular weight: in a list of forty names, weight
+   is noise. */
 .disclosure-heading {
   display: flex;
   gap: var(--space-4);
   align-items: baseline;
-  font-size: var(--size-subsection);
-  font-weight: var(--weight-medium);
+  font-size: var(--size-body);
+  font-weight: var(--weight-regular);
   letter-spacing: 0;
 }
 
@@ -719,19 +839,20 @@ code {
   font-weight: var(--weight-medium);
   letter-spacing: var(--track-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-mute);
   white-space: nowrap;
   transition: color var(--transition);
 }
 
-.disclosure > summary:hover .disclosure-hint { color: var(--color-accent-hover); }
+.disclosure > summary:hover .disclosure-hint,
+.disclosure[open] > summary .disclosure-hint { color: var(--color-accent); }
 
 .disclosure > summary .hint-open { display: none; }
 .disclosure[open] > summary .hint-open { display: inline; }
 .disclosure[open] > summary .hint-closed { display: none; }
 
 .disclosure-body {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   padding-bottom: var(--space-5);
   border-bottom: 1px solid var(--color-rule);
 }
@@ -755,14 +876,16 @@ code {
 
 /* ============================================================================
    12. CONTROLS
+   Square, ink, and drawn with a single hairline. A control shows it is
+   working by inverting, not by changing colour.
    ========================================================================= */
 
-/* A text button: small tracked caps in the accent, inside a hairline. */
+/* A text button: small tracked caps inside a hairline, filled on hover. */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   font-family: var(--font-body);
   font-size: var(--size-label);
   font-weight: var(--weight-medium);
@@ -771,37 +894,35 @@ code {
   white-space: nowrap;
   color: var(--color-accent);
   background: none;
-  border: 1px solid var(--color-rule-strong);
+  border: 1px solid var(--color-accent);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color var(--transition), background-color var(--transition),
-    color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .btn:hover {
-  color: var(--color-accent-hover);
-  background: var(--color-accent-wash);
-  border-color: var(--color-accent);
+  color: var(--color-bg);
+  background: var(--color-accent);
 }
 
 .btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
-/* A small status mark. A tinted pill rather than an outlined box — at this
-   size a border is most of what the eye sees. The accent version marks
-   something the reader should notice; .tag--neutral merely classifies. */
+/* A small status mark. The accent version is a solid block, for something
+   the reader should notice; .tag--neutral is a grey one that merely
+   classifies. */
 .tag {
   display: inline-block;
-  padding: 1px 7px;
+  padding: 1px 6px;
   font-family: var(--font-mono);
   font-size: var(--size-label);
   letter-spacing: 0.03em;
-  color: var(--color-accent);
-  background: var(--color-accent-wash);
+  color: var(--color-bg);
+  background: var(--color-accent);
   border-radius: var(--radius-sm);
 }
 
 .tag--neutral {
-  color: var(--color-text-mute);
+  color: var(--color-text-soft);
   background: var(--color-surface-hover);
   margin-left: var(--space-2);
 }
@@ -811,7 +932,8 @@ code {
        <label class="visually-hidden" for="…">…</label>
        <span class="field-icon">…svg…</span>
        <input class="input" id="…">
-     </div> */
+     </div>
+   An underline, not a box: the field is a line to write on. */
 .field {
   position: relative;
   max-width: 340px;
@@ -821,33 +943,34 @@ code {
 .input {
   width: 100%;
   min-height: 40px;
-  padding: var(--space-2) var(--space-3) var(--space-2) 36px;  /* room for the icon */
+  padding: var(--space-2) 0 var(--space-2) 26px;  /* room for the icon */
   font-family: var(--font-body);
   font-size: var(--size-table);
   color: var(--color-text);
   caret-color: var(--color-accent);
-  background: var(--color-bg);
-  border: 1px solid var(--color-rule-strong);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-rule-strong);
   border-radius: var(--radius-sm);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: box-shadow var(--transition), background-color var(--transition);
 }
 
 .input::placeholder { color: var(--color-text-mute); }
-.input:hover { border-color: var(--color-text-mute); }
 
-/* Focus is the accent border plus a soft ring, rather than the browser's
-   outline, so the control keeps its rounded shape. */
+/* Focus thickens the line and lays a faint wash behind the field, rather
+   than drawing the browser's outline around a box that is not there. */
 .input:focus-visible {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-wash);
+  background: var(--color-accent-wash);
+  box-shadow: 0 1px 0 0 var(--color-accent);
   outline: none;
 }
 
 .field-icon {
   position: absolute;
-  left: var(--space-3);
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
   color: var(--color-text-mute);
   pointer-events: none;
 }
@@ -866,45 +989,34 @@ code {
 
 /* ============================================================================
    13. WORK LIST
-   One project per row: a cover on the left, its facts on the right. Every
-   row has the same parts in the same order — cover, title, hairline,
-   summary, stack, kind, address — so a reader scanning down the right-hand
-   column finds the same kind of thing at the same offset every time. A row
-   with no stack drops the element rather than leaving it empty.
+   One project per tile, the tiles side by side across the whole width of
+   the page — three to a row on a wide screen, one on a phone. Every tile has
+   the same parts in the same order — cover, title, dash, summary, stack,
+   kind, address — so a reader scanning across the row finds the same kind
+   of thing at the same height every time. A tile with no stack drops the
+   element rather than leaving it empty.
 
-   The cover is a frame: it holds the ratio, the border and the hover state.
-   Its child is an <img alt=""> (the title beside it already names it) or,
-   until there is an image, a .work-cover-placeholder naming the project.
+   The cover is a frame: it holds the ratio and the hover state. Its child is
+   an <img alt=""> (the title under it already names it) or, until there is
+   an image, a .work-cover-placeholder naming the project. Covers are shown
+   in greys, like the rest of the page, and come into colour when the tile
+   is hovered.
    ========================================================================= */
 
+/* auto-fit: two projects take half the page each, on the same line as the
+   two columns of the grid; three take a third each. */
 .work-list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-/* 2fr / 1fr keeps every cover the same width, so a column of them reads as
-   a column. The last row drops its rule so a section does not end on a
-   hairline a few pixels above the next section's. */
-.work {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--work-gap);
-  align-items: start;
-  padding-bottom: var(--space-6);
-  margin-bottom: var(--space-6);
-  border-bottom: 1px solid var(--color-rule);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-7) var(--work-gap);
 }
 
-.work:last-child {
-  padding-bottom: 0;
-  margin-bottom: 0;
-  border-bottom: none;
-}
+.work { min-width: 0; }
 
-/* A hairline-bordered object, not a shadowed card. Hovering either half of
-   the row lights the cover's border and the title together, so the two
-   columns read as one target. */
+/* An image, not a card: no border, no shadow, no rounding. */
 .work-cover {
   display: flex;
   align-items: center;
@@ -912,21 +1024,24 @@ code {
   aspect-ratio: var(--work-cover-ratio);
   overflow: hidden;
   background: var(--color-surface);
-  border: 1px solid var(--color-rule);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: border-color var(--transition);
+  margin-bottom: var(--space-4);
 }
-
-.work:hover .work-cover,
-.work-cover:hover { border-color: var(--color-accent); }
 
 /* Cropped to the frame, never letterboxed: the frame's ratio is the design. */
 .work-cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: grayscale(1);
+  transition: filter var(--transition);
 }
+
+/* Hovering either half of the tile brings the cover into colour and
+   underlines the title together, so the tile reads as one target. */
+.work:hover .work-cover img,
+.work:focus-within .work-cover img { filter: none; }
 
 /* The stand-in names the project and says plainly that it is a stand-in, so
    nobody wonders whether an image failed to load. */
@@ -956,29 +1071,35 @@ code {
 
 .work-title {
   font-size: var(--size-subsection);
-  font-weight: var(--weight-strong);
+  font-weight: var(--weight-medium);
   line-height: 1.3;
   letter-spacing: var(--track-tight);
-  margin: 0 0 var(--space-3);
+  margin: 0;
 }
 
-/* A heading first, so no underline; the row's shared hover marks it. */
+/* A heading first, so no underline until the tile is hovered. */
 .work-title a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition);
 }
 
 .work:hover .work-title a,
-.work-title a:hover { color: var(--color-accent); }
+.work-title a:hover { text-decoration: underline; }
 
-.work .rule-soft { margin-bottom: var(--space-4); }
+/* The tile's rule is a short ink dash under the title, not a line across
+   the tile: it marks where the name ends and the description begins. */
+.work .rule-soft {
+  width: var(--space-5);
+  border-top-color: var(--color-rule-strong);
+  margin: var(--space-3) 0;
+}
 
 /* One sentence on what the project is. */
 .work-summary {
   font-size: var(--size-table);
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--color-text-soft);
+  max-width: 52ch;
   margin: 0 0 var(--space-3);
 }
 
@@ -991,7 +1112,7 @@ code {
   font-family: var(--font-mono);
   font-size: var(--size-data);
   color: var(--color-text-mute);
-  margin: 0 0 var(--space-3);
+  margin: 0 0 var(--space-2);
 }
 
 /* What kind of work it was — Academic, Personal. */
@@ -1004,18 +1125,19 @@ code {
   margin: 0 0 var(--space-3);
 }
 
-/* The address: a recorded value and a link at once, so the data face and
-   the accent. Its underline appears on hover. */
+/* The address: small caps in ink, underlined on hover. */
 .work-link {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: var(--size-data);
+  font-size: var(--size-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition), color var(--transition);
 }
 
-.work-link:hover { border-bottom-color: var(--color-accent); }
+.work-link:hover { border-bottom-color: currentColor; }
 
 
 /* ============================================================================
@@ -1023,7 +1145,7 @@ code {
    One job, one school, one dated record. Every entry has the same parts in
    the same order — title, organisation, a line of recorded values (place and
    dates), and optionally a .list of what was done — so a reader scanning the
-   left edge finds the same kind of thing at the same offset every time.
+   column finds the same kind of thing at the same offset every time.
    ========================================================================= */
 
 .entry {
@@ -1041,17 +1163,17 @@ code {
 /* The role or the degree: the line a reader is looking for. */
 .entry-title {
   font-size: var(--size-subsection);
-  font-weight: var(--weight-strong);
+  font-weight: var(--weight-medium);
   line-height: 1.35;
+  letter-spacing: var(--track-tight);
   margin: 0 0 var(--space-1);
 }
 
 /* The employer or institution: noticed, without competing with the title. */
 .entry-org {
   font-size: var(--size-table);
-  font-weight: var(--weight-medium);
   color: var(--color-text-soft);
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-1);
 }
 
 /* Place and dates. Tabular figures keep stacked date ranges in register. */
@@ -1070,9 +1192,9 @@ code {
 
 /* ============================================================================
    15. PLATES
-   A drawing or render given the full column, then its title and a paragraph
-   at the reading measure. A plate with nothing to say is just the <figure>
-   and its <img>.
+   A drawing or render given the whole width of the page, then its title in
+   the left column and a paragraph in the right. A plate with nothing to say
+   is just the <figure> and its <img>.
 
      <figure class="plate">
        <img src="…" alt="…" loading="lazy">
@@ -1083,26 +1205,25 @@ code {
      </figure>
    ========================================================================= */
 
-.plate { margin: 0 0 var(--space-6); }
+.plate { margin: 0 0 var(--space-8); }
 .plate:last-child { margin-bottom: 0; }
 
-/* A drawn object, so the hairline border and small radius of a cover. */
-.plate img {
-  width: 100%;
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius-sm);
-}
+/* No border and no rounding: a drawing on a white sheet sits straight on the
+   white page. */
+.plate img { width: 100%; }
+
+.plate figcaption { margin-top: var(--space-4); }
 
 /* A plate between the masthead and the first section, where no heading
    gives it room above. */
-.plate-lead { margin-bottom: var(--space-6); }
+.plate-lead { margin: var(--space-7) 0 0; }
 
 .plate-title {
-  font-size: var(--size-subsection);
-  font-weight: var(--weight-strong);
-  line-height: 1.3;
+  font-size: var(--size-table);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
   letter-spacing: var(--track-tight);
-  margin: var(--space-4) 0 var(--space-2);
+  margin: 0;
 }
 
 
@@ -1120,39 +1241,47 @@ code {
   list-style: none;
   margin: var(--space-4) 0 0;
   padding: 0;
-  font-size: var(--size-table);
+  font-size: var(--size-subsection);
 }
 
 .reference-list li {
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--color-rule);
-  line-height: 1.65;
+  line-height: 1.45;
 }
 
 .reference-list li:first-child { padding-top: 0; }
 .reference-list li:last-child { border-bottom: none; }
 
-/* The entry's heading carries the medium weight, and drops the underline
-   until hovered. */
+/* The entry's heading is a name in ink; its underline appears on hover. */
 .reference-list a {
-  font-weight: var(--weight-medium);
   text-decoration: none;
+  letter-spacing: var(--track-tight);
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition), color var(--transition);
 }
 
-.reference-list a:hover { border-bottom-color: var(--color-accent); }
+.reference-list a:hover { border-bottom-color: currentColor; }
+
+/* A link that leaves felipeharker.org says so with an arrow, since it opens
+   a new tab. */
+.reference-list a[target='_blank']::after {
+  content: '\00a0\2197';
+  content: '\00a0\2197' / '';
+  color: var(--color-text-mute);
+}
 
 /* A heading that is an address — an email — is set in the data face. */
 .reference-list a.path {
   font-family: var(--font-mono);
-  font-size: 0.92em;
+  font-size: 0.85em;
+  letter-spacing: 0;
 }
 
 /* A heading that is not a link: a person. */
 .reference-list .name {
   display: block;
-  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-tight);
   color: var(--color-text);
 }
 
@@ -1162,6 +1291,8 @@ code {
   display: block;
   margin-top: var(--space-1);
   font-size: var(--size-caption);
+  line-height: 1.55;
+  letter-spacing: var(--track-body);
   color: var(--color-text-mute);
 }
 
@@ -1171,21 +1302,79 @@ code {
   margin-top: var(--space-1);
   font-family: var(--font-mono);
   font-size: var(--size-data);
-  font-weight: var(--weight-regular);
+  letter-spacing: 0;
 }
 
 
 /* ============================================================================
-   17. BACK LINK
-   The way up from an interior page to the page that lists it, above the
-   masthead. Navigation rather than a recorded value, so the body face.
+   17. RUNNING HEAD AND BACK LINK
+   The running head is the line across the top of every page, outside its
+   <article>: the owner's name in the left column, and a link to every part
+   of felipeharker.org from the middle — the same links as the colophon, so
+   a reader can move around the site from either end of a page. The part the
+   reader is in is bracketed.
+
+     <header class="runhead">
+       <a class="runhead-owner" href="/">Felipe E. Harker</a>
+       <nav class="runhead-links" aria-label="Site">
+         <a href="/" aria-current="page">Portfolio</a>
+         <a href="/academic/">Academic</a>
+         <a href="/birds/">Birding</a>
+         <a href="/resume/">Resume</a>
+       </nav>
+     </header>
+
+   The back link is the way up from an interior page to the page that lists
+   it, above the masthead. Navigation rather than a recorded value, so the
+   body face.
    ========================================================================= */
+
+/* It sits in the same frame as .doc, so its columns are the page's. */
+.runhead {
+  align-items: baseline;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-4) var(--doc-pad-x) 0;
+  font-size: var(--size-label);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+}
+
+.runhead a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.runhead a:hover { color: var(--color-accent-hover); }
+
+.runhead-owner { grid-column: label; }
+
+.runhead-links {
+  grid-column: content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+}
+
+.runhead-links a[aria-current]::before {
+  content: '[\00a0';
+  content: '[\00a0' / '';
+}
+
+.runhead-links a[aria-current]::after {
+  content: '\00a0]';
+  content: '\00a0]' / '';
+}
 
 .backlink {
   display: inline-block;
-  font-size: var(--size-caption);
+  font-size: var(--size-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
   text-decoration: none;
-  margin-bottom: var(--space-5);
 }
 
 .backlink:hover { text-decoration: underline; }
@@ -1193,10 +1382,10 @@ code {
 
 /* ============================================================================
    18. COLOPHON
-   The foot of every page: a hairline, then the site links — every part of
-   felipeharker.org, the current one marked with aria-current="page" — then a
-   line on how the page was made. A reader can always get from one part of
-   the site to any other.
+   The foot of every page: an ink rule, then the site links — every part of
+   felipeharker.org, the current one marked with aria-current="page" — in
+   the left column, and a line on how the page was made in the right. A
+   reader can always get from one part of the site to any other.
 
      <footer class="colophon">
        <nav class="site-links" aria-label="Felipe E. Harker">
@@ -1211,7 +1400,7 @@ code {
    ========================================================================= */
 
 .colophon {
-  margin-top: var(--space-7);
+  margin-top: var(--space-9);
   padding-top: var(--space-4);
   border-top: 1px solid var(--color-rule-strong);
   font-size: var(--size-caption);
@@ -1219,32 +1408,36 @@ code {
   color: var(--color-text-mute);
 }
 
-.colophon > p { margin: 0; }
-.colophon > * + * { margin-top: var(--space-3); }
+.colophon > p {
+  max-width: var(--measure-text);
+  margin: 0;
+}
+
+.colophon > p + p { margin-top: var(--space-3); }
 
 .site-links {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--space-1) var(--space-4);
+  font-size: var(--size-label);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
 }
 
-.site-links-owner {
-  font-weight: var(--weight-medium);
-  color: var(--color-text-soft);
-}
+.site-links-owner { color: var(--color-text); }
 
 .site-links a {
+  color: var(--color-text-mute);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--transition), color var(--transition);
 }
 
-.site-links a:hover { border-bottom-color: var(--color-accent); }
+.site-links a:hover { color: var(--color-text); }
 
 /* The part of the site the reader is in: still a link to its front page,
-   but set in text colour, so the row says where you are as well as where
-   you can go. */
+   but in ink, so the row says where you are as well as where you can go. */
 .site-links a[aria-current] { color: var(--color-text); }
 
 
@@ -1252,41 +1445,57 @@ code {
    19. RESPONSIVE
    Two breakpoints.
 
-   860px is a limit of the work list rather than of a device: below it the
-   facts column cannot hold a title on one line, and a cover shrunk to sit
-   beside it is no longer worth looking at.
+   860px is where the grid gives out: below it the content column cannot
+   keep its minimum beside a useful label column, so every block becomes one
+   column, each label above what it labels.
 
-   640px is a phone. The page frame tightens and display type steps down —
-   by redefining tokens, so every rule that reads them follows. Only rules
-   with no token behind them need a line of their own here.
+   640px is a phone. The page frame tightens and the type steps down — by
+   redefining tokens, so every rule that reads them follows. Only rules with
+   no token behind them need a line of their own here.
    ========================================================================= */
 
 @media (max-width: 860px) {
-  /* Cover above, facts below — the order the markup is already in. */
-  .work { grid-template-columns: 1fr; gap: var(--space-4); }
+  /* All three column names now mean the one column, so a block placed in
+     `label`, `content` or `full` lands in it, in the order of the markup. */
+  :root {
+    --grid: [full-start label-start content-start] minmax(0, 1fr)
+      [full-end label-end content-end];
 
-  /* A full-width 3:2 cover is taller than the facts beside it ever were;
-     a wider ratio keeps a whole row on screen at once. */
-  :root { --work-cover-ratio: 16 / 9; }
+    /* The title now has the whole width of the window, not half of it, so
+       it follows the window more steeply. */
+    --size-title: clamp(34px, 9.5vw, 72px);
+    --size-title-record: clamp(28px, 6vw, 44px);
+  }
+
+  /* A label now sits above what it labels, so it needs room under it. */
+  .abstract-label,
+  .toc-label,
+  .section-heading { margin-bottom: var(--space-4); }
+  .kicker { margin-bottom: var(--space-5); }
+  .plate-title { margin-bottom: var(--space-2); }
+  .colophon > .site-links { margin-bottom: var(--space-3); }
+  .runhead-owner { margin-bottom: var(--space-2); }
+
+  .section-heading + .work-list,
+  .section-heading + .plate { margin-top: 0; }
 }
 
 @media (max-width: 640px) {
   :root {
-    --size-title: 27px;
-    --size-title-record: 22px;
-    --size-section: 20px;
-    --size-subtitle: 16px;
+    --size-subtitle: 18px;
+    --size-abstract: 17px;
     --size-subsection: 16px;
-    --doc-pad-top: 44px;
-    --doc-pad-bottom: 80px;
-    --doc-pad-x: 24px;
+    --space-8: 64px;
+    --space-9: 96px;
+    --doc-pad-top: var(--space-5);
+    --doc-pad-x: 20px;
   }
 
+  .masthead { margin-top: var(--space-7); }
+
   /* A dateline with several items stacks, one per line, and drops its
-     separators rather than leaving them stranded at the ends of rows. Each
-     line keeps the masthead's alignment. */
-  .dateline { flex-direction: column; align-items: center; gap: var(--space-1); }
-  .masthead--left .dateline { align-items: flex-start; }
+     separators rather than leaving them stranded at the ends of rows. */
+  .dateline { flex-direction: column; gap: var(--space-1); }
   .dateline .sep { display: none; }
 
   /* Label above value instead of beside it. */

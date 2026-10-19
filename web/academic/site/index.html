@@ -17,7 +17,7 @@
 <!-- ==========================================================================
      FELIPE E. HARKER — ACADEMIC PROJECTS
      --------------------------------------------------------------------------
-     The front page of the academic site: one row per project, each linking to
+     The front page of the academic site: one tile per project, each linking to
      its page under projects/. Static HTML, no build step, no JavaScript.
 
      Every class here is defined in /standards/hark.css (its source is
@@ -31,14 +31,25 @@
         board PDFs) in web/academic/source/<project>/, never in site/.
      2. Add a cover: 3:2, 1500 x 1000 or smaller, JPEG, at
         assets/covers/<project>.jpg.
-     3. Copy one <li class="work"> block below. Every row carries the same
+     3. Copy one <li class="work"> block below. Every tile carries the same
         parts in the same order; omit an element rather than leave it empty.
      ====================================================================== -->
+
+<!-- Running head ------------------------------------------------------- -->
+<header class="runhead">
+  <a class="runhead-owner" href="/">Felipe E. Harker</a>
+  <nav class="runhead-links" aria-label="Site">
+    <a href="/">Portfolio</a>
+    <a href="/academic/" aria-current="page">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+</header>
 
 <article class="doc">
 
 <!-- Masthead ------------------------------------------------------------- -->
-<header>
+<header class="masthead">
   <p class="kicker">Academic Work</p>
   <h1 class="title">Academic Projects</h1>
   <p class="subtitle">Architecture and urban design from the University of Houston</p>

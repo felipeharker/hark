@@ -5,8 +5,9 @@
  *
  *   node tools/check.mjs
  *
- * 1. Pages      every page links the one shared stylesheet, carries the site
- *               links to every part of the site, and links the standards.
+ * 1. Pages      every page links the one shared stylesheet, carries links to
+ *               every part of the site in its running head and its colophon,
+ *               and links the standards.
  * 2. Links      every internal link, image and stylesheet resolves to a file,
  *               and every same-page #anchor to an id.
  * 3. Published  a static site/ folder holds only web files — no PDFs, notes,
@@ -72,9 +73,12 @@ for (const site of SITES) {
 
     if (site.kind === 'static' && !html.includes(`href="${STYLESHEET}"`)) problem(where, `does not link ${STYLESHEET}`);
     const nav = html.match(/<nav class="site-links"[\s\S]*?<\/nav>/);
+    const head = html.match(/<nav class="runhead-links"[\s\S]*?<\/nav>/);
     if (!clientRendered) {
       if (!nav) problem(where, 'has no site links');
       else for (const s of linked) if (!nav[0].includes(`href="${s.path}"`)) problem(where, `site links miss ${s.name} (${s.path})`);
+      if (!head) problem(where, 'has no running head');
+      else for (const s of linked) if (!head[0].includes(`href="${s.path}"`)) problem(where, `running head misses ${s.name} (${s.path})`);
       if (!html.includes('href="/standards/"') && site.path !== '/standards/') problem(where, 'does not link /standards/');
     }
 

@@ -20,37 +20,49 @@
      A single static document. No build step, no framework, no JavaScript.
      This is the front door to the other felipeharker.org sites: each body of
      work — the academic projects, the ornithology report — has a site of its
-     own, and gets one row here linking to it. The resume is in Elsewhere.
+     own, and gets one tile here linking to it. The resume is in Elsewhere.
 
      All styling is /standards/hark.css, the shared stylesheet (its source is
      web/standards/site/hark.css in this repository). Do not add inline
      `style` attributes: a rule this page needs and the standard lacks goes in
      a new assets/site.css, loaded after hark.css. There are none.
 
-     ADDING A ROW
-     Copy one <li class="work"> block. Every row carries the same seven parts
-     in the same order, and a row that drops one — a project with no stack
+     ADDING A TILE
+     Copy one <li class="work"> block. Every tile carries the same seven parts
+     in the same order, and a tile that drops one — a project with no stack
      line, say — should omit the element rather than leave it empty. A link to
      another felipeharker.org site opens in the same tab; a link anywhere else
      opens a new one.
 
      ADDING A COVER IMAGE
-     Inside a row's <a class="work-cover">, replace the whole
+     Inside a tile's <a class="work-cover">, replace the whole
      <span class="work-cover-placeholder"> with:
 
          <img src="assets/covers/<name>.jpg" alt="">
 
-     and nothing else. The frame holds the aspect ratio, the border and the
-     hover state, so a cover cannot change the page's rhythm by being the wrong
-     shape — it is cropped to the frame. The alt attribute stays empty on
-     purpose: the row's title sits immediately beside the image and says the
-     same thing, so describing it again is noise to a screen reader.
+     and nothing else. The frame holds the aspect ratio and the hover state
+     (the cover is grey until the tile is hovered), so a cover cannot change
+     the page's rhythm by being the wrong shape — it is cropped to the frame.
+     The alt attribute stays empty on purpose: the tile's title sits
+     immediately under the image and says the same thing, so describing it
+     again is noise to a screen reader.
      ====================================================================== -->
+
+<!-- Running head ------------------------------------------------------- -->
+<header class="runhead">
+  <a class="runhead-owner" href="/">Felipe E. Harker</a>
+  <nav class="runhead-links" aria-label="Site">
+    <a href="/" aria-current="page">Portfolio</a>
+    <a href="/academic/">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+</header>
 
 <article class="doc">
 
 <!-- Masthead ------------------------------------------------------------- -->
-<header>
+<header class="masthead">
   <p class="kicker">Portfolio</p>
   <h1 class="title">Felipe E. Harker</h1>
   <p class="subtitle">Computational design, architecture, and the tools built alongside them</p>

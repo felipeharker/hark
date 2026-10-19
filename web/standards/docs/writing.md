@@ -13,8 +13,9 @@ it read that way.
 - **Never numbered.** No "1. Overview", no "Figure 3", no "[2]". The order on
   the page is the order.
 - **Kickers** say what kind of page it is — "Portfolio", "Academic",
-  "Checklist Report". Write them in Title Case in the markup; CSS sets the
-  capitals.
+  "Checklist Report". Write them, the page title and every section heading
+  in Title Case in the markup; CSS sets the capitals and draws the brackets.
+  Never type either.
 - **One `<h1>` per page**, then `<h2>` for sections and `<h3>` for rows and
   plates, without skipping a level.
 
@@ -56,8 +57,9 @@ a copied line should come across clean.
   `target="_blank" rel="noopener noreferrer"`. In the birding app, spread
   `externalLinkProps(href)` from `siteConfig.ts` instead of writing the
   attributes by hand.
-- **Every page ends with the site links** in its colophon
-  ([components.md](components.md), "Colophon").
+- **Every page opens with the running head and ends with the site links**
+  in its colophon, the same links in the same order
+  ([components.md](components.md), "Running head" and "Colophon").
 - An address that is the link's own text — an email, a URL — is written in
   full: `fehark@gmail.com`, not "email me".
 
@@ -65,7 +67,7 @@ a copied line should come across clean.
 
 | Kind | Shape | Size | Format | Alt text |
 |---|---|---|---|---|
-| Work-list cover | 3:2, cropped to fill | 1500 × 1000 or smaller | JPEG | `alt=""` — the title beside it names it |
+| Work-list cover | 3:2, cropped to fill | 1500 × 1000 or smaller | JPEG, in colour (the page shows it in grey until hovered) | `alt=""` — the title under it names it |
 | Plate | Any; full column width | 2000px on the long edge or smaller | JPEG | What the drawing shows, in a few words |
 | Lead plate | Any | as a plate | JPEG | as a plate |
 

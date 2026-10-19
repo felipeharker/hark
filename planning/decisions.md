@@ -4,6 +4,38 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — A minimal standard
+
+**The standard becomes an index in ink on white.** Every page is laid on
+one grid of two columns — bracketed labels on the left, everything a reader
+reads from the middle of the page — with a very large page title in
+capitals and small type for the rest. *Why:* a more minimal design, after
+two references: a portfolio laid out on a two-column grid with tiny
+bracketed labels and very large type, and a black-and-white presentation
+deck. *Replaces:* the centred masthead, the 1000px centred column and the
+section heading set as a 23px title. "Front pages centre, records align
+left" goes with them: nothing is centred, and `.masthead--left` is gone.
+
+**No colour.** The accent is ink (`#111111`); a link is told apart by its
+underline, its hover or its place. The accent stays a token, so the deep red
+`#7c1405` comes back by setting `--color-accent` alone. *Replaces:* the deep
+red as the one accent, and the warm greys.
+
+**Square and unboxed.** No radius anywhere, no border around a cover or a
+plate, an underline for a text input. Covers are shown in greys until their
+tile is hovered; plates — the work itself — always in colour.
+
+**A running head on every page.** The owner's name and a link to every part
+of the site, at the top of every page, as well as in the colophon at the
+foot. *Why:* the site links were only at the foot of the page, after the
+whole of the birding report. *Replaces:* the birding report's own nav bar on
+its interior pages. `tools/check.mjs` checks the running head as it checks
+the colophon.
+
+**The work list becomes tiles.** Cover over facts, as many across as fit,
+instead of one large cover beside its facts per row, so a page of projects
+shows them all at once.
+
 ## 2026-10-19 — The wiki is a copy of `wiki/`
 
 **The GitHub wiki is published from `wiki/`, never edited on GitHub.**

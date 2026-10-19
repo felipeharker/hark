@@ -20,11 +20,13 @@ Read the docs in that order: design, components, writing, development.
 
 ## The design, in one paragraph
 
-A quiet, modern document. Inter carries every heading and every line of
-prose; IBM Plex Mono is reserved for recorded values. Structure comes from
-hairline rules and whitespace, not from boxes or shadows. Three weights and
-nothing bolder than 600. One deep red, meaning "interactive or selected".
-Nothing the reader sees is numbered.
+An index printed in ink on white. Every page is laid on one grid of two
+columns: small bracketed labels on the left, everything else from the middle
+of the page. The page title is very large, in capitals; almost everything
+else is small. Inter carries the words; IBM Plex Mono is reserved for
+recorded values. No colour — the accent is ink — no bold, no boxes, no
+shadows and nothing rounded: structure is whitespace and hairlines. Nothing
+the reader sees is numbered.
 
 ## Changing the standard
 

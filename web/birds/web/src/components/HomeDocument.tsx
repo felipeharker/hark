@@ -295,7 +295,7 @@ function HomeDocumentInner({ data, mediaData, fieldNotes }: HomeDocumentProps) {
       <hr className="rule-soft" />
 
       {/* -- Contents ------------------------------------------------------- */}
-      <nav aria-label="Contents">
+      <nav className="contents" aria-label="Contents">
         <p className="toc-label">Contents</p>
         <ul className="toc">
           {SECTIONS.map((s) => (

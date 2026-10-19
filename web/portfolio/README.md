@@ -19,7 +19,7 @@ web/portfolio/
 
 | Section | What it holds |
 |---|---|
-| Work | a row for the academic projects (`/academic/`) and one for the birding report (`/birds/`; cover pending) |
+| Work | a tile for the academic projects (`/academic/`) and one for the birding report (`/birds/`; cover pending) |
 | About | the biography |
 | Elsewhere | the resume (`/resume/`), GitHub, LinkedIn, email |
 
@@ -41,7 +41,9 @@ http://localhost:8000/, and `node tools/check.mjs` before committing.
 
 ## Design
 
-The work list's layout — large cover left, facts right, a hairline under
-each title — is carried over from the previous portfolio; its drop shadows,
-hover lift, orange accent, serif body face and fixed sidebar are not. It is a
-shared component of the standard, used by `/academic/` too.
+The work list is a row of tiles across the page — a cover, grey until
+hovered, then the title, a short dash and the facts under it. It began as the
+previous portfolio's large-cover-left rows, without their drop shadows, hover
+lift, orange accent, serif body face and fixed sidebar, and became tiles with
+the minimal standard (`planning/decisions.md`). It is a shared component of
+the standard, used by `/academic/` too.

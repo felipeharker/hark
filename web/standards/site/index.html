@@ -20,8 +20,8 @@
      --------------------------------------------------------------------------
      felipeharker.org/standards/. Every token and every class in hark.css (in
      this folder), rendered by hark.css itself, so this page is what every
-     other page gets. specimen/specimen.css adds only the swatches, samples
-     and the margin that marks an example.
+     other page gets. specimen/specimen.css adds only the swatches, samples,
+     the grid diagram and the margin that marks an example.
 
      The rules behind what is shown here are in web/standards/docs/. When a
      component is added to the stylesheet, add a specimen of it here and a
@@ -29,15 +29,26 @@
      exists.
 
      Specimens use <p class="title"> rather than <h1>, and so on, so this page
-     keeps one heading outline of its own.
+     keeps one heading outline of its own. A specimen of something laid on
+     the grid — a masthead, a work list, a plate — is .specimen--wide, so it
+     has the whole width of the page to lay its columns on.
      ====================================================================== -->
+
+<!-- Running head ------------------------------------------------------- -->
+<header class="runhead">
+  <a class="runhead-owner" href="/">Felipe E. Harker</a>
+  <nav class="runhead-links" aria-label="Site">
+    <a href="/">Portfolio</a>
+    <a href="/academic/">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+</header>
 
 <article class="doc">
 
-<a class="backlink" href="/">&larr; Felipe E. Harker</a>
-
 <!-- Masthead ------------------------------------------------------------- -->
-<header>
+<header class="masthead">
   <p class="kicker">Reference</p>
   <h1 class="title">Hark Web Standards</h1>
   <p class="subtitle">The shared design of every page on felipeharker.org</p>
@@ -55,12 +66,13 @@
 </div>
 <hr class="rule-soft">
 
-<nav aria-label="Contents">
+<nav class="contents" aria-label="Contents">
   <p class="toc-label">Contents</p>
   <ul class="toc toc--inline">
     <li><a href="#sec-colour">Colour</a></li>
     <li><a href="#sec-type">Type</a></li>
     <li><a href="#sec-space">Space</a></li>
+    <li><a href="#sec-grid">Grid</a></li>
     <li><a href="#sec-masthead">Masthead</a></li>
     <li><a href="#sec-body-copy">Body Copy</a></li>
     <li><a href="#sec-tables">Tables</a></li>
@@ -79,21 +91,21 @@
 <section class="section" id="sec-colour">
 <h2 class="section-heading">Colour</h2>
 
-<p class="body-text">A white ground, three steps of warm near-black text, two hairline greys and one deep red. The red marks what can be clicked or what is selected, and nothing else. Change <code>--color-accent</code> and its hover and wash follow.</p>
+<p class="body-text">White, ink, two greys of text and two of surface, and one grey hairline. There is no hue: the accent is ink, so a link is known by its underline or its place on the page. Change <code>--color-accent</code> and its hover and wash follow.</p>
 
 <div class="swatches">
   <div><div class="swatch swatch--bg"></div><p class="swatch-name">bg</p><p class="caption">The page.</p></div>
-  <div><div class="swatch swatch--surface"></div><p class="swatch-name">surface</p><p class="caption">Placeholders, hovered controls.</p></div>
+  <div><div class="swatch swatch--surface"></div><p class="swatch-name">surface</p><p class="caption">Cover placeholders.</p></div>
   <div><div class="swatch swatch--surface-hover"></div><p class="swatch-name">surface-hover</p><p class="caption">Code, neutral tags.</p></div>
-  <div><div class="swatch swatch--text"></div><p class="swatch-name">text</p><p class="caption">Headings. 17.3:1</p></div>
-  <div><div class="swatch swatch--text-soft"></div><p class="swatch-name">text-soft</p><p class="caption">Prose. 9.3:1</p></div>
-  <div><div class="swatch swatch--text-mute"></div><p class="swatch-name">text-mute</p><p class="caption">Labels, data. 4.6:1</p></div>
+  <div><div class="swatch swatch--text"></div><p class="swatch-name">text</p><p class="caption">Headings, labels. 18.9:1</p></div>
+  <div><div class="swatch swatch--text-soft"></div><p class="swatch-name">text-soft</p><p class="caption">Prose. 11.4:1</p></div>
+  <div><div class="swatch swatch--text-mute"></div><p class="swatch-name">text-mute</p><p class="caption">Captions, data. 5.1:1</p></div>
   <div><div class="swatch swatch--accent"></div><p class="swatch-name">accent</p><p class="caption">Interactive, selected.</p></div>
-  <div><div class="swatch swatch--accent-hover"></div><p class="swatch-name">accent-hover</p><p class="caption">Derived from accent.</p></div>
+  <div><div class="swatch swatch--accent-hover"></div><p class="swatch-name">accent-hover</p><p class="caption">Derived. 5.3:1</p></div>
   <div><div class="swatch swatch--accent-wash"></div><p class="swatch-name">accent-wash</p><p class="caption">Derived from accent.</p></div>
-  <div><div class="swatch swatch--selection"></div><p class="swatch-name">selection</p><p class="caption">Selected text.</p></div>
+  <div><div class="swatch swatch--selection"></div><p class="swatch-name">selection</p><p class="caption">Selected text, inverted.</p></div>
   <div><div class="swatch swatch--rule"></div><p class="swatch-name">rule</p><p class="caption">Between rows.</p></div>
-  <div><div class="swatch swatch--rule-strong"></div><p class="swatch-name">rule-strong</p><p class="caption">Between sections.</p></div>
+  <div><div class="swatch swatch--rule-strong"></div><p class="swatch-name">rule-strong</p><p class="caption">Above sections.</p></div>
 </div>
 </section>
 
@@ -101,34 +113,35 @@
 <section class="section" id="sec-type">
 <h2 class="section-heading">Type</h2>
 
-<p class="body-text">Inter for anything a person wrote; IBM Plex Mono for anything read off a record. Three weights — 400, 500, 600 — and nothing bolder. Each sample below is set at the size it names; sizes step down below 640px.</p>
+<p class="body-text">Inter for anything a person wrote; IBM Plex Mono for anything read off a record. One very large size for the page title, and small sizes for everything else. Each sample below is set at the size it names; the two titles follow the width of the window, and the others step down below 640px.</p>
 
 <div class="table-scroll">
 <table class="table">
   <thead><tr><th>Sample</th><th>Token</th><th class="num-cell">Size</th></tr></thead>
   <tbody>
-    <tr><td><span class="type-sample type-sample--title">Felipe E. Harker</span></td><td><code>--size-title</code></td><td class="num-cell">34</td></tr>
-    <tr><td><span class="type-sample type-sample--title-record">Sheldon Lake State Park</span></td><td><code>--size-title-record</code></td><td class="num-cell">27</td></tr>
-    <tr><td><span class="type-sample type-sample--section">Experience</span></td><td><code>--size-section</code></td><td class="num-cell">23</td></tr>
-    <tr><td><span class="type-sample type-sample--subtitle">Computational design and architecture</span></td><td><code>--size-subtitle</code></td><td class="num-cell">17</td></tr>
+    <tr><td><span class="type-sample type-sample--title">Harker</span></td><td><code>--size-title</code></td><td class="num-cell">34–84</td></tr>
+    <tr><td><span class="type-sample type-sample--title-record">Sheldon Lake</span></td><td><code>--size-title-record</code></td><td class="num-cell">28–48</td></tr>
+    <tr><td><span class="type-sample type-sample--subtitle">Computational design and architecture</span></td><td><code>--size-subtitle</code></td><td class="num-cell">21</td></tr>
+    <tr><td><span class="type-sample type-sample--abstract">The abstract paragraph.</span></td><td><code>--size-abstract</code></td><td class="num-cell">18</td></tr>
     <tr><td><span class="type-sample type-sample--subsection">Living Outside the Box</span></td><td><code>--size-subsection</code></td><td class="num-cell">17</td></tr>
     <tr><td><span class="type-sample type-sample--body">A paragraph of running prose.</span></td><td><code>--size-body</code></td><td class="num-cell">16</td></tr>
     <tr><td><span class="type-sample type-sample--table">A list item, a table cell, a summary.</span></td><td><code>--size-table</code></td><td class="num-cell">15</td></tr>
     <tr><td><span class="type-sample type-sample--data">2024-07-01 · 29.7604, -95.3698</span></td><td><code>--size-data</code></td><td class="num-cell">13</td></tr>
     <tr><td><span class="type-sample type-sample--caption">A caption under a figure.</span></td><td><code>--size-caption</code></td><td class="num-cell">13</td></tr>
+    <tr><td><span class="type-sample type-sample--section">Experience</span></td><td><code>--size-section</code></td><td class="num-cell">12</td></tr>
     <tr><td><span class="type-sample type-sample--fine">Dendrocygna autumnalis</span></td><td><code>--size-fine</code></td><td class="num-cell">12</td></tr>
     <tr><td><span class="type-sample type-sample--label">Eyebrow Label</span></td><td><code>--size-label</code></td><td class="num-cell">11</td></tr>
   </tbody>
 </table>
 </div>
-<p class="caption">--size-abstract matches --size-body. Sizes in pixels, desktop.</p>
+<p class="caption">Sizes in pixels, desktop. The two titles run between the sizes shown as the window widens.</p>
 </section>
 
 <!-- Space ----------------------------------------------------------------- -->
 <section class="section" id="sec-space">
 <h2 class="section-heading">Space</h2>
 
-<p class="body-text">Every margin, padding and gap is one of seven steps. Sections sit <code>--space-7</code> apart; rows within a section, <code>--space-5</code> to <code>--space-6</code>.</p>
+<p class="body-text">Every margin, padding and gap is one of nine steps. Sections sit <code>--space-8</code> apart, and the colophon <code>--space-9</code> below the last of them; rows within a section, <code>--space-5</code> to <code>--space-6</code>.</p>
 
 <div class="table-scroll">
 <table class="table">
@@ -141,6 +154,8 @@
     <tr><td><code>--space-5</code></td><td><span class="space-bar space-bar--5"></span></td><td class="num-cell">26</td></tr>
     <tr><td><code>--space-6</code></td><td><span class="space-bar space-bar--6"></span></td><td class="num-cell">40</td></tr>
     <tr><td><code>--space-7</code></td><td><span class="space-bar space-bar--7"></span></td><td class="num-cell">56</td></tr>
+    <tr><td><code>--space-8</code></td><td><span class="space-bar space-bar--8"></span></td><td class="num-cell">88</td></tr>
+    <tr><td><code>--space-9</code></td><td><span class="space-bar space-bar--9"></span></td><td class="num-cell">136</td></tr>
   </tbody>
 </table>
 </div>
@@ -148,9 +163,24 @@
 <p class="label">Rules</p>
 <div class="specimen">
   <hr class="rule">
-  <p class="caption"><code>.rule</code> — between sections and under a masthead.</p>
+  <p class="caption"><code>.rule</code> — ink, under a masthead. A section draws the same line above itself.</p>
   <hr class="rule-soft">
-  <p class="caption"><code>.rule-soft</code> — between rows within a block.</p>
+  <p class="caption"><code>.rule-soft</code> — grey, between rows within a block.</p>
+</div>
+</section>
+
+<!-- Grid ------------------------------------------------------------------ -->
+<section class="section" id="sec-grid">
+<h2 class="section-heading">Grid</h2>
+
+<p class="body-text">Every page is laid on two columns. The left one holds labels; everything a reader reads starts in the right one, at the middle of the page. A work list, a plate or a map spans both. The two share the width equally until the content column would drop below 560px; below 860px they become one column, each label above what it labels. This page is laid on it, and so is every example below.</p>
+
+<div class="specimen specimen--wide">
+  <div class="grid-demo">
+    <p class="grid-demo-cell">label</p>
+    <p class="grid-demo-cell">content</p>
+    <p class="grid-demo-cell grid-demo-cell--full">full</p>
+  </div>
 </div>
 </section>
 
@@ -158,11 +188,11 @@
 <section class="section" id="sec-masthead">
 <h2 class="section-heading">Masthead</h2>
 
-<p class="body-text">A front page centres its masthead. A record aligns left; a record whose title names a thing rather than the person takes the smaller record title.</p>
+<p class="body-text">The kicker in the left column, on the baseline of the title&rsquo;s last line; the title, very large, from the middle. A record whose title names a thing rather than the person takes the smaller record title.</p>
 
-<p class="label">Front page</p>
-<div class="specimen">
-  <div>
+<p class="label">.masthead</p>
+<div class="specimen specimen--wide">
+  <div class="masthead">
     <p class="kicker">Portfolio</p>
     <p class="title">Felipe E. Harker</p>
     <p class="subtitle">Computational design, architecture, and the tools built alongside them</p>
@@ -171,18 +201,9 @@
   </div>
 </div>
 
-<p class="label">Record — .masthead--left</p>
-<div class="specimen">
-  <div class="masthead--left">
-    <p class="kicker">Curriculum Vitae</p>
-    <p class="title">Felipe E. Harker</p>
-    <p class="dateline"><span>Houston, TX</span><span class="sep" aria-hidden="true">|</span><a href="mailto:fehark@gmail.com">fehark@gmail.com</a></p>
-  </div>
-</div>
-
-<p class="label">Record of a thing — .masthead--left .masthead--record</p>
-<div class="specimen">
-  <div class="masthead--left masthead--record">
+<p class="label">.masthead .masthead--record</p>
+<div class="specimen specimen--wide">
+  <div class="masthead masthead--record">
     <p class="kicker">Checklist Report</p>
     <p class="title">Sheldon Lake State Park</p>
     <p class="dateline">Harris, US-TX · May 10, 2026 · 08:54 AM</p>
@@ -210,19 +231,33 @@
   <p class="empty">No field notes yet.</p>
 </div>
 
-<p class="label">Contents — .toc and .toc--inline</p>
-<div class="specimen">
-  <p class="toc-label">Contents</p>
-  <ul class="toc">
-    <li><a href="#sec-masthead">Map</a></li>
-    <li><a href="#sec-masthead">Locations</a></li>
-  </ul>
-  <p class="toc-label">Contents</p>
-  <ul class="toc toc--inline">
-    <li><a href="#sec-masthead">Education</a></li>
-    <li><a href="#sec-masthead">Experience</a></li>
-    <li><a href="#sec-masthead">Skills</a></li>
-  </ul>
+<p class="label">Abstract — .abstract</p>
+<div class="specimen specimen--wide">
+  <div class="abstract">
+    <p class="abstract-label">Abstract</p>
+    <p>One labelled paragraph under the masthead, a step larger than body text, saying what the reader is looking at.</p>
+  </div>
+</div>
+
+<p class="label">Contents — .contents, .toc and .toc--inline</p>
+<div class="specimen specimen--wide">
+  <div class="contents">
+    <p class="toc-label">Contents</p>
+    <ul class="toc">
+      <li><a href="#sec-masthead">Map</a></li>
+      <li><a href="#sec-masthead">Locations</a></li>
+    </ul>
+  </div>
+</div>
+<div class="specimen specimen--wide">
+  <div class="contents">
+    <p class="toc-label">Contents</p>
+    <ul class="toc toc--inline">
+      <li><a href="#sec-masthead">Education</a></li>
+      <li><a href="#sec-masthead">Experience</a></li>
+      <li><a href="#sec-masthead">Skills</a></li>
+    </ul>
+  </div>
 </div>
 </section>
 
@@ -240,7 +275,7 @@
   </tbody>
 </table>
 </div>
-<p class="caption">Hairlines only. Numeric columns are right-aligned, and their cells are mono.</p>
+<p class="caption">Hairlines only, ink under the header. Numeric columns are right-aligned, and their cells are mono.</p>
 </section>
 
 <!-- Definition Grid -------------------------------------------------------- -->
@@ -336,9 +371,9 @@
 <section class="section" id="sec-work-list">
 <h2 class="section-heading">Work List</h2>
 
-<p class="body-text">One project or site per row: cover, title, hairline, summary, stack, kind, address — always in that order. Below 860px the cover sits above its facts.</p>
+<p class="body-text">One project or site per tile, across the whole width of the page: cover, title, dash, summary, stack, kind, address — always in that order. Covers are grey until the tile is hovered.</p>
 
-<div class="specimen">
+<div class="specimen specimen--wide">
 <ul class="work-list">
   <li class="work">
     <a class="work-cover" href="#sec-work-list" aria-hidden="true" tabindex="-1">
@@ -367,7 +402,7 @@
     <div class="work-facts">
       <h3 class="work-title"><a href="#sec-work-list">Harker Ornithology Report</a></h3>
       <hr class="rule-soft">
-      <p class="work-summary">A row whose cover has not been made yet names itself in the placeholder.</p>
+      <p class="work-summary">A tile whose cover has not been made yet names itself in the placeholder.</p>
       <p class="work-kind">Personal</p>
       <a class="work-link" href="#sec-work-list">Project Site</a>
     </div>
@@ -401,12 +436,14 @@
 <section class="section" id="sec-plates">
 <h2 class="section-heading">Plates</h2>
 
-<div class="specimen">
+<p class="body-text">A drawing gets the whole width of the page, with no frame; its title follows in the left column and a paragraph in the right.</p>
+
+<div class="specimen specimen--wide">
   <figure class="plate">
     <img src="specimen/drawing.svg" alt="Line drawing of stacked modular boxes" loading="lazy">
     <figcaption>
       <h3 class="plate-title">The Box</h3>
-      <p class="body-text">A drawing gets the whole column; its title and a paragraph follow it at the reading measure.</p>
+      <p class="body-text">A paragraph about the drawing, at the reading measure.</p>
     </figcaption>
   </figure>
 </div>
@@ -420,7 +457,7 @@
 <ul class="reference-list">
   <li>
     <a href="https://github.com/felipeharker" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <span class="desc">A place: the heading is the link.</span>
+    <span class="desc">A place: the heading is the link. A link to another site carries an arrow.</span>
   </li>
   <li>
     <a class="path" href="mailto:fehark@gmail.com">fehark@gmail.com</a>
@@ -439,7 +476,20 @@
 <section class="section" id="sec-navigation">
 <h2 class="section-heading">Navigation</h2>
 
-<p class="body-text">An interior page opens with a back link to the page that lists it. Every page ends with a colophon holding the site links — the foot of this page is one.</p>
+<p class="body-text">Every page opens with the running head — the owner&rsquo;s name, then every part of the site, the current one bracketed — and ends with a colophon holding the same links. The top of this page is one, and the foot another. An interior page also opens with a back link to the page that lists it.</p>
+
+<p class="label">.runhead</p>
+<div class="specimen specimen--wide">
+  <div class="runhead">
+    <a class="runhead-owner" href="#sec-navigation">Felipe E. Harker</a>
+    <div class="runhead-links">
+      <a href="#sec-navigation">Portfolio</a>
+      <a href="#sec-navigation" aria-current="page">Academic</a>
+      <a href="#sec-navigation">Birding</a>
+      <a href="#sec-navigation">Resume</a>
+    </div>
+  </div>
+</div>
 
 <p class="label">.backlink</p>
 <div class="specimen">
@@ -455,7 +505,7 @@
     <a href="/birds/">Birding</a>
     <a href="/resume/">Resume</a>
   </nav>
-  <p>Rendered by hark.css with nothing added but the specimen margins, swatches and samples. The reasoning is in web/standards/docs in the repository.</p>
+  <p>Rendered by hark.css with nothing added but the specimen margins, swatches, samples and the grid diagram. The reasoning is in web/standards/docs in the repository.</p>
 </footer>
 
 </article>

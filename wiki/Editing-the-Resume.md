@@ -10,15 +10,16 @@ only source of its text. See [`web/resume/README.md`](../web/resume/README.md).
   then a list of what was done.
 - **A new section**: add a `<section class="section" id="sec-<name>">` and
   its entry in the contents list near the top, with the same name.
-- **Layout or print**: `site/assets/site.css` holds only the narrower
-  column and the print sheet; everything else is the shared standard.
+- **Layout or print**: `site/assets/site.css` holds only the print sheet;
+  everything else, on screen, is the shared standard.
 
 ## Checking the printed sheet
 
 Serve the site (`node tools/serve.mjs`), open http://localhost:8000/resume/
 and use the browser's print preview: Letter, default margins, headers and
-footers off. The contents list, the rule under the masthead and the footer
-disappear on paper, the text darkens, and no entry breaks across a page.
+footers off. The running head, the contents list, the rule under the
+masthead and the footer disappear on paper, the label column narrows to a
+quarter of the sheet, the text darkens, and no entry breaks across a page.
 
 ## Privacy
 

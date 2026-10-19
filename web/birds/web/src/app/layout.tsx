@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, IBM_Plex_Mono } from 'next/font/google';
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/lib/siteConfig';
+import { Runhead } from '@/components/ui/Runhead';
 
 // The shared standard first — hark.css is generated: `npm run dev` and
 // `npm run build` copy it from web/standards/site/hark.css, so edit it there,
@@ -63,7 +64,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
        default serif. Keeping the classes here means the variables and the
        token that consumes them live on the same element. */
     <html lang="en" className={`${inter.variable} ${plexMono.variable}`}>
-      <body>{children}</body>
+      {/* The running head is the same on every page, so it is rendered here,
+          above each page's <article>, rather than by each page. */}
+      <body>
+        <Runhead />
+        {children}
+      </body>
     </html>
   );
 }

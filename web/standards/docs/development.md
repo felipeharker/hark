@@ -79,8 +79,8 @@ stylesheet if it has one:
   `https://felipeharker.org/standards/hark.css`.
 - **A part's own stylesheet** holds the components no other part has — the
   birding report's map and lightbox, the resume's print sheet. It may
-  redefine a token (the resume narrows
-  `--measure`). It should not restyle a shared class; if a shared component
+  redefine a token (the resume's print sheet resizes the type and narrows
+  the label column). It should not restyle a shared class; if a shared component
   needs to change, change the standard.
 - **When a second part needs a part-only component**, move it into
   `hark.css` and document it in [`components.md`](components.md).
@@ -106,9 +106,10 @@ comment says why a rule exists, not what CSS it contains.
 
 ```html
 <body>
+<header class="runhead">…owner, then every part of the site…</header>
 <article class="doc">
   <a class="backlink" href="…">&larr; …</a>     <!-- interior pages only -->
-  <header>…masthead…</header>
+  <header class="masthead">…</header>
   <section class="section" id="sec-…">…</section>
   <footer class="colophon">…site links, then one line…</footer>
 </article>
@@ -192,9 +193,9 @@ page live, the birding report from its last build. Then:
    `npm run lint` must both pass. `npm run dev` there serves the app alone at
    http://localhost:3000/birds/ (its links to the rest of the site will 404
    on that server).
-3. `node tools/check.mjs` must pass: stylesheet links, site links, every
-   internal link and image, what is published, the docs, and the wiki's
-   links.
+3. `node tools/check.mjs` must pass: stylesheet links, the links to every
+   part in each running head and colophon, every internal link and image,
+   what is published, the docs, and the wiki's links.
 4. Before a deploy, `node tools/build.mjs` and `node tools/serve.mjs --dist`
    show exactly what Render will publish.
 
@@ -228,8 +229,8 @@ domain; birds.felipeharker.org redirects to felipeharker.org/birds/.
    [`templates/page.html`](../templates/page.html).
 2. Add it to `tools/sites.mjs` — its path, folder and whether it belongs in
    the site links.
-3. If it belongs in the site links, add it to every page's colophon (and to
-   `SITE_FAMILY` in the birding app's `siteConfig.ts`); `tools/check.mjs`
-   lists every page that misses it.
+3. If it belongs in the site links, add it to every page's running head and
+   colophon (and to `SITE_FAMILY` in the birding app's `siteConfig.ts`, which
+   feeds both); `tools/check.mjs` lists every page that misses it.
 4. Write its `README.md`.
 5. `node tools/check.mjs`, then `node tools/build.mjs`.

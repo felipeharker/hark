@@ -53,8 +53,8 @@ node tools/serve.mjs --dist # serves dist/ at http://localhost:8000/
 node tools/check.mjs
 ```
 
-It reports any page that does not link the shared stylesheet or misses a
-site link, any internal link or image that does not resolve, any file in a
+It reports any page that does not link the shared stylesheet or whose
+running head or colophon misses a part of the site, any internal link or image that does not resolve, any file in a
 `site/` folder that should not be published, any token or class the
 standards docs do not cover, and any link in `wiki/` that leads nowhere. It
 changes nothing.

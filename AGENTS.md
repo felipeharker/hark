@@ -44,8 +44,9 @@ birding app has its own notes in [`web/birds/web/AGENTS.md`](web/birds/web/AGENT
 10. **Links.** Within a part: relative. Between parts: root-relative (`/birds/`)
     and same tab. To anyone else: absolute, `target="_blank" rel="noopener noreferrer"`.
 11. **Text.** Plain language; headings in Title Case, never numbered. Every
-    page ends with the colophon and its site links
-    (`web/standards/docs/components.md`, "Colophon").
+    page opens with the running head and ends with the colophon, each
+    linking every part of the site (`web/standards/docs/components.md`,
+    "Running head" and "Colophon").
 12. **Third-party material** — papers, field guides, vendor models — never
     goes in the repository. It stays on disk, out of git: in a part's
     `source/`, or the birding report's `notebook/`. Credit a source in the page

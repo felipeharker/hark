@@ -31,8 +31,11 @@ The repository's `tools/build.mjs` copies `out/` to `dist/birds/`.
   and wrong for `/`, `/academic/` or `/standards/`. The site links and the
   standards link are plain `<a>` elements with root-relative paths, from
   `SITE_FAMILY` and `STANDARDS_PATH` in `src/lib/siteConfig.ts`.
-- **Every page ends with `<Colophon>`** (`src/components/ui/Colophon.tsx`): the
-  links to every part of felipeharker.org, then the page's own line.
+- **Every page opens with `<Runhead>` and ends with `<Colophon>`**
+  (`src/components/ui/`): both carry the links to every part of
+  felipeharker.org. The running head is rendered once, by
+  `src/app/layout.tsx`, above each page's `<article>`; the colophon is the
+  last thing in each page, with the page's own line.
 - **Observations are never hardcoded; the project's own settings always are.**
   Birds, places, counts, dates and media come from the CSVs in
   `../observation-data/`, and prose from `field-notes/`. A change that bakes one
@@ -55,9 +58,9 @@ The repository's `tools/build.mjs` copies `out/` to `dist/birds/`.
 - **`web/standards/docs/` states the design language** for every page on
   felipeharker.org, and `/standards/` renders it. Before changing type, color,
   or rules, read it — a change there is a change the whole site follows.
-- **Reuse the primitives in `src/components/ui/`.** `Section`, `Disclosure`,
-  `Masthead` and `Colophon` exist so that every page emits the same markup for
-  the same thing.
+- **Reuse the primitives in `src/components/ui/`.** `Runhead`, `Section`,
+  `Disclosure`, `Masthead` and `Colophon` exist so that every page emits the
+  same markup for the same thing.
 - **The `next/font` variable classes belong on `<html>`, not `<body>`.**
   `hark.css` composes `--font-body` inside `:root`, and a custom property is
   substituted against the element it is declared on — put the classes lower

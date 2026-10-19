@@ -9,7 +9,7 @@
  * edit, so they live here instead of in a CSV nobody remembers to look at.
  */
 
-/** Browser tab, masthead, and the nav brand on interior pages. */
+/** Browser tab and masthead. */
 export const SITE_TITLE = 'Harker Ornithology Report';
 
 /** Sits under the title on the homepage. */
@@ -30,7 +30,7 @@ export const ABSTRACT =
 
 /**
  * Off-site addresses used in more than one place — the repository URL alone
- * appears in the navigation bar, the reference list and the colophon.
+ * appears in the reference list and the colophon.
  */
 export const SITE_LINKS = {
   repository: 'https://github.com/felipeharker/hark/tree/main/web/birds',
@@ -42,7 +42,8 @@ export const SITE_LINKS = {
 
 /**
  * Every part of felipeharker.org, in the order of tools/sites.mjs, for the
- * site links at the foot of each page (Colophon). This report is served
+ * running head at the top of each page (Runhead) and the site links at its
+ * foot (Colophon). This report is served
  * under /birds/; the paths are root-relative and written as plain <a>
  * elements, so Next's basePath does not touch them. `current` marks this
  * part.
@@ -56,6 +57,13 @@ export const SITE_FAMILY = [
 
 /** The name that leads the site links. */
 export const SITE_OWNER = 'Felipe E. Harker';
+
+/**
+ * The front page of felipeharker.org — the portfolio — which the owner's name
+ * in the running head links to. Root-relative and outside this app, so it is
+ * written as a plain <a>, never a <Link>.
+ */
+export const SITE_ROOT = '/';
 
 /** The design standard every page on felipeharker.org follows. */
 export const STANDARDS_URL = '/standards/';
