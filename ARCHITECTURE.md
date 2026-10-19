@@ -212,7 +212,7 @@ flowchart TB
 | What | Where | Relationship |
 |---|---|---|
 | The live site | Render static site `hark-site` (workspace Harker-Hub) | Builds `main` on every push; serves felipeharker.org and www |
-| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com` |
+| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → an `onrender.com` address (to be `hark-site.onrender.com`; it works either way, since Render routes by domain name) |
 | birds.felipeharker.org | the old "Birding Website" Render service | Kept only to redirect to `/birds/` |
 | resume-site-0rfl.onrender.com | the old "Resume Website" Render service | Kept only to redirect to `/resume/` |
 | `hark_portfolio`, `hark_resume`, `hark_birding` | GitHub, archived | The three repositories this one replaced; read-only, with their histories |

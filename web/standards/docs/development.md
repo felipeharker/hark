@@ -155,9 +155,10 @@ families and the stylesheet.
 - **Private details.** No street address, no one else's contact details, no
   client or employer work shown. The repository is public: every file in it
   is published, not only `site/`.
-- **Third-party material** (papers, field guides, vendor models) belongs in
-  the private `hark_references` repository. Credit a source in the page text
-  when a project relies on it.
+- **Third-party material** (papers, field guides, vendor models) never goes
+  in the repository. It stays on disk, out of git: in a part's `source/`, or
+  the birding report's `notebook/`. Credit a source in the page text when a
+  project relies on it.
 
 ## Accessibility
 

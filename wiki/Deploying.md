@@ -36,7 +36,11 @@ The second line shows exactly what will be published.
 
 - **felipeharker.org** and **www** are the `hark-site` service's custom domains.
   DNS is at Porkbun: the apex is an A record to Render's `216.24.57.1`, and
-  `www` is a CNAME to `hark-site.onrender.com`.
+  `www` is a CNAME to an `onrender.com` address. Render picks the service by
+  the domain name, not by that address, so `www` reaches `hark-site` and
+  redirects to felipeharker.org. The CNAME still names the suspended
+  "Portfolio Website" (`portfolio-website-j5bq.onrender.com`); point it at
+  `hark-site.onrender.com` so `www` does not depend on that service.
 - **birds.felipeharker.org** used to be the birding report's own site. The old
   "Birding Website" service keeps that domain only to redirect it: its
   Redirects/Rewrites rule sends Source `/*` to Destination

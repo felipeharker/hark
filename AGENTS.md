@@ -46,9 +46,10 @@ birding app has its own notes in [`web/birds/web/AGENTS.md`](web/birds/web/AGENT
 11. **Text.** Plain language; headings in Title Case, never numbered. Every
     page ends with the colophon and its site links
     (`web/standards/docs/components.md`, "Colophon").
-12. **Third-party material** — papers, field guides, vendor models — belongs
-    in the private `hark_references` repository, not here. Credit a source in
-    the page text when a project relies on it.
+12. **Third-party material** — papers, field guides, vendor models — never
+    goes in the repository. It stays on disk, out of git: in a part's
+    `source/`, or the birding report's `notebook/`. Credit a source in the page
+    text when a project relies on it.
 13. **Keep the docs true.** A change to how something works updates the README,
     wiki page or standard that describes it, in the same commit. A decision
     goes in `planning/decisions.md`.

@@ -23,10 +23,16 @@ repository and one service.
 - [x] Move the custom domains `felipeharker.org` and `www` from "Portfolio
       Website" to `hark-site`; felipeharker.org verified, certificate issued, live
       (2026-10-19)
-- [ ] **Yours, at Porkbun:** change the `www` CNAME from
+- [x] www.felipeharker.org verified on `hark-site`, certificate issued; it
+      redirects to felipeharker.org (2026-10-19)
+- [ ] **Yours, at Porkbun (tidy-up):** change the `www` CNAME from
       `portfolio-website-j5bq.onrender.com` to `hark-site.onrender.com`.
-      Until then www.felipeharker.org does not load; Render then verifies it
-      and redirects it to felipeharker.org
+      `www` already works, because Render routes by domain name; the change
+      stops it depending on the suspended service's address
+- [x] Archive the replaced repositories `hark_parametric_city`,
+      `hark_parametric_dwelling`, `hark_parametric_design` (replaced by the
+      `parametric_*` repositories), `hark_parametric_graphics` and the unused
+      `hark_references` (2026-10-19)
 - [x] Redirect rule on the old "Birding Website" (birds.felipeharker.org):
       `/*` → `https://felipeharker.org/birds/*` (2026-10-19)
 - [x] Redirect rule on the old "Resume Website"
