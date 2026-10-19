@@ -21,7 +21,15 @@ same.
 `tools/build.mjs` runs `npm ci && npm run build` in `web/birds/web`, then
 copies each part's published folder to its path in `dist/`: the portfolio to
 `/`, academic to `/academic/`, the birding build to `/birds/`, the resume to
-`/resume/`, the standards to `/standards/`.
+`/resume/`, the standards to `/standards/`. Last, it adds a fingerprint of
+each stylesheet's contents to every static page's link to it
+(`/standards/hark.css?v=3e228ce5fe`). Render's CDN caches a page and its
+stylesheet separately for up to five minutes; with the fingerprint, a page
+from a new deploy never gets the stylesheet from the last one.
+
+Nothing in the build needs the network but `npm`: no fonts or data are
+downloaded, so a push to `main` that passes `node tools/build.mjs` locally
+deploys.
 
 ## Before you push
 

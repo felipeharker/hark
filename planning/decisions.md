@@ -4,6 +4,16 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — Stylesheet links carry a fingerprint
+
+**`tools/build.mjs` adds a hash of each stylesheet to every static page's
+link to it** (`/standards/hark.css?v=3e228ce5fe`). *Why:* Render's CDN caches
+each file for up to five minutes, so just after the minimal redesign went
+live a phone got the new pages with the old `hark.css`. A changed stylesheet
+now has a new address. The source pages keep the plain link, which is what
+`tools/check.mjs` and the local server expect. *Replaces:* "nothing is
+transformed" in the build.
+
 ## 2026-10-19 — No build downloads a font
 
 **The birding app loads its fonts with a `<link>`, like every other page.**

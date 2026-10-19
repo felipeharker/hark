@@ -219,8 +219,11 @@ One Render static site, deployed from `main` on every push, described in
 | Publish directory | `dist` |
 | Node | the version in `.node-version` |
 
-`tools/build.mjs` builds the birding app and copies every part's published
-folder to its path in `dist/`. felipeharker.org is the service's custom
+`tools/build.mjs` builds the birding app, copies every part's published
+folder to its path in `dist/`, and fingerprints each static page's stylesheet
+links (`hark.css?v=…`) so a CDN can never pair a new page with an old
+stylesheet. Write links without the fingerprint; the build adds it.
+felipeharker.org is the service's custom
 domain; birds.felipeharker.org redirects to felipeharker.org/birds/.
 
 ## Adding a part of the site
