@@ -1,5 +1,5 @@
-# CODEBASE baseline .gitignore (GIT-05). Copy to <repo>/.gitignore; add the repo's own lines under "# This repo".
-# Source: hark_system/templates/baseline/gitignore.
+# Baseline .gitignore, from the CODEBASE baseline in hark_system (archived 2026-10-19);
+# this repository's own lines are under "# This repo".
 # OS / editors
 Thumbs.db
 desktop.ini

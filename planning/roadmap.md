@@ -43,9 +43,8 @@ repository and one service.
 - [x] Suspend "Portfolio Website" and "Portfolio Site" (2026-10-19)
 - [x] Archive `hark_portfolio`, `hark_resume` and `hark_birding` on GitHub
       (2026-10-19)
-- [ ] `hark_system`: merge
-      [the pull request](https://github.com/felipeharker/hark_system/pull/1)
-      that hands the web styles to this repository
+- [x] Archive `hark_system`; its pull request handing the web styles to
+      this repository closed without merging (2026-10-19)
 - [ ] **Yours:** once you are happy, delete
       `CODEBASE\_retired\hark_clones_2026-10-19` (the old local clones)
 

@@ -4,6 +4,21 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — The old system repositories, archived
+
+**`hark_system` is archived.** Its web standard already lives here; its
+Rhino / Grasshopper and repository standards went to
+`parametric_living_standards`, in the separate parametric workspace. Its
+pull request handing the web styles to this repository was closed without
+merging. *Why:* each standard now lives with the work it governs, and
+nothing reads `hark_system`. *Replaces:* "the rest of the CODEBASE
+standards stay in `hark_system`" (One repository, below).
+
+**Third-party material stays on disk, out of git.** It goes in a part's
+`source/` or the birding report's `notebook/`, both ignored. *Why:* the
+`hark_references` repository meant for it was never used, and is archived.
+*Replaces:* `hark_references` as its home.
+
 ## 2026-10-19 — The open questions, settled
 
 **The resume carries no phone number and no referees' email addresses.**

@@ -86,7 +86,8 @@ One Render static site, deployed from `main` on every push: build command
 
 ## Elsewhere in CODEBASE
 
-The standards for the rest of the CODEBASE repositories — Rhino and
-Grasshopper, repository templates, documentation styles — live in the private
-`hark_system` repository. The web standards live here, with the site they
-govern.
+The Rhino and Grasshopper work, with its own standards, lives in a separate
+workspace, `CODEBASE\parametric` (the private `parametric_*` repositories).
+Nothing here depends on it. The web standards live here, with the site they
+govern. The old `hark_system` repository, which held the CODEBASE standards,
+is archived.
