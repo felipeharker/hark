@@ -211,10 +211,10 @@ flowchart TB
 
 | What | Where | Relationship |
 |---|---|---|
-| The live site | Render static site `hark-site` (workspace Harker-Hub) | Builds `main` on every push; serves felipeharker.org and www |
-| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → an `onrender.com` address (to be `hark-site.onrender.com`; it works either way, since Render routes by domain name) |
-| birds.felipeharker.org | the old "Birding Website" Render service | Kept only to redirect to `/birds/` |
-| resume-site-0rfl.onrender.com | the old "Resume Website" Render service | Kept only to redirect to `/resume/` |
+| The live site | Render static site `hark-site` (project Hark, workspace Harker-Hub) | Builds `main` on every push; serves felipeharker.org and www |
+| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service |
+| birds.felipeharker.org | Render service `hark-birding-redirect` (the old birding site) | Kept only to redirect to `/birds/` |
+| resume-site-0rfl.onrender.com | Render service `hark-resume-redirect` (the old resume site) | Kept only to redirect to `/resume/` |
 | `hark_portfolio`, `hark_resume`, `hark_birding` | GitHub, archived | The three repositories this one replaced; read-only, with their histories |
 | `hark_system` | GitHub, archived | The old CODEBASE standards: its web standard now lives here, its Rhino / Grasshopper and repository standards in `parametric_living_standards` |
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |

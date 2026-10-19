@@ -25,10 +25,12 @@ repository and one service.
       (2026-10-19)
 - [x] www.felipeharker.org verified on `hark-site`, certificate issued; it
       redirects to felipeharker.org (2026-10-19)
-- [ ] **Yours, at Porkbun (tidy-up):** change the `www` CNAME from
-      `portfolio-website-j5bq.onrender.com` to `hark-site.onrender.com`.
-      `www` already works, because Render routes by domain name; the change
-      stops it depending on the suspended service's address
+- [x] Porkbun: the `www` CNAME points at `hark-site.onrender.com`, no longer
+      at the old portfolio service (2026-10-19)
+- [x] Render tidy-up: "Portfolio Website" and "Portfolio Site" deleted;
+      `hark-site`, the two redirect services (now `hark-birding-redirect` and
+      `hark-resume-redirect`) and `anna-grades` grouped in the project Hark
+      (2026-10-19)
 - [x] Archive the replaced repositories `hark_parametric_city`,
       `hark_parametric_dwelling`, `hark_parametric_design` (replaced by the
       `parametric_*` repositories), `hark_parametric_graphics` and the unused
