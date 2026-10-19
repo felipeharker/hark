@@ -101,18 +101,12 @@
   --color-rule-strong: #111111;     /* above a section, under a masthead */
 
   /* -- Type: families ------------------------------------------------------
-     Each family is written as a variable with a fallback name, so one token
-     serves both ways a site loads its fonts:
-       - a static site loads Inter and IBM Plex Mono from Google Fonts with a
-         <link> in its <head>; --font-sans is undefined there, so the token
-         falls through to the family name;
-       - the Next.js site loads them with next/font, which defines --font-sans
-         and --font-mono-face on <html> — the element :root matches, which is
-         why next/font's classes must go on <html> and not on <body>. */
-  --font-body: var(--font-sans, 'Inter'), -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Helvetica, Arial, sans-serif;
-  --font-mono: var(--font-mono-face, 'IBM Plex Mono'), ui-monospace,
-    SFMono-Regular, Menlo, monospace;
+     Every page, the birding app included, loads Inter and IBM Plex Mono
+     from Google Fonts with a <link> in its <head>, so the families are
+     named here directly. */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* -- Type: weights -------------------------------------------------------
      Three weights, and no bold. The display title is only 500: at that size

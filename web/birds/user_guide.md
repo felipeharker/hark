@@ -130,7 +130,7 @@ terms of them, so changing a token restyles every site consistently:
 | `--color-text`, `--color-text-soft`, `--color-text-mute` | Body copy, secondary prose, captions and labels. |
 | `--color-accent` | Links, map pins, the open location row's name, Show / Hide hints. The hover shade and the faint selected-row wash are both derived from it, so changing this one value re-accents the site. |
 | `--color-rule-strong`, `--color-rule` | The two divider tints. Both are 1px hairlines; they differ in contrast, not thickness. |
-| `--font-body`, `--font-mono` | The sans and monospace faces. To change a family, edit the `next/font` imports in `web/src/app/layout.tsx` too. |
+| `--font-body`, `--font-mono` | The sans and monospace faces. To change a family, edit the Google Fonts link in `web/src/app/layout.tsx` and in every static page too. |
 | `--weight-regular`, `--weight-medium`, `--weight-strong` | 400 / 500 / 600. Nothing on the site is set bolder than 600. |
 | `--size-*` | The type scale: title, section, body, table, data, caption, label. |
 | `--track-*` | Letter-spacing: tight for headings, slightly tight for prose, open for uppercase labels. |

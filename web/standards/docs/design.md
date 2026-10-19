@@ -83,17 +83,12 @@ tokens follow.
 
 ## Type
 
-**Families.** `--font-body` (Inter) and `--font-mono` (IBM Plex Mono). Each
-is written as `var(--font-sans, 'Inter')` / `var(--font-mono-face, 'IBM Plex
-Mono')`, so one token works for both ways a site loads fonts:
-
-- A **static page** loads both from Google Fonts with the `<link>` in
-  [`templates/page.html`](../templates/page.html). `--font-sans` is not
-  defined, so the token falls through to the family name.
-- The **birding app** loads them with `next/font`, which defines
-  `--font-sans` and `--font-mono-face`. Its classes must go on `<html>`, not
-  `<body>`: `:root` is `<html>`, and a variable defined lower down the tree is
-  invisible to it.
+**Families.** `--font-body` (Inter) and `--font-mono` (IBM Plex Mono). Every
+page loads both from Google Fonts with a `<link>` in its `<head>` — a static
+page with the one in [`templates/page.html`](../templates/page.html), the
+birding app with the same in its `layout.tsx`, plus the italics its
+scientific names need. The browser fetches the fonts; no build downloads
+them, so a deploy cannot fail on a font.
 
 **Weights.**
 

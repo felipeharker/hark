@@ -222,5 +222,5 @@ flowchart TB
 | `hark_portfolio`, `hark_resume`, `hark_birding` | GitHub, archived | The three repositories this one replaced; read-only, with their histories |
 | `hark_system` | GitHub, archived | The old CODEBASE standards: its web standard now lives here, its Rhino / Grasshopper and repository standards in `parametric_living_standards` |
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |
-| Fonts | Google Fonts (static pages), `next/font` (birding app) | Inter and IBM Plex Mono |
+| Fonts | Google Fonts, by a `<link>` on every page (the birding app's in its `layout.tsx`) | Inter and IBM Plex Mono |
 | Photos and map tiles | Macaulay Library CDN, Carto | Loaded by the birding report in the reader's browser |

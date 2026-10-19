@@ -61,11 +61,10 @@ The repository's `tools/build.mjs` copies `out/` to `dist/birds/`.
 - **Reuse the primitives in `src/components/ui/`.** `Runhead`, `Section`,
   `Disclosure`, `Masthead` and `Colophon` exist so that every page emits the
   same markup for the same thing.
-- **The `next/font` variable classes belong on `<html>`, not `<body>`.**
-  `hark.css` composes `--font-body` inside `:root`, and a custom property is
-  substituted against the element it is declared on — put the classes lower
-  and the token resolves to nothing, silently falling the whole site back to
-  the browser's default serif.
+- **Fonts load with a `<link>` in `src/app/layout.tsx`**, the same Google
+  Fonts link every static page has. Do not reintroduce `next/font`: it
+  downloads the fonts during `next build`, and a failed download (or its
+  Turbopack bug) fails the deploy.
 - **`tsconfig.json` is rewritten by `next build`.** It re-adds `allowJs` and
   reformats the file; edits that fight it are churn, not cleanup.
 

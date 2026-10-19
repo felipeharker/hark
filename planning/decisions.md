@@ -4,6 +4,15 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — No build downloads a font
+
+**The birding app loads its fonts with a `<link>`, like every other page.**
+*Why:* `next/font/google` downloaded Inter and IBM Plex Mono during
+`next build`, and on Render that step failed (a Turbopack bug in resolving
+the downloaded files), so a merge to `main` did not deploy. A build now
+fetches nothing it does not have. *Replaces:* `next/font` in the birding
+app, and the `--font-sans` / `--font-mono-face` variables it defined.
+
 ## 2026-10-19 — A minimal standard
 
 **The standard becomes an index in ink on white.** Every page is laid on
