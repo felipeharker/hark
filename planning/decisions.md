@@ -4,6 +4,18 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — resume.felipeharker.org
+
+**resume.felipeharker.org forwards to `/resume/`, through Porkbun.**
+Porkbun's free URL forwarding sends it to `https://felipeharker.org/resume/`
+with a permanent (301) redirect, over HTTP and HTTPS. *Why:* the resume was
+the one redirect with only an `onrender.com` address; this gives it a short
+one on the site's own domain at no cost and with no change to Render, where
+a custom domain beyond the Hobby plan's two costs $0.25 a month. It is a
+redirect, not a site, so "One domain, with paths" still holds.
+`resume-site-0rfl.onrender.com` keeps redirecting, for old links.
+*Replaces:* nothing; it adds an address.
+
 ## 2026-10-19 — The old system repositories, archived
 
 **`hark_system` is archived.** Its web standard already lives here; its

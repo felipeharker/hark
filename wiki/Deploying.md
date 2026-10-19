@@ -39,12 +39,17 @@ The second line shows exactly what will be published.
   is a CNAME to `hark-site.onrender.com`, and `birds` a CNAME to
   `hark-ornithology.onrender.com`, the birding redirect service. `www`
   redirects to felipeharker.org.
+- **resume.felipeharker.org** is Porkbun URL forwarding, not Render: a
+  permanent (301) redirect, over HTTP and HTTPS, to
+  `https://felipeharker.org/resume/`, with the path not carried over and no
+  wildcard. Porkbun keeps its DNS record (to `uixie.porkbun.com`) and its
+  certificate. Change it under the domain's URL Forwarding in Porkbun.
 - **birds.felipeharker.org** used to be the birding report's own site. The
   `hark-birding-redirect` service keeps that domain only to redirect it: its
   Redirects/Rewrites rule sends Source `/*` to Destination
   `https://felipeharker.org/birds/*`.
-- **resume-site-0rfl.onrender.com**, the resume's old address, redirects the
-  same way to `https://felipeharker.org/resume/*` from the
+- **resume-site-0rfl.onrender.com**, the resume's old address, still
+  works for old links: it redirects the same way to `https://felipeharker.org/resume/*` from the
   `hark-resume-redirect` service.
 - Render serves a file that exists before it applies a redirect rule, and
   refuses to publish an empty folder. So each old service's build command

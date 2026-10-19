@@ -40,6 +40,8 @@ repository and one service.
 - [x] Redirect rule on the old "Resume Website"
       (resume-site-0rfl.onrender.com): `/*` → `https://felipeharker.org/resume/*`
       (2026-10-19)
+- [x] resume.felipeharker.org: Porkbun URL forwarding, a permanent redirect
+      to `https://felipeharker.org/resume/` (2026-10-19)
 - [x] Both old services publish only a one-line page that forwards their
       homepage to the new path, so every address redirects (2026-10-19)
 - [x] Suspend "Portfolio Website" and "Portfolio Site" (2026-10-19)
