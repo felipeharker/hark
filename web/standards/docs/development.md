@@ -193,7 +193,8 @@ page live, the birding report from its last build. Then:
    http://localhost:3000/birds/ (its links to the rest of the site will 404
    on that server).
 3. `node tools/check.mjs` must pass: stylesheet links, site links, every
-   internal link and image, what is published, and the docs.
+   internal link and image, what is published, the docs, and the wiki's
+   links.
 4. Before a deploy, `node tools/build.mjs` and `node tools/serve.mjs --dist`
    show exactly what Render will publish.
 

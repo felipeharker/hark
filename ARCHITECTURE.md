@@ -28,7 +28,7 @@ flowchart LR
     academic["web/academic<br/>three University of Houston projects"]
     birds["web/birds<br/>the birding report (Next.js) and its eBird data"]
     resume["web/resume<br/>the resume"]
-    tools["tools/<br/>sites.mjs · build.mjs · serve.mjs · check.mjs"]
+    tools["tools/<br/>sites.mjs · build.mjs · serve.mjs · check.mjs · wiki.mjs"]
     docs["README · ARCHITECTURE · AGENTS<br/>wiki/ · planning/"]
   end
 
@@ -58,6 +58,7 @@ flowchart LR
   root --> rootfiles["README.md · ARCHITECTURE.md · AGENTS.md · CLAUDE.md<br/>render.yaml · .gitignore · .gitattributes · .node-version"]
   root --> tools["tools/"]
   root --> wiki["wiki/<br/>how-to guides"]
+  root --> workflows[".github/workflows/<br/>wiki.yml"]
   root --> planning["planning/<br/>roadmap.md · decisions.md"]
   root --> web["web/"]
 
@@ -65,6 +66,7 @@ flowchart LR
   tools --> t2["build.mjs<br/>assembles dist/ for Render"]
   tools --> t3["serve.mjs<br/>serves the site locally"]
   tools --> t4["check.mjs<br/>checks pages, links, files, docs"]
+  tools --> t5["wiki.mjs<br/>writes wiki/ out as the GitHub wiki"]
 
   web --> s["standards/"]
   web --> p["portfolio/"]
@@ -212,6 +214,7 @@ flowchart TB
 | What | Where | Relationship |
 |---|---|---|
 | The live site | Render static site `hark-site` (project Hark, workspace Harker-Hub) | Builds `main` on every push; serves felipeharker.org and www |
+| The GitHub wiki | github.com/felipeharker/hark/wiki | A copy of `wiki/`, replaced by `.github/workflows/wiki.yml` on every push to `main` that changes it |
 | DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service; `resume` → Porkbun's URL forwarding |
 | resume.felipeharker.org | Porkbun URL forwarding | A permanent redirect to `/resume/`; nothing on Render |
 | birds.felipeharker.org | Render service `hark-birding-redirect` (the old birding site) | Kept only to redirect to `/birds/` |

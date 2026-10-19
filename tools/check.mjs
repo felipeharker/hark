@@ -13,7 +13,8 @@
  *               models or Markdown — and no stray copy of the stylesheet
  *               exists anywhere.
  * 4. Docs       every token and class in the stylesheet is in
- *               web/standards/docs/, and no documented token has gone.
+ *               web/standards/docs/, no documented token has gone, and
+ *               every link in wiki/ resolves (tools/wiki.mjs).
  *
  * The birding app is checked from its last build (web/birds/web/out); build
  * it first, or its pages are skipped with a note.
@@ -23,6 +24,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITES, STYLESHEET, mounts, resolveUrl } from './sites.mjs';
+import { wikiPages } from './wiki.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const STANDARDS = join(ROOT, 'web', 'standards');
@@ -140,6 +142,11 @@ for (const c of undocumentedClasses) problem('web/standards/docs/components.md',
 for (const t of staleTokens) problem('web/standards/docs/design.md', `documents ${t}, which hark.css no longer defines`);
 console.log(`  ${tokens.size} tokens, ${undocumentedTokens.length} undocumented, ${staleTokens.length} stale`);
 console.log(`  ${classes.size} classes, ${undocumentedClasses.length} undocumented`);
+
+const wiki = wikiPages();
+const wikiBroken = wiki.flatMap((p) => p.problems.map((what) => `wiki/${p.name}: ${what}`));
+problems.push(...wikiBroken);
+console.log(`  ${wiki.length} wiki pages, ${wikiBroken.length} broken links`);
 
 // -- Result --------------------------------------------------------------------
 

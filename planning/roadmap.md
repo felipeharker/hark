@@ -74,5 +74,7 @@ Decided (the reasons are in [decisions.md](decisions.md)):
 - **A check on every push.** A GitHub Actions workflow running
   `node tools/check.mjs` and the birding build, so a broken link never
   reaches `main`.
-- **The GitHub wiki.** Create its first page on GitHub, then push `wiki/` to
-  it (see `wiki/Home.md`).
+- **The GitHub wiki.** `.github/workflows/wiki.yml` publishes `wiki/` to it
+  on every push to `main` that changes it (2026-10-19). **Yours:** create the
+  wiki's first page on GitHub once, then run the Wiki workflow (see
+  `wiki/Home.md`).

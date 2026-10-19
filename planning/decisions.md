@@ -4,6 +4,16 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-19 — The wiki is a copy of `wiki/`
+
+**The GitHub wiki is published from `wiki/`, never edited on GitHub.**
+`.github/workflows/wiki.yml` runs `tools/wiki.mjs` on every push to `main`
+that changes `wiki/`; it rewrites the links for the wiki and replaces every
+page there. *Why:* a guide changes in the same commit as the thing it
+describes (`AGENTS.md`, rule 13), and the wiki is a separate git repository
+that no commit here can touch. Keeping the pages here, and the wiki as their
+copy, keeps one source. *Replaces:* pushing `wiki/` to the wiki by hand.
+
 ## 2026-10-19 — resume.felipeharker.org
 
 **resume.felipeharker.org forwards to `/resume/`, through Porkbun.**

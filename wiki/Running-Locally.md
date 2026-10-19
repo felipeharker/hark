@@ -55,5 +55,6 @@ node tools/check.mjs
 
 It reports any page that does not link the shared stylesheet or misses a
 site link, any internal link or image that does not resolve, any file in a
-`site/` folder that should not be published, and any token or class the
-standards docs do not cover. It changes nothing.
+`site/` folder that should not be published, any token or class the
+standards docs do not cover, and any link in `wiki/` that leads nowhere. It
+changes nothing.

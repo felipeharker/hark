@@ -26,6 +26,7 @@ hark/
     serve.mjs         serve the whole site locally, from source
     check.mjs         check pages, links, published files and docs
     build.mjs         build the site into dist/ for Render
+    wiki.mjs          publish wiki/ as the GitHub wiki
   web/
     standards/        the standard: site/hark.css, docs/, the specimen page
     portfolio/        site/ is published at /
@@ -33,6 +34,7 @@ hark/
     birds/            web/out/ (the Next.js build) is published at /birds/
     resume/           site/ is published at /resume/
   wiki/               how-to guides: running, editing, deploying
+  .github/workflows/  wiki.yml: publishes wiki/ to the GitHub wiki
   planning/           the roadmap and the decision log
 ```
 
@@ -67,7 +69,9 @@ node tools/check.mjs
   repository, the one stylesheet, the build and deploy, the birding data,
   how a reader moves between parts, and the services outside the repository.
 - **[wiki/](wiki/Home.md)** — how to do things: run the site, edit each part,
-  add a project, update the bird data, change the standard, deploy.
+  add a project, update the bird data, change the standard, deploy. The same
+  pages are the repository's
+  [GitHub wiki](https://github.com/felipeharker/hark/wiki).
 - **[web/standards/](web/standards/)** — the rules every page follows:
   [design](web/standards/docs/design.md),
   [components](web/standards/docs/components.md),

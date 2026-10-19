@@ -27,8 +27,21 @@ git push                    # main is live: Render deploys every push
 
 ## Using these pages on GitHub
 
-This folder is written to read well in the repository. To publish it as the
-repository's GitHub wiki too, create the wiki's first page on GitHub once
-(the wiki's git repository does not exist until then), then push this
-folder's files to `https://github.com/felipeharker/hark.wiki.git`.
-`_Sidebar.md` becomes the wiki's sidebar.
+This folder is written to read well in the repository, and is published as
+the repository's [GitHub wiki](https://github.com/felipeharker/hark/wiki)
+too. The workflow `.github/workflows/wiki.yml` runs `tools/wiki.mjs` on every
+push to `main` that changes `wiki/`: it rewrites the links for the wiki (a
+page here becomes a wiki page, a file elsewhere in the repository a link to
+it on GitHub) and replaces every page on the wiki with these.
+`_Sidebar.md` and `_Footer.md` become the wiki's sidebar and footer.
+
+- **Edit here, never on the wiki.** A change made on GitHub is replaced by
+  the next push.
+- **A new page** is a new file here, named the way its title reads
+  (`Adding-an-Academic-Project.md`), with a row in the guides table above
+  and a line in `_Sidebar.md`.
+- **Links** are relative paths, as anywhere in the repository.
+  `node tools/check.mjs` fails on one that leads nowhere.
+- **The first time**, GitHub has no wiki to push to until its first page
+  exists: open Wiki on GitHub, create the first page, save it, then run the
+  Wiki workflow (Actions → Wiki → Run workflow). It replaces that page.
