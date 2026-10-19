@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hark Web Standards — Felipe E. Harker</title>
+<meta name="description" content="Every token and shared component of the felipeharker.org sites, rendered by the stylesheet they all share.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/standards/hark.css">
+<link rel="stylesheet" href="specimen/specimen.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     HARKER WEB STANDARDS — SPECIMEN
+     --------------------------------------------------------------------------
+     felipeharker.org/standards/. Every token and every class in hark.css (in
+     this folder), rendered by hark.css itself, so this page is what every
+     other page gets. specimen/specimen.css adds only the swatches, samples
+     and the margin that marks an example.
+
+     The rules behind what is shown here are in web/standards/docs/. When a
+     component is added to the stylesheet, add a specimen of it here and a
+     row for it in docs/components.md; tools/check.mjs fails until the row
+     exists.
+
+     Specimens use <p class="title"> rather than <h1>, and so on, so this page
+     keeps one heading outline of its own.
+     ====================================================================== -->
+
+<article class="doc">
+
+<a class="backlink" href="/">&larr; Felipe E. Harker</a>
+
+<!-- Masthead ------------------------------------------------------------- -->
+<header>
+  <p class="kicker">Reference</p>
+  <h1 class="title">Hark Web Standards</h1>
+  <p class="subtitle">The shared design of every page on felipeharker.org</p>
+  <p class="dateline">
+    <span>/standards/hark.css</span>
+    <span class="sep" aria-hidden="true">|</span>
+    <span>Portfolio, Academic, Birding, Resume</span>
+  </p>
+</header>
+<hr class="rule">
+
+<div class="abstract">
+  <p class="abstract-label">Abstract</p>
+  <p>Every page on felipeharker.org is built on one stylesheet. This page renders each of its tokens and components exactly as the other pages receive them. The reasoning is written down in web/standards/docs in the repository; this page is for seeing it.</p>
+</div>
+<hr class="rule-soft">
+
+<nav aria-label="Contents">
+  <p class="toc-label">Contents</p>
+  <ul class="toc toc--inline">
+    <li><a href="#sec-colour">Colour</a></li>
+    <li><a href="#sec-type">Type</a></li>
+    <li><a href="#sec-space">Space</a></li>
+    <li><a href="#sec-masthead">Masthead</a></li>
+    <li><a href="#sec-body-copy">Body Copy</a></li>
+    <li><a href="#sec-tables">Tables</a></li>
+    <li><a href="#sec-definition-grid">Definition Grid</a></li>
+    <li><a href="#sec-disclosure-rows">Disclosure Rows</a></li>
+    <li><a href="#sec-controls">Controls</a></li>
+    <li><a href="#sec-work-list">Work List</a></li>
+    <li><a href="#sec-entries">Entries</a></li>
+    <li><a href="#sec-plates">Plates</a></li>
+    <li><a href="#sec-references">References</a></li>
+    <li><a href="#sec-navigation">Navigation</a></li>
+  </ul>
+</nav>
+
+<!-- Colour ---------------------------------------------------------------- -->
+<section class="section" id="sec-colour">
+<h2 class="section-heading">Colour</h2>
+
+<p class="body-text">A white ground, three steps of warm near-black text, two hairline greys and one deep red. The red marks what can be clicked or what is selected, and nothing else. Change <code>--color-accent</code> and its hover and wash follow.</p>
+
+<div class="swatches">
+  <div><div class="swatch swatch--bg"></div><p class="swatch-name">bg</p><p class="caption">The page.</p></div>
+  <div><div class="swatch swatch--surface"></div><p class="swatch-name">surface</p><p class="caption">Placeholders, hovered controls.</p></div>
+  <div><div class="swatch swatch--surface-hover"></div><p class="swatch-name">surface-hover</p><p class="caption">Code, neutral tags.</p></div>
+  <div><div class="swatch swatch--text"></div><p class="swatch-name">text</p><p class="caption">Headings. 17.3:1</p></div>
+  <div><div class="swatch swatch--text-soft"></div><p class="swatch-name">text-soft</p><p class="caption">Prose. 9.3:1</p></div>
+  <div><div class="swatch swatch--text-mute"></div><p class="swatch-name">text-mute</p><p class="caption">Labels, data. 4.6:1</p></div>
+  <div><div class="swatch swatch--accent"></div><p class="swatch-name">accent</p><p class="caption">Interactive, selected.</p></div>
+  <div><div class="swatch swatch--accent-hover"></div><p class="swatch-name">accent-hover</p><p class="caption">Derived from accent.</p></div>
+  <div><div class="swatch swatch--accent-wash"></div><p class="swatch-name">accent-wash</p><p class="caption">Derived from accent.</p></div>
+  <div><div class="swatch swatch--selection"></div><p class="swatch-name">selection</p><p class="caption">Selected text.</p></div>
+  <div><div class="swatch swatch--rule"></div><p class="swatch-name">rule</p><p class="caption">Between rows.</p></div>
+  <div><div class="swatch swatch--rule-strong"></div><p class="swatch-name">rule-strong</p><p class="caption">Between sections.</p></div>
+</div>
+</section>
+
+<!-- Type ------------------------------------------------------------------ -->
+<section class="section" id="sec-type">
+<h2 class="section-heading">Type</h2>
+
+<p class="body-text">Inter for anything a person wrote; IBM Plex Mono for anything read off a record. Three weights — 400, 500, 600 — and nothing bolder. Each sample below is set at the size it names; sizes step down below 640px.</p>
+
+<div class="table-scroll">
+<table class="table">
+  <thead><tr><th>Sample</th><th>Token</th><th class="num-cell">Size</th></tr></thead>
+  <tbody>
+    <tr><td><span class="type-sample type-sample--title">Felipe E. Harker</span></td><td><code>--size-title</code></td><td class="num-cell">34</td></tr>
+    <tr><td><span class="type-sample type-sample--title-record">Sheldon Lake State Park</span></td><td><code>--size-title-record</code></td><td class="num-cell">27</td></tr>
+    <tr><td><span class="type-sample type-sample--section">Experience</span></td><td><code>--size-section</code></td><td class="num-cell">23</td></tr>
+    <tr><td><span class="type-sample type-sample--subtitle">Computational design and architecture</span></td><td><code>--size-subtitle</code></td><td class="num-cell">17</td></tr>
+    <tr><td><span class="type-sample type-sample--subsection">Living Outside the Box</span></td><td><code>--size-subsection</code></td><td class="num-cell">17</td></tr>
+    <tr><td><span class="type-sample type-sample--body">A paragraph of running prose.</span></td><td><code>--size-body</code></td><td class="num-cell">16</td></tr>
+    <tr><td><span class="type-sample type-sample--table">A list item, a table cell, a summary.</span></td><td><code>--size-table</code></td><td class="num-cell">15</td></tr>
+    <tr><td><span class="type-sample type-sample--data">2024-07-01 · 29.7604, -95.3698</span></td><td><code>--size-data</code></td><td class="num-cell">13</td></tr>
+    <tr><td><span class="type-sample type-sample--caption">A caption under a figure.</span></td><td><code>--size-caption</code></td><td class="num-cell">13</td></tr>
+    <tr><td><span class="type-sample type-sample--fine">Dendrocygna autumnalis</span></td><td><code>--size-fine</code></td><td class="num-cell">12</td></tr>
+    <tr><td><span class="type-sample type-sample--label">Eyebrow Label</span></td><td><code>--size-label</code></td><td class="num-cell">11</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="caption">--size-abstract matches --size-body. Sizes in pixels, desktop.</p>
+</section>
+
+<!-- Space ----------------------------------------------------------------- -->
+<section class="section" id="sec-space">
+<h2 class="section-heading">Space</h2>
+
+<p class="body-text">Every margin, padding and gap is one of seven steps. Sections sit <code>--space-7</code> apart; rows within a section, <code>--space-5</code> to <code>--space-6</code>.</p>
+
+<div class="table-scroll">
+<table class="table">
+  <thead><tr><th>Token</th><th>Width</th><th class="num-cell">Pixels</th></tr></thead>
+  <tbody>
+    <tr><td><code>--space-1</code></td><td><span class="space-bar space-bar--1"></span></td><td class="num-cell">4</td></tr>
+    <tr><td><code>--space-2</code></td><td><span class="space-bar space-bar--2"></span></td><td class="num-cell">8</td></tr>
+    <tr><td><code>--space-3</code></td><td><span class="space-bar space-bar--3"></span></td><td class="num-cell">12</td></tr>
+    <tr><td><code>--space-4</code></td><td><span class="space-bar space-bar--4"></span></td><td class="num-cell">18</td></tr>
+    <tr><td><code>--space-5</code></td><td><span class="space-bar space-bar--5"></span></td><td class="num-cell">26</td></tr>
+    <tr><td><code>--space-6</code></td><td><span class="space-bar space-bar--6"></span></td><td class="num-cell">40</td></tr>
+    <tr><td><code>--space-7</code></td><td><span class="space-bar space-bar--7"></span></td><td class="num-cell">56</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="label">Rules</p>
+<div class="specimen">
+  <hr class="rule">
+  <p class="caption"><code>.rule</code> — between sections and under a masthead.</p>
+  <hr class="rule-soft">
+  <p class="caption"><code>.rule-soft</code> — between rows within a block.</p>
+</div>
+</section>
+
+<!-- Masthead -------------------------------------------------------------- -->
+<section class="section" id="sec-masthead">
+<h2 class="section-heading">Masthead</h2>
+
+<p class="body-text">A front page centres its masthead. A record aligns left; a record whose title names a thing rather than the person takes the smaller record title.</p>
+
+<p class="label">Front page</p>
+<div class="specimen">
+  <div>
+    <p class="kicker">Portfolio</p>
+    <p class="title">Felipe E. Harker</p>
+    <p class="subtitle">Computational design, architecture, and the tools built alongside them</p>
+    <p class="byline">Felipe E. Harker</p>
+    <p class="dateline"><span>Houston, TX</span><span class="sep" aria-hidden="true">|</span><a href="mailto:fehark@gmail.com">fehark@gmail.com</a></p>
+  </div>
+</div>
+
+<p class="label">Record — .masthead--left</p>
+<div class="specimen">
+  <div class="masthead--left">
+    <p class="kicker">Curriculum Vitae</p>
+    <p class="title">Felipe E. Harker</p>
+    <p class="dateline"><span>Houston, TX</span><span class="sep" aria-hidden="true">|</span><a href="mailto:fehark@gmail.com">fehark@gmail.com</a></p>
+  </div>
+</div>
+
+<p class="label">Record of a thing — .masthead--left .masthead--record</p>
+<div class="specimen">
+  <div class="masthead--left masthead--record">
+    <p class="kicker">Checklist Report</p>
+    <p class="title">Sheldon Lake State Park</p>
+    <p class="dateline">Harris, US-TX · May 10, 2026 · 08:54 AM</p>
+  </div>
+</div>
+</section>
+
+<!-- Body Copy ------------------------------------------------------------- -->
+<section class="section" id="sec-body-copy">
+<h2 class="section-heading">Body Copy</h2>
+
+<p class="label">.body-text, .list, .data, .sep</p>
+<div class="specimen">
+  <p class="body-text">A paragraph at the reading measure, set in the soft text colour. Recorded values inside prose — <span class="data">2024</span>, <span class="data">42 observations</span> — take the data face. Links in prose, like <a href="#sec-colour">this one</a>, keep a hairline underline.</p>
+  <ul class="list">
+    <li>A list in prose is set a step smaller than a paragraph.</li>
+    <li>Items are spaced, not ruled.</li>
+  </ul>
+</div>
+
+<p class="label">.label, .caption, .empty</p>
+<div class="specimen">
+  <p class="label">An Eyebrow Label</p>
+  <p class="caption">A caption: sentence case, unnumbered, only when it says something the thing above it does not.</p>
+  <p class="empty">No field notes yet.</p>
+</div>
+
+<p class="label">Contents — .toc and .toc--inline</p>
+<div class="specimen">
+  <p class="toc-label">Contents</p>
+  <ul class="toc">
+    <li><a href="#sec-masthead">Map</a></li>
+    <li><a href="#sec-masthead">Locations</a></li>
+  </ul>
+  <p class="toc-label">Contents</p>
+  <ul class="toc toc--inline">
+    <li><a href="#sec-masthead">Education</a></li>
+    <li><a href="#sec-masthead">Experience</a></li>
+    <li><a href="#sec-masthead">Skills</a></li>
+  </ul>
+</div>
+</section>
+
+<!-- Tables ---------------------------------------------------------------- -->
+<section class="section" id="sec-tables">
+<h2 class="section-heading">Tables</h2>
+
+<div class="table-scroll">
+<table class="table">
+  <thead><tr><th>Species</th><th class="num-cell">Count</th></tr></thead>
+  <tbody>
+    <tr><td>Black-bellied Whistling-Duck</td><td class="num-cell">14</td></tr>
+    <tr><td>Killdeer</td><td class="num-cell">2</td></tr>
+    <tr><td>Red-shouldered Hawk</td><td class="num-cell">X</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="caption">Hairlines only. Numeric columns are right-aligned, and their cells are mono.</p>
+</section>
+
+<!-- Definition Grid -------------------------------------------------------- -->
+<section class="section" id="sec-definition-grid">
+<h2 class="section-heading">Definition Grid</h2>
+
+<p class="label">.facts — prose values</p>
+<div class="specimen">
+  <dl class="facts">
+    <dt>Architectural Design</dt>
+    <dd>Rhinoceros 8, Grasshopper, Adobe Creative Suite</dd>
+    <dt>Languages</dt>
+    <dd>English (Native), Portuguese (Native), Spanish (Proficient)</dd>
+  </dl>
+</div>
+
+<p class="label">.facts .facts--data — recorded values</p>
+<div class="specimen">
+  <dl class="facts facts--data">
+    <dt>Protocol</dt>
+    <dd>eBird - Traveling Count</dd>
+    <dt>Effort</dt>
+    <dd>65 min · 1.7 km</dd>
+  </dl>
+</div>
+</section>
+
+<!-- Disclosure Rows -------------------------------------------------------- -->
+<section class="section" id="sec-disclosure-rows">
+<h2 class="section-heading">Disclosure Rows</h2>
+
+<p class="body-text">A long list starts as an index; each row opens in place. Native <code>&lt;details&gt;</code>, so it works without a script.</p>
+
+<div class="specimen">
+  <details class="disclosure" open>
+    <summary>
+      <span class="disclosure-heading">
+        <span class="disclosure-title">Sheldon Lake State Park</span>
+        <span class="disclosure-hint"><span class="hint-closed">Show</span><span class="hint-open">Hide</span></span>
+      </span>
+    </summary>
+    <div class="disclosure-body">
+      <p class="disclosure-meta"><span>Harris, US-TX</span><span>42 observations</span></p>
+      <div class="detail-group">
+        <p class="label">Checklists</p>
+        <p class="body-text">The first block of an open row.</p>
+      </div>
+      <div class="detail-group">
+        <p class="label">Species Observed</p>
+        <p class="body-text">The next block, spaced rather than ruled.</p>
+      </div>
+    </div>
+  </details>
+  <details class="disclosure">
+    <summary>
+      <span class="disclosure-heading">
+        <span class="disclosure-title">Jesse H. Jones Park</span>
+        <span class="disclosure-hint"><span class="hint-closed">Show</span><span class="hint-open">Hide</span></span>
+      </span>
+    </summary>
+    <div class="disclosure-body">
+      <p class="disclosure-meta"><span>Harris, US-TX</span><span>17 observations</span></p>
+    </div>
+  </details>
+</div>
+</section>
+
+<!-- Controls -------------------------------------------------------------- -->
+<section class="section" id="sec-controls">
+<h2 class="section-heading">Controls</h2>
+
+<p class="label">.toolbar, .btn, .tag</p>
+<div class="specimen">
+  <div class="toolbar">
+    <p class="caption">28 species recorded. <span class="tag">Incomplete</span><span class="tag tag--neutral">FL</span></p>
+    <button type="button" class="btn">View Media</button>
+  </div>
+</div>
+
+<p class="label">.field, .field-icon, .input</p>
+<div class="specimen">
+  <div class="field">
+    <label for="spec-filter" class="visually-hidden">Filter locations by name</label>
+    <span class="field-icon">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </span>
+    <input id="spec-filter" class="input" placeholder="Filter by name…">
+  </div>
+</div>
+</section>
+
+<!-- Work List ------------------------------------------------------------- -->
+<section class="section" id="sec-work-list">
+<h2 class="section-heading">Work List</h2>
+
+<p class="body-text">One project or site per row: cover, title, hairline, summary, stack, kind, address — always in that order. Below 860px the cover sits above its facts.</p>
+
+<div class="specimen">
+<ul class="work-list">
+  <li class="work">
+    <a class="work-cover" href="#sec-work-list" aria-hidden="true" tabindex="-1">
+      <img src="specimen/drawing.svg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title"><a href="#sec-work-list">Living Outside the Box</a></h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A hillside housing community built up from one pre-fabricated concrete box.</p>
+      <p class="work-stack">
+        <span>Rio de Janeiro, Brazil</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Residential</span>
+      </p>
+      <p class="work-kind">Academic</p>
+      <a class="work-link" href="#sec-work-list">Project Page</a>
+    </div>
+  </li>
+  <li class="work">
+    <a class="work-cover" href="#sec-work-list" aria-hidden="true" tabindex="-1">
+      <span class="work-cover-placeholder">
+        <span class="name">Harker Ornithology Report</span>
+        <span class="note">Cover pending</span>
+      </span>
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title"><a href="#sec-work-list">Harker Ornithology Report</a></h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A row whose cover has not been made yet names itself in the placeholder.</p>
+      <p class="work-kind">Personal</p>
+      <a class="work-link" href="#sec-work-list">Project Site</a>
+    </div>
+  </li>
+</ul>
+</div>
+</section>
+
+<!-- Entries --------------------------------------------------------------- -->
+<section class="section" id="sec-entries">
+<h2 class="section-heading">Entries</h2>
+
+<div class="specimen">
+  <div class="entry">
+    <h3 class="entry-title">Senior Computational Designer</h3>
+    <p class="entry-org">Aria Signs &amp; Design</p>
+    <p class="entry-meta"><span>Houston, TX</span><span class="sep" aria-hidden="true">|</span><span>Jul. 2024 – Present</span></p>
+    <ul class="list">
+      <li>What was done, one line each.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <h3 class="entry-title">Bachelor of Architecture</h3>
+    <p class="entry-org">University of Houston, Hines College of Architecture and Design</p>
+    <p class="entry-meta"><span>Houston, TX</span><span class="sep" aria-hidden="true">|</span><span>2024</span></p>
+  </div>
+</div>
+</section>
+
+<!-- Plates ---------------------------------------------------------------- -->
+<section class="section" id="sec-plates">
+<h2 class="section-heading">Plates</h2>
+
+<div class="specimen">
+  <figure class="plate">
+    <img src="specimen/drawing.svg" alt="Line drawing of stacked modular boxes" loading="lazy">
+    <figcaption>
+      <h3 class="plate-title">The Box</h3>
+      <p class="body-text">A drawing gets the whole column; its title and a paragraph follow it at the reading measure.</p>
+    </figcaption>
+  </figure>
+</div>
+</section>
+
+<!-- References ------------------------------------------------------------ -->
+<section class="section" id="sec-references">
+<h2 class="section-heading">References</h2>
+
+<div class="specimen">
+<ul class="reference-list">
+  <li>
+    <a href="https://github.com/felipeharker" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <span class="desc">A place: the heading is the link.</span>
+  </li>
+  <li>
+    <a class="path" href="mailto:fehark@gmail.com">fehark@gmail.com</a>
+    <span class="desc">An address that is its own heading: .path.</span>
+  </li>
+  <li>
+    <span class="name">A Referee</span>
+    <span class="desc">A person: .name, then .desc, then an .addr to reach them.</span>
+    <a class="addr" href="mailto:name@example.edu">name@example.edu</a>
+  </li>
+</ul>
+</div>
+</section>
+
+<!-- Navigation ------------------------------------------------------------ -->
+<section class="section" id="sec-navigation">
+<h2 class="section-heading">Navigation</h2>
+
+<p class="body-text">An interior page opens with a back link to the page that lists it. Every page ends with a colophon holding the site links — the foot of this page is one.</p>
+
+<p class="label">.backlink</p>
+<div class="specimen">
+  <a class="backlink" href="#sec-navigation">&larr; Academic Projects</a>
+</div>
+</section>
+
+<footer class="colophon">
+  <nav class="site-links" aria-label="Felipe E. Harker">
+    <span class="site-links-owner">Felipe E. Harker</span>
+    <a href="/">Portfolio</a>
+    <a href="/academic/">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+  <p>Rendered by hark.css with nothing added but the specimen margins, swatches and samples. The reasoning is in web/standards/docs in the repository.</p>
+</footer>
+
+</article>
+
+</body>
+</html>

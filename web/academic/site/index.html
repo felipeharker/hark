@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Projects — Felipe E. Harker</title>
+<meta name="description" content="Architecture and urban design projects by Felipe E. Harker from the Bachelor of Architecture at the University of Houston: housing in Rio de Janeiro, Greenspoint Mall and Near Northside in Houston.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/standards/hark.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     FELIPE E. HARKER — ACADEMIC PROJECTS
+     --------------------------------------------------------------------------
+     The front page of the academic site: one row per project, each linking to
+     its page under projects/. Static HTML, no build step, no JavaScript.
+
+     Every class here is defined in /standards/hark.css (its source is
+     web/standards/site/hark.css in this repository). Do not add inline
+     `style` attributes; a rule this site needs and the standard lacks goes in
+     a new assets/site.css.
+
+     ADDING A PROJECT
+     1. Make its page: copy a file in projects/ and replace the content.
+        Images go in assets/projects/<project>/; working files (models,
+        board PDFs) in web/academic/source/<project>/, never in site/.
+     2. Add a cover: 3:2, 1500 x 1000 or smaller, JPEG, at
+        assets/covers/<project>.jpg.
+     3. Copy one <li class="work"> block below. Every row carries the same
+        parts in the same order; omit an element rather than leave it empty.
+     ====================================================================== -->
+
+<article class="doc">
+
+<!-- Masthead ------------------------------------------------------------- -->
+<header>
+  <p class="kicker">Academic Work</p>
+  <h1 class="title">Academic Projects</h1>
+  <p class="subtitle">Architecture and urban design from the University of Houston</p>
+  <p class="byline">Felipe E. Harker</p>
+  <p class="dateline">
+    <span>Hines College of Architecture and Design</span>
+    <span class="sep" aria-hidden="true">|</span>
+    <span>Bachelor of Architecture, 2024</span>
+  </p>
+</header>
+<hr class="rule">
+
+<div class="abstract">
+  <p class="abstract-label">Abstract</p>
+  <p>Three projects from the Bachelor of Architecture at the University of Houston&rsquo;s Hines College of Architecture and Design: a modular housing community in the hills of Rio de Janeiro, an urban design proposal for the neighborhood around Greenspoint Mall, and an adaptive-reuse marketplace in Houston&rsquo;s Near Northside. Each has a page of its own with its drawings.</p>
+</div>
+
+<!-- Projects -------------------------------------------------------------- -->
+<section class="section" id="sec-projects">
+<h2 class="section-heading">Projects</h2>
+
+<ul class="work-list">
+
+  <!-- Living Outside the Box -------------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="projects/living-outside-the-box.html" aria-hidden="true" tabindex="-1">
+      <img src="assets/covers/living-outside-the-box.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="projects/living-outside-the-box.html">Living Outside the Box</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">Caixa Social: a hillside housing community in Rio built up from one pre-fabricated concrete box — a box makes a room, two make a house, five houses make a cluster.</p>
+      <p class="work-stack">
+        <span>Rio de Janeiro, Brazil</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Residential</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+      </p>
+      <a class="work-link" href="projects/living-outside-the-box.html">Project Page</a>
+    </div>
+  </li>
+
+  <!-- Dead Mall Fall ---------------------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="projects/dead-mall-fall.html" aria-hidden="true" tabindex="-1">
+      <img src="assets/covers/dead-mall-fall.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="projects/dead-mall-fall.html">Dead Mall Fall</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">An urban design proposal for the neighborhood around Greenspoint Mall, reworking its streets, trails and greenspaces around transit, walkability and flood mitigation.</p>
+      <p class="work-stack">
+        <span>Houston, TX</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+      </p>
+      <a class="work-link" href="projects/dead-mall-fall.html">Project Page</a>
+    </div>
+  </li>
+
+  <!-- Collingsworth Marketplace ----------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="projects/collingsworth-marketplace.html" aria-hidden="true" tabindex="-1">
+      <img src="assets/covers/collingsworth-marketplace.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="projects/collingsworth-marketplace.html">Collingsworth Marketplace</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A walkable mixed-use marketplace for Near Northside, adapting an existing two-block warehouse with passive cooling, ventilation and stormwater strategies.</p>
+      <p class="work-stack">
+        <span>Houston, TX</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Adaptive Reuse</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+      </p>
+      <a class="work-link" href="projects/collingsworth-marketplace.html">Project Page</a>
+    </div>
+  </li>
+
+</ul>
+</section>
+
+<!-- Colophon -------------------------------------------------------------- -->
+<footer class="colophon">
+  <nav class="site-links" aria-label="Felipe E. Harker">
+      <span class="site-links-owner">Felipe E. Harker</span>
+      <a href="/">Portfolio</a>
+      <a href="/academic/" aria-current="page">Academic</a>
+      <a href="/birds/">Birding</a>
+      <a href="/resume/">Resume</a>
+    </nav>
+  <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript. Built to the <a href="/standards/">Hark web standards</a>.</p>
+</footer>
+
+</article>
+
+</body>
+</html>

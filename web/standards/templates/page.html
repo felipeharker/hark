@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Title — Felipe E. Harker</title>
+<meta name="description" content="One sentence on what this page is.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- The shared stylesheet, then this part of the site's own if it has one.
+     /standards/hark.css is web/standards/site/hark.css in the repository. -->
+<link rel="stylesheet" href="/standards/hark.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     PAGE TITLE
+     --------------------------------------------------------------------------
+     A page built to the Hark web standards. Every class used below is defined
+     in /standards/hark.css and listed in web/standards/docs/components.md.
+     No inline style attributes: a rule this page needs and the standard does
+     not have goes in assets/site.css, as a commented class.
+     ====================================================================== -->
+
+<article class="doc">
+
+<a class="backlink" href="../index.html">&larr; The Page That Lists This One</a>
+
+<!-- Masthead ------------------------------------------------------------- -->
+<header>
+  <p class="kicker">Kind of Page</p>
+  <h1 class="title">Page Title</h1>
+  <p class="subtitle">One line on what the subject is</p>
+  <p class="dateline">
+    <span>Houston, TX</span>
+    <span class="sep" aria-hidden="true">|</span>
+    <span>2026</span>
+  </p>
+</header>
+
+<!-- First Section --------------------------------------------------------- -->
+<section class="section" id="sec-first-section">
+<h2 class="section-heading">First Section</h2>
+
+<p class="body-text">A paragraph.</p>
+</section>
+
+<!-- Colophon --------------------------------------------------------------
+     The site links: every part of felipeharker.org, in the order of
+     tools/sites.mjs. Put aria-current="page" on the part this page is in. -->
+<footer class="colophon">
+  <nav class="site-links" aria-label="Felipe E. Harker">
+    <span class="site-links-owner">Felipe E. Harker</span>
+    <a href="/">Portfolio</a>
+    <a href="/academic/">Academic</a>
+    <a href="/birds/">Birding</a>
+    <a href="/resume/">Resume</a>
+  </nav>
+  <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript. Built to the <a href="/standards/">Hark web standards</a>.</p>
+</footer>
+
+</article>
+
+</body>
+</html>

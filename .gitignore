@@ -1,0 +1,56 @@
+# CODEBASE baseline .gitignore (GIT-05). Copy to <repo>/.gitignore; add the repo's own lines under "# This repo".
+# Source: hark_system/templates/baseline/gitignore.
+# OS / editors
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+*.tmp
+# Rhino / Grasshopper: models live outside git; milestones go to GitHub Releases (GIT-04)
+*.3dm
+*.3dmbak
+*.rhl
+# Exports, renders, design sources, archives, video
+*.stl
+*.obj
+*.fbx
+*.3ds
+*.c4d
+*.dwg
+*.dxf
+*.exr
+*.psd
+*.ai
+*.zip
+*.rar
+*.7z
+*.mp4
+*.mov
+# Python
+__pycache__/
+*.pyc
+.venv/
+# Node / web builds
+node_modules/
+.next/
+out/
+dist/
+.env
+.env*.local
+*.log
+# Local agent settings
+.claude/settings.local.json
+# This repo
+# PDFs stay out of the repository for now: board sets, the resume PDF and
+# third-party field guides are kept beside the sites, not published (see
+# planning/decisions.md). Their links are removed from the pages.
+*.pdf
+# Working files for a site live in its source/ folder, beside site/; nothing
+# in source/ is published, and nothing in it is committed except its README.
+web/*/source/**
+!web/*/source/README.md
+# Generated: the birding app's copy of the shared stylesheet (see
+# web/birds/web/package.json, predev and prebuild).
+web/birds/web/src/app/hark.css
+# Personal trip-planning notes: kept on disk, not published in a public repo.
+web/birds/notebook/

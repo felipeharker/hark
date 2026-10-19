@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" role="img" aria-label="Line drawing of stacked modular boxes">
+  <rect width="1500" height="1000" fill="#faf9f7"/>
+  <g fill="none" stroke="#7a746e" stroke-width="3" stroke-linejoin="round">
+    <path d="M450 700 L750 560 L1050 700 L750 840 Z"/>
+    <path d="M450 700 L450 520 L750 380 L1050 520 L1050 700"/>
+    <path d="M750 560 L750 380"/>
+    <path d="M450 520 L750 660 L1050 520"/>
+    <path d="M750 660 L750 840"/>
+    <path d="M600 450 L600 270 L900 130 L900 310"/>
+    <path d="M600 270 L750 340 L1050 200 L900 130"/>
+    <path d="M750 340 L750 380"/>
+    <path d="M1050 200 L1050 520"/>
+  </g>
+  <g fill="none" stroke="#d5d0ca" stroke-width="2">
+    <path d="M150 900 L1350 900"/>
+    <path d="M200 860 L1300 860"/>
+  </g>
+</svg>

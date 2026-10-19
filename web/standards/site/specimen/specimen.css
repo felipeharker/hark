@@ -1,0 +1,122 @@
+/* ============================================================================
+   HARK STANDARDS — SPECIMEN STYLESHEET
+   ----------------------------------------------------------------------------
+   Rules for the specimen page (index.html) only: the margin that marks a
+   rendered example, and the swatches, type samples and space bars that show
+   tokens. No other page loads it. Everything else on the page is
+   hark.css, unaltered — the point of the page is to show it as the pages
+   get it.
+
+   HOW THIS FILE IS ORGANISED
+      1.  Specimen frame ........... the margin around a rendered example
+      2.  Swatches ................. one per colour token
+      3.  Type samples ............. one per size token
+      4.  Space bars ............... one per spacing token
+   ========================================================================= */
+
+
+/* ============================================================================
+   1. SPECIMEN FRAME
+   An example is set off by a hairline down its left edge — enough to tell it
+   from the explanation around it, without boxing it in.
+   ========================================================================= */
+
+.specimen {
+  margin: var(--space-4) 0 var(--space-6);
+  padding-left: var(--space-5);
+  border-left: 1px solid var(--color-rule);
+}
+
+.specimen:last-child { margin-bottom: 0; }
+
+/* The label naming a specimen belongs to the example below it, so it gets
+   the room above — except directly under a section heading, which already
+   has its own. */
+.section > .label { margin-top: var(--space-6); }
+.section-heading + .label { margin-top: 0; }
+
+/* Mastheads inside a specimen should not push the next example away. */
+.specimen .dateline { margin-bottom: 0; }
+
+
+/* ============================================================================
+   2. SWATCHES
+   ========================================================================= */
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.swatch {
+  height: 56px;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-sm);
+}
+
+.swatch--bg { background: var(--color-bg); }
+.swatch--surface { background: var(--color-surface); }
+.swatch--surface-hover { background: var(--color-surface-hover); }
+.swatch--text { background: var(--color-text); }
+.swatch--text-soft { background: var(--color-text-soft); }
+.swatch--text-mute { background: var(--color-text-mute); }
+.swatch--accent { background: var(--color-accent); }
+.swatch--accent-hover { background: var(--color-accent-hover); }
+.swatch--accent-wash { background: var(--color-accent-wash); }
+.swatch--selection { background: var(--color-selection); }
+.swatch--rule { background: var(--color-rule); }
+.swatch--rule-strong { background: var(--color-rule-strong); }
+
+.swatch-name {
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--size-data);
+  color: var(--color-text);
+}
+
+
+/* ============================================================================
+   3. TYPE SAMPLES
+   Each sample is set in the size it names, so the table is the scale.
+   ========================================================================= */
+
+.type-sample { color: var(--color-text); line-height: 1.3; }
+.type-sample--title { font-size: var(--size-title); font-weight: var(--weight-strong); letter-spacing: var(--track-tight); }
+.type-sample--title-record { font-size: var(--size-title-record); font-weight: var(--weight-strong); letter-spacing: var(--track-tight); }
+.type-sample--section { font-size: var(--size-section); font-weight: var(--weight-strong); letter-spacing: var(--track-tight); }
+.type-sample--subtitle { font-size: var(--size-subtitle); color: var(--color-text-soft); }
+.type-sample--subsection { font-size: var(--size-subsection); font-weight: var(--weight-strong); letter-spacing: var(--track-tight); }
+.type-sample--body { font-size: var(--size-body); color: var(--color-text-soft); }
+.type-sample--table { font-size: var(--size-table); color: var(--color-text-soft); }
+.type-sample--data { font-family: var(--font-mono); font-size: var(--size-data); color: var(--color-text-mute); }
+.type-sample--caption { font-size: var(--size-caption); color: var(--color-text-mute); }
+.type-sample--fine { font-size: var(--size-fine); color: var(--color-text-mute); }
+.type-sample--label {
+  font-size: var(--size-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--color-text-mute);
+}
+
+
+/* ============================================================================
+   4. SPACE BARS
+   ========================================================================= */
+
+.space-bar {
+  display: block;
+  height: 12px;
+  background: var(--color-rule-strong);
+  border-radius: 1px;
+}
+
+.space-bar--1 { width: var(--space-1); }
+.space-bar--2 { width: var(--space-2); }
+.space-bar--3 { width: var(--space-3); }
+.space-bar--4 { width: var(--space-4); }
+.space-bar--5 { width: var(--space-5); }
+.space-bar--6 { width: var(--space-6); }
+.space-bar--7 { width: var(--space-7); }

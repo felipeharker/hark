@@ -1,0 +1,20 @@
+# Render Blueprint for felipeharker.org: the whole site, one static service,
+# built from this repository's main branch.
+#
+# It records the dashboard settings. Render reads this file only if it is
+# synced as a Blueprint; until then the dashboard rules, and the two must
+# match. See wiki/Deploying.md.
+services:
+  - type: web
+    name: hark-site
+    runtime: static
+    repo: https://github.com/felipeharker/hark
+    branch: main
+    buildCommand: node tools/build.mjs     # builds the birding app, assembles dist/
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION                  # Next.js 16 needs 20.9 or newer
+        value: "22"
+    domains:
+      - felipeharker.org
+      - www.felipeharker.org

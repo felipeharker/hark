@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felipe E. Harker — Portfolio</title>
+<meta name="description" content="Portfolio of Felipe E. Harker: computational design, architecture, and the tools built alongside them, with links to the academic projects, the ornithology report and the resume.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/standards/hark.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     FELIPE E. HARKER — PORTFOLIO
+     --------------------------------------------------------------------------
+     A single static document. No build step, no framework, no JavaScript.
+     This is the front door to the other felipeharker.org sites: each body of
+     work — the academic projects, the ornithology report — has a site of its
+     own, and gets one row here linking to it. The resume is in Elsewhere.
+
+     All styling is /standards/hark.css, the shared stylesheet (its source is
+     web/standards/site/hark.css in this repository). Do not add inline
+     `style` attributes: a rule this page needs and the standard lacks goes in
+     a new assets/site.css, loaded after hark.css. There are none.
+
+     ADDING A ROW
+     Copy one <li class="work"> block. Every row carries the same seven parts
+     in the same order, and a row that drops one — a project with no stack
+     line, say — should omit the element rather than leave it empty. A link to
+     another felipeharker.org site opens in the same tab; a link anywhere else
+     opens a new one.
+
+     ADDING A COVER IMAGE
+     Inside a row's <a class="work-cover">, replace the whole
+     <span class="work-cover-placeholder"> with:
+
+         <img src="assets/covers/<name>.jpg" alt="">
+
+     and nothing else. The frame holds the aspect ratio, the border and the
+     hover state, so a cover cannot change the page's rhythm by being the wrong
+     shape — it is cropped to the frame. The alt attribute stays empty on
+     purpose: the row's title sits immediately beside the image and says the
+     same thing, so describing it again is noise to a screen reader.
+     ====================================================================== -->
+
+<article class="doc">
+
+<!-- Masthead ------------------------------------------------------------- -->
+<header>
+  <p class="kicker">Portfolio</p>
+  <h1 class="title">Felipe E. Harker</h1>
+  <p class="subtitle">Computational design, architecture, and the tools built alongside them</p>
+  <!-- Two recorded values on one line. The separator is a span rather than a
+       pipe character in the text, so a copied line comes across clean and the
+       responsive rules can drop it when the line stacks. -->
+  <p class="dateline">
+    <span>Houston, TX</span>
+    <span class="sep" aria-hidden="true">|</span>
+    <a href="mailto:fehark@gmail.com">fehark@gmail.com</a>
+  </p>
+</header>
+
+<!-- Work ---------------------------------------------------------------- -->
+<section class="section" id="sec-work">
+<h2 class="section-heading">Work</h2>
+
+<ul class="work-list">
+
+  <!-- Academic Projects -------------------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="/academic/" aria-hidden="true" tabindex="-1">
+      <img src="assets/covers/academic-projects.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="/academic/">Academic Projects</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">Architecture and urban design from the University of Houston: modular hillside housing in Rio de Janeiro, a new neighborhood around Greenspoint Mall, and an adaptive-reuse marketplace in Near Northside.</p>
+      <p class="work-stack">
+        <span>Architecture</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Adaptive Reuse</span>
+      </p>
+      <p class="work-kind">Academic</p>
+      <a class="work-link" href="/academic/">Project Site</a>
+    </div>
+  </li>
+
+  <!-- Harker Ornithology Report ------------------------------------------ -->
+  <li class="work">
+    <a class="work-cover" href="/birds/" aria-hidden="true" tabindex="-1">
+      <span class="work-cover-placeholder">
+        <span class="name">Harker Ornithology Report</span>
+        <span class="note">Cover pending</span>
+      </span>
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="/birds/">Harker Ornithology Report</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A record of field observations, checklists and media, built from eBird exports at compile time and published as a static site with a map of every location visited.</p>
+      <p class="work-stack">
+        <span>Next.js</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>TypeScript</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>eBird</span>
+      </p>
+      <p class="work-kind">Personal</p>
+      <a class="work-link" href="/birds/">Project Site</a>
+    </div>
+  </li>
+
+</ul>
+</section>
+
+<!-- About ---------------------------------------------------------------- -->
+<section class="section" id="sec-about">
+<h2 class="section-heading">About</h2>
+
+<p class="body-text">I graduated from the University of Houston&rsquo;s Hines College of Architecture and Design in 2024 with a Bachelor of Architecture. Since then I have worked in commercial signage and architectural products — custom perforated panel systems, facades, exterior cladding — across the design, fabrication and installation pipeline, and led the effort to bring parametric and computational practice into that work.</p>
+
+<p class="body-text">Most of what I build is infrastructure for other people&rsquo;s work: Grasshopper definitions and Python scripts that keep a model in step with a scope that keeps moving, plug-ins that standardise a process somebody was doing by hand, and reference documents that make any of it findable a year later. The ornithology report is that same instinct applied to my own material, and so is my <a href="/resume/">CV</a>, kept as a page of static HTML rather than an attachment.</p>
+
+<p class="body-text">Before that I spent three years as a staff photographer for the McGovern College of the Arts, covering performances, exhibitions and concerts, and edited UH: Close Up, an architecture and documentary photography page. Outside work I run, follow college football, and go birding — which is where the ornithology report came from.</p>
+
+</section>
+
+<!-- Elsewhere ------------------------------------------------------------ -->
+<section class="section" id="sec-elsewhere">
+<h2 class="section-heading">Elsewhere</h2>
+
+<ul class="reference-list">
+  <li>
+    <a href="/resume/">Resume</a>
+    <span class="desc">Education, experience and skills, on one printable page.</span>
+  </li>
+  <li>
+    <a href="https://github.com/felipeharker" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <span class="desc">Source for the software on this page, and for this site.</span>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com/in/felipe-h-0000a7143/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <span class="desc">Professional history, in the format that expects it.</span>
+  </li>
+  <li>
+    <a class="path" href="mailto:fehark@gmail.com">fehark@gmail.com</a>
+    <span class="desc">The best way to reach me.</span>
+  </li>
+</ul>
+</section>
+
+<!-- Colophon -------------------------------------------------------------- -->
+<footer class="colophon">
+  <nav class="site-links" aria-label="Felipe E. Harker">
+      <span class="site-links-owner">Felipe E. Harker</span>
+      <a href="/" aria-current="page">Portfolio</a>
+      <a href="/academic/">Academic</a>
+      <a href="/birds/">Birding</a>
+      <a href="/resume/">Resume</a>
+    </nav>
+  <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript. Built to the <a href="/standards/">Hark web standards</a>.</p>
+</footer>
+
+</article>
+
+</body>
+</html>

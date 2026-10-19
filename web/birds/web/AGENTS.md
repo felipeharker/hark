@@ -1,0 +1,73 @@
+# Notes for coding agents
+
+The birding report: the part of felipeharker.org served under `/birds/`. Read
+the repository's [`AGENTS.md`](../../../AGENTS.md) first; these are the rules
+particular to this app.
+
+## Architecture
+
+Next.js App Router, exported statically (`output: 'export'`) with
+`basePath: '/birds'`. No server, no database, no CSS framework. Content comes
+from files at build time — see the table in [`../README.md`](../README.md).
+The repository's `tools/build.mjs` copies `out/` to `dist/birds/`.
+
+## Rules
+
+- **`src/app/hark.css` is generated.** `npm run dev`, `npm run build` and
+  `npm run lint` copy it from `web/standards/site/hark.css` first, and git
+  ignores it. Never edit it here: a change to a token or a shared component
+  (masthead, sections, tables, disclosures, references, colophon) is made in
+  the standard.
+- **This site's own styling lives in `src/app/styles_primary.css` and
+  `src/app/styles_map.css`**, loaded after `hark.css`. Do not add inline style
+  objects, and do not reintroduce Tailwind or any other CSS framework. Add a
+  commented class to the relevant numbered section instead, and do not restyle
+  a class `hark.css` defines.
+- **Design tokens first.** Tokens are in `hark.css`; `styles_primary.css` adds
+  only `--color-scrim`, `styles_map.css` its map tokens. Prefer a token over a
+  hardcoded color, size, or spacing value.
+- **Links inside the app are `<Link>`; links out of it are `<a>`.** `basePath`
+  prefixes every `<Link>` with `/birds`, which is right for a checklist page
+  and wrong for `/`, `/academic/` or `/standards/`. The site links and the
+  standards link are plain `<a>` elements with root-relative paths, from
+  `SITE_FAMILY` and `STANDARDS_PATH` in `src/lib/siteConfig.ts`.
+- **Every page ends with `<Colophon>`** (`src/components/ui/Colophon.tsx`): the
+  links to every part of felipeharker.org, then the page's own line.
+- **Observations are never hardcoded; the project's own settings always are.**
+  Birds, places, counts, dates and media come from the CSVs in
+  `../observation-data/`, and prose from `field-notes/`. A change that bakes one
+  of those into a component is wrong. The site's title, subtitle, byline,
+  abstract and off-site links are different in kind — they describe the project
+  rather than record an observation — and they belong in `src/lib/siteConfig.ts`
+  as plain exported constants.
+- **`src/lib/parseEbird.ts` touches the filesystem, so only server components
+  may import a *value* from it.** Importing the row types is fine — types are
+  erased before bundling — but pulling a function out of it into a `'use client'`
+  component drags `fs` into the browser bundle and fails the build. That is why
+  `formatDate` sits in its own module: client components format dates too.
+- **The field-name maps in `parseEbird.ts` are the only place eBird's column
+  headers appear.** Touch them only when eBird changes its export format.
+- **Long lists are lists of native `<details>` rows.** Locations and Media are
+  the same list twice: a section that stays open, one collapsible row per
+  place. Opening is the browser's, not React state — with one exception: a
+  location row's `open` state is controlled, because selecting a map pin has
+  to open it, and only one location is open at a time.
+- **`web/standards/docs/` states the design language** for every page on
+  felipeharker.org, and `/standards/` renders it. Before changing type, color,
+  or rules, read it — a change there is a change the whole site follows.
+- **Reuse the primitives in `src/components/ui/`.** `Section`, `Disclosure`,
+  `Masthead` and `Colophon` exist so that every page emits the same markup for
+  the same thing.
+- **The `next/font` variable classes belong on `<html>`, not `<body>`.**
+  `hark.css` composes `--font-body` inside `:root`, and a custom property is
+  substituted against the element it is declared on — put the classes lower
+  and the token resolves to nothing, silently falling the whole site back to
+  the browser's default serif.
+- **`tsconfig.json` is rewritten by `next build`.** It re-adds `allowJs` and
+  reformats the file; edits that fight it are churn, not cleanup.
+
+## Verifying
+
+`npm run build` (type-checks and pre-renders every page) and `npm run lint`
+both have to pass, and so does `node tools/check.mjs` from the repository
+root. There is no test suite.

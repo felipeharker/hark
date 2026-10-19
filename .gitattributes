@@ -1,0 +1,25 @@
+# CODEBASE baseline .gitattributes (GIT-05). Copy to <repo>/.gitattributes; add the repo's own lines at the end.
+# Source: hark_system/templates/baseline/gitattributes.
+* text=auto
+*.py text eol=lf
+*.sh text eol=lf
+*.3dm binary
+*.3dmbak binary
+*.gh binary
+*.ghuser binary
+*.dwg binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.exr binary
+*.hdr binary
+*.ai binary
+*.psd binary
+*.zip binary
+*.woff binary
+*.woff2 binary
+*.mjs text eol=lf
