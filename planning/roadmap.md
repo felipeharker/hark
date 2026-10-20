@@ -95,8 +95,9 @@ Decided (the reasons are in [decisions.md](decisions.md)):
 
 ## Next
 
-- **Covers for every tile**: the three academic projects, on the portfolio
-  and on the academic site, and the birding report. Each is a placeholder for now.
+- **Covers for every tile**: the portfolio's tiles each have one, from the
+  project, for now (2026-10-20); the academic site's index still shows
+  placeholders.
 - **A check on every push.** A GitHub Actions workflow in each repository
   running its `node tools/check.mjs` (and, in `hark_birding`, the build),
   so a broken link never reaches `main`.

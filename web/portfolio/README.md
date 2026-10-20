@@ -14,19 +14,19 @@ web/portfolio/
     index.html                Work, About, Elsewhere
 ```
 
-The page has no images of its own. For now every tile shows a placeholder
-block, not a cover (`planning/decisions.md`). When covers return, each
-academic tile shows its project's cover from the academic site
+Every tile shows a cover taken from its project (`planning/decisions.md`).
+Each academic tile shows its project's cover from the academic site
 (`https://hark-academic.onrender.com/assets/covers/<slug>.jpg`), so there is
-one file per cover; a
-cover for the birding report or Dove Habitat would go in
-`site/assets/covers/`.
+one file per cover. The birding report's is one of its own photographs,
+linked from the Macaulay Library as the report links them. Parametric
+Living's and Dove Habitat's are drawings from their sites, cropped to 3:2,
+in `site/assets/covers/`.
 
 ## The page
 
 | Section | What it holds |
 |---|---|
-| Work | three rows of tiles, each opening its project in a new tab: Parametric Living (https://parametric-living.onrender.com/), alone; the academic projects, one tile each linking its page on https://hark-academic.onrender.com/; then the bird projects, the birding report (https://hark-birding.onrender.com/) and Dove Habitat (https://hark-dove-habitat.onrender.com/). Every cover a placeholder for now |
+| Work | three rows of tiles, each opening its project in a new tab: Parametric Living (https://parametric-living.onrender.com/), alone; the academic projects, one tile each linking its page on https://hark-academic.onrender.com/; then the bird projects, the birding report (https://hark-birding.onrender.com/) and Dove Habitat (https://hark-dove-habitat.onrender.com/). Each with a cover from its project |
 | About | the biography |
 | Elsewhere | the resume (https://hark-resume.onrender.com/), GitHub, LinkedIn, email |
 

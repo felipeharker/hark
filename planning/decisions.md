@@ -4,6 +4,19 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — A cover on every portfolio tile
+
+**Every tile on the front page shows a cover taken from its project.** The
+academic projects show their own covers, from
+`https://hark-academic.onrender.com/assets/covers/`; the birding report, one
+of its own photographs (a Northern Mockingbird, ML 656802002), linked from
+the Macaulay Library as the report links its media; Parametric Living, its
+axonometric (`living_axo.png`), and Dove Habitat, an exploded perch mount
+(`split-ph1.webp`), each set on white at 3:2 and kept in
+`web/portfolio/site/assets/covers/`. *Why:* the owner's call — any graphic
+from the project, for now. *Replaces:* placeholder covers (below), on the
+front page only; the academic site's own index keeps its placeholders.
+
 ## 2026-10-20 — Every tile the same size
 
 **A work list's tiles are all one size, whatever the number in a row**: a
