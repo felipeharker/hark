@@ -267,8 +267,11 @@ own. The `<hr class="rule-soft">` in it is drawn as a short ink dash.
 
 To give each kind of work a row of its own, put one `.work-list` after
 another in the section: each starts a new row, as far below the last as two
-rows within one list. The portfolio has two — the academic projects, three
-across, then the bird projects, two across.
+rows within one list. The portfolio has three — Parametric Living alone,
+then the academic projects, three across, then the bird projects, two
+across. A tile alone in its list keeps a tile's width, a third of the row,
+rather than spreading its cover across the page; on a phone it has the
+whole width, like every tile.
 
 ## Entries
 

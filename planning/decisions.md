@@ -4,6 +4,20 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — Parametric Living has a row of its own
+
+**The portfolio's Work section opens with a row holding one tile, Parametric
+Living, linking https://parametric-living.onrender.com/ in a new tab**,
+above the academic projects. The site is built from the private
+`parametric_living`, outside this family; the tile links its address and
+nothing else — its repository and its Render service are left as they are,
+and the repository is not linked (`AGENTS.md`, rule 4). *Why:* the owner's
+call. *Replaces:* nothing; it adds a row.
+
+**A tile alone in its list keeps a tile's width**, a third of the row, in
+`hark.css`; on a phone, the whole width. *Why:* alone, a tile spread across
+the page, its cover about 1345 x 900.
+
 ## 2026-10-20 — Dove Habitat is a project site, with a tile
 
 **Dove Habitat moves to its own public repository, `hark_dove_habitat`, and

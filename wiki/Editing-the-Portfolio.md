@@ -23,9 +23,11 @@ links and Elsewhere stay in the same tab.
 
 ## Adding a tile
 
-The Work section is two rows, each its own `<ul class="work-list">`: the
-academic projects (three), then the bird projects (the birding report and
-Dove Habitat). Copy one `<li class="work">` block into its row. Every tile
+The Work section is three rows, each its own `<ul class="work-list">`:
+Parametric Living (one), the academic projects (three), then the bird
+projects (the birding report and Dove Habitat). Parametric Living is a site
+built elsewhere, from a private repository: the tile links its address and
+nothing more. Copy one `<li class="work">` block into its row. Every tile
 carries the same parts in the same order — cover, title, hairline, summary,
 stack, kind, link — and a tile without one of them omits the element.
 

@@ -212,6 +212,7 @@ flowchart TB
 | `hark_portfolio_archive`, `hark_resume_archive`, `hark_birding_archive` | GitHub, archived | The three repositories the 2026-10-19 monorepo replaced; read-only, with their histories. None of the current repositories was made from them |
 | `hark_system_archive`, `hark_references_archive`, `hark_parametric_*_archive` | GitHub, archived | The old CODEBASE standards, an unused references repository, and the old parametric repositories |
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |
+| parametric-living.onrender.com | Render static site `parametric-living`, from the private `parametric_living` | Its own site, outside the family and its standard. The portfolio's top row links it from a tile, in a new tab; nothing else here does, and nothing here builds or changes it |
 | The GitHub wiki | github.com/felipeharker/hark_web/wiki | A copy of `wiki/`, replaced by `.github/workflows/wiki.yml` on every push to `main` that changes it |
 | Fonts | Google Fonts, by a `<link>` on every page (the birding app's in its `layout.tsx`) | Inter and IBM Plex Mono |
 | hark-dove-habitat.onrender.com | Render static site `hark-dove-habitat`, from the public `hark_dove_habitat` | A project site, opened from its portfolio tile and from the birding report's Reference section; its running head and colophon link the portfolio alone |

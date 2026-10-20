@@ -1016,6 +1016,13 @@ code {
 
 .work { min-width: 0; }
 
+/* A tile alone in its list stays a tile — a third of the row, as wide as
+   one of three — instead of filling the page with its cover. On a phone,
+   where every tile has the whole width, so does this one. */
+.work:only-child {
+  max-width: max(300px, calc((100% - 2 * var(--work-gap)) / 3));
+}
+
 /* An image, not a card: no border, no shadow, no rounding. */
 .work-cover {
   display: flex;
@@ -1481,6 +1488,8 @@ code {
 }
 
 @media (max-width: 640px) {
+  .work:only-child { max-width: none; }
+
   :root {
     --size-subtitle: 18px;
     --size-abstract: 17px;

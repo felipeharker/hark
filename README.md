@@ -8,7 +8,7 @@ its tiles open, such as Dove Habitat:
 
 | Site | Address | Repository | What it holds |
 |---|---|---|---|
-| Portfolio | https://felipeharker.org/ | `hark_web`, this one ([`web/portfolio/`](web/portfolio/)) | The front page: a row of tiles for the academic projects and one for the bird projects (the birding report and Dove Habitat), About, contact. |
+| Portfolio | https://felipeharker.org/ | `hark_web`, this one ([`web/portfolio/`](web/portfolio/)) | The front page: rows of tiles — Parametric Living, the academic projects, the bird projects (the birding report and Dove Habitat) — About, contact. |
 | Standards | https://felipeharker.org/standards/ | `hark_web`, this one ([`web/standards/`](web/standards/)) | The web design and development standards, the one shared stylesheet, and a page that renders it. |
 | Academic | https://hark-academic.onrender.com/ | [`hark_academic`](https://github.com/felipeharker/hark_academic) | Architecture and urban design projects from the University of Houston, a page each. |
 | Birding | https://hark-birding.onrender.com/ | [`hark_birding`](https://github.com/felipeharker/hark_birding) | The Harker Ornithology Report: eBird observations, checklists, media and field notes. Next.js. |

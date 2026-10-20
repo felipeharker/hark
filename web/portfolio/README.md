@@ -26,7 +26,7 @@ cover for the birding report or Dove Habitat would go in
 
 | Section | What it holds |
 |---|---|
-| Work | two rows of tiles, each opening its project in a new tab: the academic projects, one tile each linking its page on https://hark-academic.onrender.com/; then the bird projects, the birding report (https://hark-birding.onrender.com/) and Dove Habitat (https://hark-dove-habitat.onrender.com/). Every cover a placeholder for now |
+| Work | three rows of tiles, each opening its project in a new tab: Parametric Living (https://parametric-living.onrender.com/), alone; the academic projects, one tile each linking its page on https://hark-academic.onrender.com/; then the bird projects, the birding report (https://hark-birding.onrender.com/) and Dove Habitat (https://hark-dove-habitat.onrender.com/). Every cover a placeholder for now |
 | About | the biography |
 | Elsewhere | the resume (https://hark-resume.onrender.com/), GitHub, LinkedIn, email |
 
