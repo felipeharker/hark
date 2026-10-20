@@ -1315,18 +1315,28 @@ code {
 /* ============================================================================
    17. RUNNING HEAD AND BACK LINK
    The running head is the line across the top of every page, outside its
-   <article>: the owner's name in the left column, and a link to every site
-   in the family from the middle — the same links as the colophon, so a
-   reader can move between the sites from either end of a page. The site the
-   reader is in is bracketed.
+   <article>: the owner's name in the left column, and from the middle a
+   list of every site in the family and every piece of work — Portfolio,
+   then three groups, Professional, Academic and Birding, each a label and
+   a .runhead-menu of what it holds, then Resume. A reader can reach any
+   site or project from the top of any page. The site the reader is in is
+   bracketed, and so is the group holding it.
 
      <header class="runhead">
        <a class="runhead-owner" href="/">Felipe E. Harker</a>
        <nav class="runhead-links" aria-label="Site">
-         <a href="/" aria-current="page">Portfolio</a>
-         <a href="https://hark-academic.onrender.com/">Academic</a>
-         <a href="https://hark-birding.onrender.com/">Birding</a>
-         <a href="https://hark-resume.onrender.com/">Resume</a>
+         <ul>
+           <li><a href="/" aria-current="page">Portfolio</a></li>
+           <li class="runhead-group">
+             <a href="https://hark-academic.onrender.com/">Academic</a>
+             <ul class="runhead-menu">
+               <li><a href="…/projects/dead-mall-fall.html">Dead Mall Fall</a></li>
+               …
+             </ul>
+           </li>
+           …
+           <li><a href="https://hark-resume.onrender.com/">Resume</a></li>
+         </ul>
        </nav>
      </header>
 
@@ -1357,21 +1367,104 @@ code {
 
 .runhead-owner { grid-column: label; }
 
-.runhead-links {
-  grid-column: content;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1) var(--space-5);
+.runhead-links { grid-column: content; }
+
+.runhead-links :where(ul) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.runhead-links a[aria-current]::before {
+/* Without a pointer that hovers — a phone, a tablet — there is nothing to
+   open a menu with, so every group is a row of the index: its label, then
+   what it holds, one to a line. A site alone takes a row of its own. */
+.runhead-links > ul {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-2) var(--space-5);
+}
+
+.runhead-links > ul > li { grid-column: 1 / -1; }
+
+.runhead-group {
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+}
+
+.runhead-menu {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.runhead-menu a { font-weight: var(--weight-regular); }
+
+/* The link to the site the reader is in is bracketed, and so is the label
+   of a group holding it. */
+.runhead-links a[aria-current]::before,
+.runhead-group:has([aria-current]) > a::before {
   content: '[\00a0';
   content: '[\00a0' / '';
 }
 
-.runhead-links a[aria-current]::after {
+.runhead-links a[aria-current]::after,
+.runhead-group:has([aria-current]) > a::after {
   content: '\00a0]';
   content: '\00a0]' / '';
+}
+
+/* With a pointer that hovers, the sites sit on one line, and a group's
+   menu drops from its label while the pointer is over either, or while
+   anything in it has the keyboard's focus. A closed menu is transparent,
+   not hidden, so a screen reader still reads it and the Tab key still
+   reaches it — and the moment it does, the menu is open. A chevron after
+   the label says there is a menu. */
+@media (hover: hover) {
+  .runhead-links > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-5);
+  }
+
+  .runhead-group {
+    display: block;
+    position: relative;
+  }
+
+  .runhead-group::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-left: var(--space-2);
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: translateY(-3px) rotate(45deg);
+  }
+
+  /* The menu hangs straight from the label, with no gap for the pointer to
+     fall through on the way down, its items lined up under the label's
+     first letter. Above the map and its pins, below the lightbox. */
+  .runhead-menu {
+    position: absolute;
+    top: 100%;
+    left: calc(-1 * var(--space-3));
+    z-index: 20;
+    gap: var(--space-2);
+    width: max-content;
+    padding: var(--space-3);
+    background: var(--color-bg);
+    border: 1px solid var(--color-rule);
+    border-top-color: var(--color-rule-strong);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .runhead-group:hover > .runhead-menu,
+  .runhead-group:focus-within > .runhead-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .backlink {

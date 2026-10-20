@@ -336,34 +336,70 @@ across. Every tile is the same size in all three.
 ## Running head
 
 The line across the top of every page, before its `<article>`: the owner's
-name in the left column, and a link to every site in felipeharker.org's
-family from the middle — the same links as the colophon, in the same order,
-so a reader can move between the sites from either end of a page. This is
-the portfolio's; on another site, its own link is `/` with
-`aria-current="page"`, and the owner's name and the Portfolio link are
-absolute, `https://felipeharker.org/`. Every link in it opens in the same
-tab.
+name in the left column, and from the middle every site in felipeharker.org's
+family and every piece of work, so a reader can reach any of them from the
+top of any page. Portfolio, then three groups — Professional, Academic and
+Birding — each a label over a menu of what it holds, then Resume. This is the
+portfolio's; on another site, its own link is `/` with `aria-current="page"`,
+and the owner's name, the Portfolio link and the Professional and Birding
+labels are absolute, `https://felipeharker.org/…`. Every link in it opens in
+the same tab, the project sites included.
 
 ```html
 <header class="runhead">
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
-    <a href="/" aria-current="page">Portfolio</a>
-    <a href="https://hark-academic.onrender.com/">Academic</a>
-    <a href="https://hark-birding.onrender.com/">Birding</a>
-    <a href="https://hark-resume.onrender.com/">Resume</a>
+    <ul>
+      <li><a href="/" aria-current="page">Portfolio</a></li>
+      <li class="runhead-group">
+        <a href="#work-professional">Professional</a>
+        <ul class="runhead-menu">
+          <li><a href="https://parametric-living.onrender.com/">Parametric Living</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="https://hark-academic.onrender.com/">Academic</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Living Outside the Box</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Dead Mall Fall</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="#work-birding">Birding</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-birding.onrender.com/">Ornithology Report</a></li>
+          <li><a href="https://hark-dove-habitat.onrender.com/">Dove Habitat</a></li>
+        </ul>
+      </li>
+      <li><a href="https://hark-resume.onrender.com/">Resume</a></li>
+    </ul>
   </nav>
 </header>
 ```
+
+A group's label leads to where its work is listed: Academic to the academic
+site, Professional and Birding to their rows of the portfolio's Work section
+(`#work-professional`, `#work-birding`).
+
+With a pointer that hovers, the list is one line and a group's menu drops
+from its label while the pointer is over it or anything in it has the
+keyboard's focus; a chevron after the label says there is one. A closed menu
+is transparent, not hidden: a screen reader reads it, and the Tab key reaches
+it, opening it. Without one — a phone, a tablet — every group is a row: its
+label, then what it holds, one to a line. No JavaScript either way.
 
 | Class | What it is |
 |---|---|
 | `.runhead` | The `<header>` of the page, outside its `<article>`, in the same frame as `.doc` and laid on the grid. |
 | `.runhead-owner` | The owner's name, linking to the front page, in the left column. |
-| `.runhead-links` | The `<nav>` of every site in the family, in the right column. The link to the site the reader is in carries `aria-current="page"` and is bracketed. |
+| `.runhead-links` | The `<nav>`, in the right column, holding one `<ul>`: a site, or a group. The link to the page or site the reader is in carries `aria-current="page"` and is bracketed, and so is the label of a group holding it. |
+| `.runhead-group` | An `<li>` holding a label — a link to where its work is listed — and its `.runhead-menu`. |
+| `.runhead-menu` | The `<ul>` of a group's work: a dropdown under its label with a pointer that hovers, a column beside it without. |
 
 `tools/check.mjs`, in every repository, fails if a page's running head misses
-a site.
+a site in the family. The menus are written out on every page: a new piece of
+work goes in each of them (`wiki/Editing-the-Portfolio.md`).
 
 ## Back link
 

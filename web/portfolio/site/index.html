@@ -67,10 +67,31 @@
 <header class="runhead">
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
-    <a href="/" aria-current="page">Portfolio</a>
-    <a href="https://hark-academic.onrender.com/">Academic</a>
-    <a href="https://hark-birding.onrender.com/">Birding</a>
-    <a href="https://hark-resume.onrender.com/">Resume</a>
+    <ul>
+      <li><a href="/" aria-current="page">Portfolio</a></li>
+      <li class="runhead-group">
+        <a href="#work-professional">Professional</a>
+        <ul class="runhead-menu">
+          <li><a href="https://parametric-living.onrender.com/">Parametric Living</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="https://hark-academic.onrender.com/">Academic</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Living Outside the Box</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Dead Mall Fall</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="#work-birding">Birding</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-birding.onrender.com/">Ornithology Report</a></li>
+          <li><a href="https://hark-dove-habitat.onrender.com/">Dove Habitat</a></li>
+        </ul>
+      </li>
+      <li><a href="https://hark-resume.onrender.com/">Resume</a></li>
+    </ul>
   </nav>
 </header>
 
@@ -96,7 +117,7 @@
 <h2 class="section-heading">Work</h2>
 
 <!-- Parametric work: one row, above the academic projects. -->
-<ul class="work-list">
+<ul class="work-list" id="work-professional">
 
   <!-- Parametric Living ------------------------------------------------- -->
   <li class="work">
@@ -122,7 +143,7 @@
 </ul>
 
 <!-- The academic projects: one row of three. -->
-<ul class="work-list">
+<ul class="work-list" id="work-academic">
 
   <!-- Living Outside the Box -------------------------------------------- -->
   <li class="work">
@@ -194,7 +215,7 @@
 </ul>
 
 <!-- The bird projects: one row of two. -->
-<ul class="work-list">
+<ul class="work-list" id="work-birding">
 
   <!-- Harker Ornithology Report ------------------------------------------ -->
   <li class="work">

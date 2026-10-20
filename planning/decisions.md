@@ -4,6 +4,25 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — The running head has a menu for each kind of work
+
+**The running head lists the work as well as the sites**: Portfolio; three
+groups — Professional (Parametric Living), Academic (Living Outside the Box,
+Dead Mall Fall, Collingsworth Marketplace) and Birding (the Ornithology
+Report and Dove Habitat) — each a label over a menu of its projects; then
+Resume. With a pointer that hovers, a group's menu drops from its label on
+hover or keyboard focus; on a phone or a tablet, every group is a row of
+its label and its projects. CSS only, no JavaScript. Academic's label leads
+to the academic site; Professional's and Birding's, to their rows of the
+portfolio's Work section (`#work-professional`, `#work-birding`). Every
+link in the running head opens in the same tab, Parametric Living and Dove
+Habitat included. *Why:* the owner's call — any project one click from the
+top of any page. *Replaces:* the running head as the colophon's four site
+links (2026-10-19, "A running head on every page"), on every page but Dove
+Habitat's, which as a project site still leads home alone; the colophon is
+unchanged. *The cost:* the menus are written out on every page, so a new
+project goes in each (`wiki/Editing-the-Portfolio.md`).
+
 ## 2026-10-20 — A cover on every portfolio tile
 
 **Every tile on the front page shows a cover taken from its project.** The

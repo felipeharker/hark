@@ -28,19 +28,41 @@
      ====================================================================== -->
 
 <!-- Running head -------------------------------------------------------
-     Every site in the family, in the order of FAMILY in tools/sites.mjs —
-     the same links as the colophon. Put aria-current="page" on the site this
-     page is in; on that site its own link is "/", and the others' are
-     absolute. On a site other than felipeharker.org, the owner's name, the
-     Portfolio link and the standards link are absolute too:
-     https://felipeharker.org/ and https://felipeharker.org/standards/. -->
+     Every site in the family and every piece of work, grouped, as on every
+     other page (web/standards/docs/components.md, "Running head"). Put
+     aria-current="page" on the site or project this page is; on that site
+     its own link is "/", and the others' are absolute. On a site other than
+     felipeharker.org, the owner's name, the Portfolio link, the Professional
+     and Birding labels and the standards link are absolute too:
+     https://felipeharker.org/… and https://felipeharker.org/standards/. -->
 <header class="runhead">
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
-    <a href="/">Portfolio</a>
-    <a href="https://hark-academic.onrender.com/">Academic</a>
-    <a href="https://hark-birding.onrender.com/">Birding</a>
-    <a href="https://hark-resume.onrender.com/">Resume</a>
+    <ul>
+      <li><a href="/">Portfolio</a></li>
+      <li class="runhead-group">
+        <a href="/#work-professional">Professional</a>
+        <ul class="runhead-menu">
+          <li><a href="https://parametric-living.onrender.com/">Parametric Living</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="https://hark-academic.onrender.com/">Academic</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Living Outside the Box</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Dead Mall Fall</a></li>
+          <li><a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a></li>
+        </ul>
+      </li>
+      <li class="runhead-group">
+        <a href="/#work-birding">Birding</a>
+        <ul class="runhead-menu">
+          <li><a href="https://hark-birding.onrender.com/">Ornithology Report</a></li>
+          <li><a href="https://hark-dove-habitat.onrender.com/">Dove Habitat</a></li>
+        </ul>
+      </li>
+      <li><a href="https://hark-resume.onrender.com/">Resume</a></li>
+    </ul>
   </nav>
 </header>
 

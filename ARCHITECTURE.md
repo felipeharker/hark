@@ -168,8 +168,11 @@ flowchart LR
 
 ## How a reader moves around
 
-Every page on every site opens with a running head and ends with a colophon,
-each carrying the same site links, so any site is one click from any other. Links between the sites are absolute and stay in the
+Every page on every site opens with a running head and ends with a colophon.
+The colophon carries the site links, so any site is one click from any
+other; the running head carries them too, with the work grouped under them —
+Professional, Academic, Birding, each a menu of its projects — so any project
+is one click from any page. Links between the sites are absolute and stay in the
 same tab, except the portfolio's tiles, which open each project in a new
 tab; links to anyone else open a new one. Dove Habitat, a project site, is
 reached from its tile, and its running head and colophon lead home to the
@@ -197,6 +200,8 @@ flowchart TB
 
   footer["running head and colophon of every page:<br/>Portfolio · Academic · Birding · Resume<br/>and the Hark web standards"]
   footer -.-> home & acad & birds & resume & std
+  menus["running head's menus, every page:<br/>Professional · Academic · Birding"]
+  menus -.-> proj & birds & dove
 ```
 
 ## Outside the repositories

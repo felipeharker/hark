@@ -31,9 +31,19 @@ nothing more. Copy one `<li class="work">` block into its row. Every tile
 carries the same parts in the same order — cover, title, hairline, summary,
 stack, kind, link — and a tile without one of them omits the element.
 
-Each academic project has its own tile in the first row, linking its page,
+Each academic project has its own tile in the academic row, linking its page,
 `https://hark-academic.onrender.com/projects/<slug>.html`; a new project gets
 one as part of adding it (`hark_academic`'s README, "Adding a project").
+
+Each row is also a group in the running head at the top of every page —
+Professional, Academic, Birding — and every tile is an item in its group's
+menu, with the same name and address, in the same order
+(`web/standards/docs/components.md`, "Running head"). A new tile goes in that
+menu on every page that carries one: the portfolio, the standards page and
+the page template here; every page of `hark_academic`; the resume in
+`hark_resume`; and `RUNHEAD` in `hark_birding`'s `web/src/lib/siteConfig.ts`.
+The rows' ids, `work-professional`, `work-academic` and `work-birding`, are
+where the Professional and Birding labels lead; keep them.
 
 ## Adding or replacing a cover
 
