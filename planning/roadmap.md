@@ -16,12 +16,14 @@ when it is done, with the date.
       their `onrender.com` addresses (2026-10-20)
 - [x] Rename `hark` to `hark_web`; the portfolio and the standard link the
       new sites (2026-10-20)
-- [ ] `hark-site` redirects: `/academic/*`, `/birds/*`, `/resume/*` → the
-      new sites
-- [ ] The old redirect services (`hark-birding-redirect`,
-      `hark-resume-redirect`) point at the new sites
-- [ ] Porkbun: resume.felipeharker.org forwards to the new resume site;
-      academic.felipeharker.org forwards to the academic site
+- [x] `hark-site` redirects: `/academic/*`, `/birds/*`, `/resume/*` → the
+      new sites, path and all (2026-10-20)
+- [x] The old redirect services (`hark-birding-redirect`,
+      `hark-resume-redirect`) point their rules at the new sites (2026-10-20)
+- [ ] Porkbun: point resume.felipeharker.org straight at
+      `https://hark-resume.onrender.com/` (it works now through
+      `/resume/`), and add academic.felipeharker.org forwarding to
+      `https://hark-academic.onrender.com/` — needs a Porkbun sign-in
 - [ ] **Yours:** rename the local folder `CODEBASEhark` to
       `CODEBASEhark_web` (close the sessions using it first)
 

@@ -40,8 +40,8 @@ never takes an extra hop. *Replaces:* root-relative links between parts.
 **The old addresses redirect, path and all.** `hark-site` sends
 `/academic/*`, `/birds/*` and `/resume/*` to the same path on the new
 sites; birds.felipeharker.org and resume-site-0rfl.onrender.com redirect
-straight to the new sites; resume.felipeharker.org and a new
-academic.felipeharker.org are Porkbun URL forwarding to their front pages.
+straight to the new sites; resume.felipeharker.org, and a planned
+academic.felipeharker.org, are Porkbun URL forwarding to their front pages.
 *Why:* nothing that linked the old paths breaks, and no custom domain is
 added on Render.
 
