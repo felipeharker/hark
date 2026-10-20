@@ -4,6 +4,39 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — Dove Habitat is a project site, with a tile
+
+**Dove Habitat moves to its own public repository, `hark_dove_habitat`, and
+its own Render site, `hark-dove-habitat` (https://hark-dove-habitat.onrender.com/),
+with a tile on the portfolio.** It was made from the private `dove_habitat`
+as it stood at `e4db1c7` — the page built to the standard, before it was
+made to stand alone — with a fresh history; that repository is archived as
+`dove_habitat_archive`, and the old `dove-habitat` service only redirects,
+path and all. The model, the STLs and the PDFs stay on disk in its
+`source/`, out of git, and the page no longer offers the PDF. *Why:* the
+owner's call. *Replaces:* "The birding report links the Dove Habitat site"
+(below), in so far as the site stood alone and was linked from nowhere else;
+the birding report's Reference link stays, at the new address.
+
+**A project site is not one of the family.** Its running head and its site
+links lead home, to the portfolio, and nowhere else; it still links the
+shared stylesheet and the standards. The family — Portfolio, Academic,
+Birding, Resume — and every other page's site links are unchanged.
+*Why:* the owner's call: a project's site is reached from its tile, and
+leads back to the portfolio.
+
+**The portfolio's tiles open their projects in a new tab.** Every tile's
+cover, title and address carry `target="_blank" rel="noopener noreferrer"`.
+The running head, the site links and Elsewhere stay in the same tab.
+*Why:* the owner's call; the front page stays where the reader left it.
+*Replaces:* same-tab links from the tiles ("Links between the sites are
+absolute and open in the same tab", below).
+
+**The Work section is two rows**: the academic projects, three across, then
+the bird projects — the birding report and Dove Habitat — two across. Each
+row is its own `.work-list`; the standard spaces one list after another as
+it spaces two rows within one. *Replaces:* the one list of four tiles.
+
 ## 2026-10-20 — Four repositories, four sites
 
 **The academic projects, the birding report and the resume are their own

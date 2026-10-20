@@ -3,15 +3,17 @@
 [felipeharker.org](https://felipeharker.org/): the portfolio, and the web
 standards that it and the sites beside it are built to. It is the front of a
 family of four sites, each in its own repository and on its own Render
-service, all linked from here and from each other:
+service, all linked from here and from each other, and the project sites
+its tiles open, such as Dove Habitat:
 
 | Site | Address | Repository | What it holds |
 |---|---|---|---|
-| Portfolio | https://felipeharker.org/ | `hark_web`, this one ([`web/portfolio/`](web/portfolio/)) | The front page: a tile for each academic project and one for the birding report, About, contact. |
+| Portfolio | https://felipeharker.org/ | `hark_web`, this one ([`web/portfolio/`](web/portfolio/)) | The front page: a row of tiles for the academic projects and one for the bird projects (the birding report and Dove Habitat), About, contact. |
 | Standards | https://felipeharker.org/standards/ | `hark_web`, this one ([`web/standards/`](web/standards/)) | The web design and development standards, the one shared stylesheet, and a page that renders it. |
 | Academic | https://hark-academic.onrender.com/ | [`hark_academic`](https://github.com/felipeharker/hark_academic) | Architecture and urban design projects from the University of Houston, a page each. |
 | Birding | https://hark-birding.onrender.com/ | [`hark_birding`](https://github.com/felipeharker/hark_birding) | The Harker Ornithology Report: eBird observations, checklists, media and field notes. Next.js. |
 | Resume | https://hark-resume.onrender.com/ | [`hark_resume`](https://github.com/felipeharker/hark_resume) | The resume, as one printable page. |
+| Dove Habitat | https://hark-dove-habitat.onrender.com/ | [`hark_dove_habitat`](https://github.com/felipeharker/hark_dove_habitat) | A project site: the design documentation for a modular cage accessory system. Not in the site links; its own lead home to the portfolio. |
 
 Every page on every site links the one stylesheet served from here,
 `https://felipeharker.org/standards/hark.css`, and ends with the same site
@@ -88,8 +90,8 @@ sites. See [wiki/Deploying.md](wiki/Deploying.md).
 
 ## Elsewhere in CODEBASE
 
-`hark_academic`, `hark_birding` and `hark_resume` sit beside this folder in
-`CODEBASE`. The Rhino and Grasshopper work, with its own standards, lives in
+`hark_academic`, `hark_birding`, `hark_resume` and `hark_dove_habitat`
+sit beside this folder in `CODEBASE`. The Rhino and Grasshopper work, with its own standards, lives in
 a separate workspace, `CODEBASE\parametric` (the private `parametric_*`
 repositories); nothing here depends on it. The earlier `hark_*` repositories
 are archived under `<name>_archive`.

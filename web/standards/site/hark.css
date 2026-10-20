@@ -568,6 +568,10 @@ code {
 .section-heading + .work-list,
 .section-heading + .plate { margin-top: var(--space-5); }
 
+/* Work lists one after another are rows of their own — one row for each
+   kind of work — as far apart as two rows of tiles within one list. */
+.work-list + .work-list { margin-top: var(--space-7); }
+
 /* Whatever follows a heading starts level with it, so a block with a top
    margin of its own drops it there. */
 .section-heading + .body-text,

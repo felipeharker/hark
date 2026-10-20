@@ -135,7 +135,11 @@ families and the stylesheet.
 - **Between the sites in the family**, links are absolute —
   `https://felipeharker.org/`, `https://hark-academic.onrender.com/`,
   `https://hark-birding.onrender.com/`, `https://hark-resume.onrender.com/`,
-  `https://felipeharker.org/standards/` — and open in the same tab.
+  `https://felipeharker.org/standards/` — and open in the same tab. The
+  one exception is a portfolio tile: its links open the project in a new
+  tab, with `target="_blank" rel="noopener noreferrer"`. A project site
+  outside the family, like `https://hark-dove-habitat.onrender.com/`, links
+  only the portfolio from its running head and colophon, in the same tab.
 - **To anyone else's site**, links are absolute and open in a new tab, always
   with `target="_blank" rel="noopener noreferrer"`. In the birding app,
   spread `externalLinkProps(href)` from `siteConfig.ts`, which keeps the

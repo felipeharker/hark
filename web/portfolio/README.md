@@ -2,8 +2,8 @@
 
 The front of felipeharker.org, served at `/`: one page. It introduces the
 work, links the other sites in the family — the academic projects, the
-birding report, the resume, each built in its own repository — and says how
-to get in touch.
+birding report, the resume, each built in its own repository — and the
+project site Dove Habitat, and says how to get in touch.
 
 ## Layout
 
@@ -19,13 +19,14 @@ block, not a cover (`planning/decisions.md`). When covers return, each
 academic tile shows its project's cover from the academic site
 (`https://hark-academic.onrender.com/assets/covers/<slug>.jpg`), so there is
 one file per cover; a
-cover for the birding report would go in `site/assets/covers/`.
+cover for the birding report or Dove Habitat would go in
+`site/assets/covers/`.
 
 ## The page
 
 | Section | What it holds |
 |---|---|
-| Work | a tile for each academic project, linking its page on https://hark-academic.onrender.com/, and one for the birding report (https://hark-birding.onrender.com/); every cover a placeholder for now |
+| Work | two rows of tiles, each opening its project in a new tab: the academic projects, one tile each linking its page on https://hark-academic.onrender.com/; then the bird projects, the birding report (https://hark-birding.onrender.com/) and Dove Habitat (https://hark-dove-habitat.onrender.com/). Every cover a placeholder for now |
 | About | the biography |
 | Elsewhere | the resume (https://hark-resume.onrender.com/), GitHub, LinkedIn, email |
 
