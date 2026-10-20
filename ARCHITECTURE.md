@@ -44,7 +44,7 @@ flowchart LR
 
 | Path on felipeharker.org | Folder published | What it is |
 |---|---|---|
-| `/` | `web/portfolio/site/` | The front page: a row for the academic projects and one for the birding report, About, Elsewhere |
+| `/` | `web/portfolio/site/` | The front page: a tile for each academic project and one for the birding report, About, Elsewhere |
 | `/academic/` | `web/academic/site/` | Living Outside the Box, Dead Mall Fall, Collingsworth Marketplace — a page each |
 | `/birds/` | `web/birds/web/out/` (built) | The Harker Ornithology Report: map, locations, media, field notes, one page per checklist |
 | `/resume/` | `web/resume/site/` | The resume, printable |
@@ -197,8 +197,8 @@ flowchart TB
   resume["/resume/"]
   std["/standards/"]
 
-  home -- "Academic Projects row" --> acad
-  home -- "birding report row" --> birds
+  home -- "a tile per project" --> proj
+  home -- "birding report tile" --> birds
   home -- "Elsewhere" --> resume
   acad --> proj
   proj -- "← Academic Projects" --> acad

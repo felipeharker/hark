@@ -7,7 +7,7 @@ the site, one shared stylesheet, one deploy.
 
 | Part | Served at | Folder | What it holds |
 |---|---|---|---|
-| Portfolio | [`/`](https://felipeharker.org/) | [`web/portfolio/`](web/portfolio/) | The front page: a row for each body of work, About, contact. |
+| Portfolio | [`/`](https://felipeharker.org/) | [`web/portfolio/`](web/portfolio/) | The front page: a tile for each academic project and one for the birding report, About, contact. |
 | Academic | [`/academic/`](https://felipeharker.org/academic/) | [`web/academic/`](web/academic/) | Architecture and urban design projects from the University of Houston, a page each. |
 | Birding | [`/birds/`](https://felipeharker.org/birds/) | [`web/birds/`](web/birds/) | The Harker Ornithology Report: eBird observations, checklists, media and field notes. Next.js. |
 | Resume | [`/resume/`](https://felipeharker.org/resume/) | [`web/resume/`](web/resume/) | The resume, as one printable page. |

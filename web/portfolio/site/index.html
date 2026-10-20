@@ -18,9 +18,10 @@
      FELIPE E. HARKER — PORTFOLIO
      --------------------------------------------------------------------------
      A single static document. No build step, no framework, no JavaScript.
-     This is the front door to the other felipeharker.org sites: each body of
-     work — the academic projects, the ornithology report — has a site of its
-     own, and gets one tile here linking to it. The resume is in Elsewhere.
+     This is the front door to the other felipeharker.org sites. Each academic
+     project gets a tile of its own, linking its page under /academic/projects/;
+     the ornithology report, a site of its own, gets one tile linking to it.
+     The resume is in Elsewhere.
 
      All styling is /standards/hark.css, the shared stylesheet (its source is
      web/standards/site/hark.css in this repository). Do not add inline
@@ -46,6 +47,11 @@
      The alt attribute stays empty on purpose: the tile's title sits
      immediately under the image and says the same thing, so describing it
      again is noise to a screen reader.
+
+     An academic project's tile shows that project's own cover, root-relative
+     (/academic/assets/covers/<slug>.jpg), so there is one file per cover and
+     the two pages cannot drift apart. Its summary and stack match its tile
+     on /academic/.
      ====================================================================== -->
 
 <!-- Running head ------------------------------------------------------- -->
@@ -82,26 +88,70 @@
 
 <ul class="work-list">
 
-  <!-- Academic Projects -------------------------------------------------- -->
+  <!-- Living Outside the Box -------------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="/academic/" aria-hidden="true" tabindex="-1">
-      <img src="assets/covers/academic-projects.jpg" alt="">
+    <a class="work-cover" href="/academic/projects/living-outside-the-box.html" aria-hidden="true" tabindex="-1">
+      <img src="/academic/assets/covers/living-outside-the-box.jpg" alt="">
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="/academic/">Academic Projects</a>
+        <a href="/academic/projects/living-outside-the-box.html">Living Outside the Box</a>
       </h3>
       <hr class="rule-soft">
-      <p class="work-summary">Architecture and urban design from the University of Houston: modular hillside housing in Rio de Janeiro, a new neighborhood around Greenspoint Mall, and an adaptive-reuse marketplace in Near Northside.</p>
+      <p class="work-summary">Caixa Social: a hillside housing community in Rio built up from one pre-fabricated concrete box — a box makes a room, two make a house, five houses make a cluster.</p>
       <p class="work-stack">
-        <span>Architecture</span>
+        <span>Rio de Janeiro, Brazil</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Residential</span>
         <span class="sep" aria-hidden="true">/</span>
         <span>Urban Planning</span>
-        <span class="sep" aria-hidden="true">/</span>
-        <span>Adaptive Reuse</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="/academic/">Project Site</a>
+      <a class="work-link" href="/academic/projects/living-outside-the-box.html">Project Page</a>
+    </div>
+  </li>
+
+  <!-- Dead Mall Fall ---------------------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="/academic/projects/dead-mall-fall.html" aria-hidden="true" tabindex="-1">
+      <img src="/academic/assets/covers/dead-mall-fall.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="/academic/projects/dead-mall-fall.html">Dead Mall Fall</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">An urban design proposal for the neighborhood around Greenspoint Mall, reworking its streets, trails and greenspaces around transit, walkability and flood mitigation.</p>
+      <p class="work-stack">
+        <span>Houston, TX</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+      </p>
+      <p class="work-kind">Academic</p>
+      <a class="work-link" href="/academic/projects/dead-mall-fall.html">Project Page</a>
+    </div>
+  </li>
+
+  <!-- Collingsworth Marketplace ----------------------------------------- -->
+  <li class="work">
+    <a class="work-cover" href="/academic/projects/collingsworth-marketplace.html" aria-hidden="true" tabindex="-1">
+      <img src="/academic/assets/covers/collingsworth-marketplace.jpg" alt="">
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="/academic/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A walkable mixed-use marketplace for Near Northside, adapting an existing two-block warehouse with passive cooling, ventilation and stormwater strategies.</p>
+      <p class="work-stack">
+        <span>Houston, TX</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Adaptive Reuse</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Urban Planning</span>
+      </p>
+      <p class="work-kind">Academic</p>
+      <a class="work-link" href="/academic/projects/collingsworth-marketplace.html">Project Page</a>
     </div>
   </li>
 

@@ -2,7 +2,8 @@
 
 The academic architecture and urban design projects, served at `/academic/`:
 three projects from the Bachelor of Architecture at the University of
-Houston, a page each. Linked from the portfolio's Academic Projects row.
+Houston, a page each. Each project also has a tile of its own on the
+portfolio's front page, which links its page and shows its cover from here.
 
 ## Layout
 

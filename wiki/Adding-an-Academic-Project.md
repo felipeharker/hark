@@ -17,10 +17,13 @@ Academic projects are served at `/academic/`, from `web/academic/site/`. See
 4. **The tile.** Copy one `<li class="work">` in `site/index.html` and fill in
    the title, one-sentence summary, the stack (place / kind of work) and both
    links. Update the abstract above the list if it counts the projects.
-5. **Working files.** Models and the board-set PDF go in
+5. **The portfolio tile.** Every academic project has a tile of its own on
+   the front page too. Copy one academic `<li class="work">` in
+   `web/portfolio/site/index.html`, with the same title, summary and stack
+   as on `/academic/`, `Academic` as its kind, and root-relative links to
+   the page and its cover: `/academic/projects/<slug>.html`,
+   `/academic/assets/covers/<slug>.jpg`. The cover is not copied.
+6. **Working files.** Models and the board-set PDF go in
    `web/academic/source/<slug>/`. Git ignores them; back them up separately.
-6. **Check.** `node tools/serve.mjs` and look at `/academic/` and the new
-   page; then `node tools/check.mjs`.
-
-The portfolio's Academic Projects row links `/academic/` as a whole, so it
-does not change when a project is added.
+7. **Check.** `node tools/serve.mjs` and look at `/`, `/academic/` and the
+   new page; then `node tools/check.mjs`.

@@ -22,6 +22,11 @@ Copy one `<li class="work">` block in `site/index.html`. Every row carries
 the same parts in the same order — cover, title, hairline, summary, stack,
 kind, link — and a row without one of them omits the element.
 
+Each academic project has its own row, linking its page under
+`/academic/projects/` and showing its own cover from
+`/academic/assets/covers/`; a new project gets one as part of
+[Adding an Academic Project](Adding-an-Academic-Project.md).
+
 ## Replacing a placeholder cover
 
 Inside the row's `<a class="work-cover">`, replace the whole

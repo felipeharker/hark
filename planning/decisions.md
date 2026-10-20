@@ -4,6 +4,20 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — A tile per academic project on the front page
+
+**Each academic project has its own tile on the portfolio**, linking its
+page under `/academic/projects/`, beside the birding report's. *Why:* one
+tile for all of them hid the projects behind a page that only listed them;
+now each one is seen, and reached, from the front page. `/academic/` stays,
+as their index. *Replaces:* the single Academic Projects row, and "a row for
+each body of work" (One repository, below).
+
+**The front page shows each project's own cover**, root-relative from
+`/academic/assets/covers/`. *Why:* one file per cover, so the two pages
+cannot show different ones. *Replaces:* `academic-projects.jpg` in the
+portfolio, a copy of Living Outside the Box's cover.
+
 ## 2026-10-19 — Stylesheet links carry a fingerprint
 
 **`tools/build.mjs` adds a hash of each stylesheet to every static page's
