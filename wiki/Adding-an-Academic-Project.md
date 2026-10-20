@@ -13,7 +13,9 @@ Academic projects are served at `/academic/`, from `web/academic/site/`. See
    `lotb-03.jpg` — as JPEG, 2000 px on the long edge or smaller. Each `<img>`
    gets an `alt`, and `loading="lazy"` unless it is the lead plate.
 3. **The cover.** Crop the strongest image to 3:2, 1500 x 1000 or smaller, as
-   `site/assets/covers/<slug>.jpg`.
+   `site/assets/covers/<slug>.jpg`. For now every tile shows a
+   `.work-cover-placeholder` instead (`planning/decisions.md`), so the new
+   tiles do too, naming the project; the file waits for covers to return.
 4. **The tile.** Copy one `<li class="work">` in `site/index.html` and fill in
    the title, one-sentence summary, the stack (place / kind of work) and both
    links. Update the abstract above the list if it counts the projects.
@@ -21,8 +23,8 @@ Academic projects are served at `/academic/`, from `web/academic/site/`. See
    the front page too. Copy one academic `<li class="work">` in
    `web/portfolio/site/index.html`, with the same title, summary and stack
    as on `/academic/`, `Academic` as its kind, and root-relative links to
-   the page and its cover: `/academic/projects/<slug>.html`,
-   `/academic/assets/covers/<slug>.jpg`. The cover is not copied.
+   its page, `/academic/projects/<slug>.html`. When covers return, its cover
+   is `/academic/assets/covers/<slug>.jpg`, never a copy.
 6. **Working files.** Models and the board-set PDF go in
    `web/academic/source/<slug>/`. Git ignores them; back them up separately.
 7. **Check.** `node tools/serve.mjs` and look at `/`, `/academic/` and the

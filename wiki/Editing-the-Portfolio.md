@@ -23,16 +23,18 @@ the same parts in the same order — cover, title, hairline, summary, stack,
 kind, link — and a row without one of them omits the element.
 
 Each academic project has its own row, linking its page under
-`/academic/projects/` and showing its own cover from
-`/academic/assets/covers/`; a new project gets one as part of
+`/academic/projects/`; a new project gets one as part of
 [Adding an Academic Project](Adding-an-Academic-Project.md).
 
 ## Replacing a placeholder cover
 
+For now every row's cover is a placeholder (`planning/decisions.md`).
 Inside the row's `<a class="work-cover">`, replace the whole
 `<span class="work-cover-placeholder">` with
 `<img src="assets/covers/<name>.jpg" alt="">`, using a 3:2 JPEG at 1500 x
-1000 or smaller. Never stand in a stock or invented image.
+1000 or smaller. An academic project's row uses that project's own cover,
+`<img src="/academic/assets/covers/<slug>.jpg" alt="">`, not a copy. Never
+stand in a stock or invented image.
 
 ## Checking
 

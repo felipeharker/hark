@@ -78,7 +78,7 @@ flowchart LR
   s --> s2["docs/ design · components · writing · development"]
   s --> s3["templates/page.html"]
 
-  p --> p1["site/index.html · site/assets/covers/"]
+  p --> p1["site/index.html"]
 
   a --> a1["site/index.html · site/projects/ · site/assets/"]
   a --> a2["source/ (git-ignored)<br/>board PDFs, Rhino model"]

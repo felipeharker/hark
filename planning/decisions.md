@@ -4,6 +4,14 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — Placeholder covers, for now
+
+**Every tile shows a placeholder block instead of a cover**, on the front
+page and on `/academic/`: a `.work-cover-placeholder` naming the project,
+like the birding report's. *Why:* the owner's call, for now. The cover files
+stay in `web/academic/site/assets/covers/`, so bringing one back is its
+`<img>` alone. *Replaces:* the three academic covers, on both pages.
+
 ## 2026-10-20 — A tile per academic project on the front page
 
 **Each academic project has its own tile on the portfolio**, linking its

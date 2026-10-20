@@ -70,7 +70,8 @@ Decided (the reasons are in [decisions.md](decisions.md)):
 
 ## Next
 
-- **The birding report's cover**, for its row on the portfolio.
+- **Covers for every tile**: the three academic projects, on the portfolio
+  and on `/academic/`, and the birding report. Each is a placeholder for now.
 - **A check on every push.** A GitHub Actions workflow running
   `node tools/check.mjs` and the birding build, so a broken link never
   reaches `main`.

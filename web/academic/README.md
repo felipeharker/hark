@@ -3,7 +3,7 @@
 The academic architecture and urban design projects, served at `/academic/`:
 three projects from the Bachelor of Architecture at the University of
 Houston, a page each. Each project also has a tile of its own on the
-portfolio's front page, which links its page and shows its cover from here.
+portfolio's front page, which links its page.
 
 ## Layout
 
@@ -38,6 +38,11 @@ One file per project, named after its page (`living-outside-the-box.jpg` for
 it is cropped to fit rather than letterboxed, so crop it yourself first. The
 three covers were cropped to 3:2 from the 16:9 covers of an earlier
 portfolio.
+
+For now no page shows them: every tile, here and on the front page, is a
+`.work-cover-placeholder` (`planning/decisions.md`). The files stay, so
+bringing a cover back is the `<img>` alone — `assets/covers/<slug>.jpg` here,
+`/academic/assets/covers/<slug>.jpg` on the front page.
 
 ## Adding a project
 

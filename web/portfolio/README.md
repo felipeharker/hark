@@ -13,16 +13,17 @@ web/portfolio/
     index.html                Work, About, Elsewhere
 ```
 
-The page has no images of its own yet. Each academic tile shows its
-project's cover from the academic part (`/academic/assets/covers/<slug>.jpg`),
-so there is one file per cover; a cover for the birding report would go in
-`site/assets/covers/`.
+The page has no images of its own. For now every tile shows a placeholder
+block, not a cover (`planning/decisions.md`). When covers return, each
+academic tile shows its project's cover from the academic part
+(`/academic/assets/covers/<slug>.jpg`), so there is one file per cover; a
+cover for the birding report would go in `site/assets/covers/`.
 
 ## The page
 
 | Section | What it holds |
 |---|---|
-| Work | a tile for each academic project, linking its page under `/academic/projects/`, and one for the birding report (`/birds/`; cover pending) |
+| Work | a tile for each academic project, linking its page under `/academic/projects/`, and one for the birding report (`/birds/`); every cover a placeholder for now |
 | About | the biography |
 | Elsewhere | the resume (`/resume/`), GitHub, LinkedIn, email |
 
