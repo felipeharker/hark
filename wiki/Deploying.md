@@ -69,14 +69,15 @@ The second line shows exactly what will be published.
   and all, to the same path on the new site: `/birds/checklist/S123/` →
   `https://hark-birding.onrender.com/checklist/S123/`. The rules without a
   trailing slash catch `/academic`, `/birds` and `/resume` themselves.
-- **resume.felipeharker.org** is Porkbun URL forwarding, not Render: a
-  permanent (301) redirect, over HTTP and HTTPS, to
-  `https://felipeharker.org/resume/`, which `hark-site` redirects on to
-  `https://hark-resume.onrender.com/`; the path is not carried over and there
-  is no wildcard. Porkbun keeps its DNS record (to `uixie.porkbun.com`) and
-  its certificate. Change it under the domain's URL Forwarding in Porkbun:
-  pointing it straight at `https://hark-resume.onrender.com/`, and adding
-  **academic.felipeharker.org** the same way, are on the roadmap.
+- **resume.felipeharker.org** and **academic.felipeharker.org** are Porkbun
+  URL forwarding, not Render: permanent (301) redirects, over HTTP and HTTPS,
+  to `https://hark-resume.onrender.com/` and
+  `https://hark-academic.onrender.com/`, with the path not carried over and
+  no wildcard. Porkbun keeps their DNS records (to `uixie.porkbun.com`) and
+  certificates. Change them under the domain's URL Forwarding in Porkbun;
+  adding a forward for a host that already has one replaces it. Porkbun asks
+  before deleting one with a browser dialog, which the Claude browser pane
+  dismisses, so a delete there has to be clicked by hand.
 - **birds.felipeharker.org** used to be the birding report's own site. The
   `hark-birding-redirect` service keeps that domain only to redirect it: its
   Redirects/Rewrites rule sends Source `/*` to Destination

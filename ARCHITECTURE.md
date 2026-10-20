@@ -200,8 +200,8 @@ flowchart TB
 |---|---|---|
 | The live sites | Render static sites `hark-site`, `hark-academic`, `hark-birding`, `hark-resume` (project Hark, workspace Harker-Hub) | Each builds its repository's `main` on every push; `hark-site` serves felipeharker.org and www |
 | The old paths | `hark-site`'s Redirects/Rewrites | `/academic/*`, `/birds/*`, `/resume/*` → the same path on the new site |
-| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service; `resume` → Porkbun's URL forwarding |
-| resume.felipeharker.org | Porkbun URL forwarding | A permanent redirect to `/resume/`, which `hark-site` sends on to the resume site; nothing on Render |
+| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service; `resume` and `academic` → Porkbun's URL forwarding |
+| resume.felipeharker.org, academic.felipeharker.org | Porkbun URL forwarding | Permanent redirects to the resume's and the academic site's front pages; nothing on Render |
 | birds.felipeharker.org | Render service `hark-birding-redirect` (the old birding site) | Kept only to redirect to hark-birding.onrender.com |
 | resume-site-0rfl.onrender.com | Render service `hark-resume-redirect` (the old resume site) | Kept only to redirect to hark-resume.onrender.com |
 | `hark_portfolio_archive`, `hark_resume_archive`, `hark_birding_archive` | GitHub, archived | The three repositories the 2026-10-19 monorepo replaced; read-only, with their histories. None of the current repositories was made from them |
