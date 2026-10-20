@@ -35,10 +35,11 @@ Each academic project has its own tile in the first row, linking its page,
 `https://hark-academic.onrender.com/projects/<slug>.html`; a new project gets
 one as part of adding it (`hark_academic`'s README, "Adding a project").
 
-## Replacing a placeholder cover
+## Adding or replacing a cover
 
-For now every row's cover is a placeholder (`planning/decisions.md`).
-Inside the row's `<a class="work-cover">`, replace the whole
+Every tile has a cover taken from its project (`planning/decisions.md`); a
+new tile without one starts with a `.work-cover-placeholder`.
+Inside the tile's `<a class="work-cover">`, replace the whole
 `<span class="work-cover-placeholder">` with
 `<img src="assets/covers/<name>.jpg" alt="">`, using a 3:2 JPEG at 1500 x
 1000 or smaller. An academic project's row uses that project's own cover,
