@@ -100,6 +100,11 @@ const REFERENCES = [
     href: SITE_LINKS.merlin,
     desc: 'State-of-the-art visual and audio bird identification mobile app. Invaluable resource for any birder.',
   },
+  {
+    label: 'Dove Habitat',
+    href: SITE_LINKS.doveHabitat,
+    desc: 'Design documentation for a modular system of 3D-printed perches, feeders and shelters for a wire corner cage.',
+  },
 ];
 
 function HomeDocumentInner({ data, mediaData, fieldNotes }: HomeDocumentProps) {

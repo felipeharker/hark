@@ -180,8 +180,10 @@ the text between the quotes and save.
   read.
 - **`ABSTRACT`** — the summary paragraph on the homepage (§2).
 - **`SITE_LINKS`** — the repository, eBird profile, Macaulay Library and Merlin
-  URLs. Each is written once here and used in several places, so the navigation
-  bar, the reference list and the colophon can never disagree.
+  URLs, and the Dove Habitat site. Each is written once here and used in
+  several places, so the navigation bar, the reference list and the colophon
+  can never disagree. The Dove Habitat link is in the reference list only: it
+  is the one link to that site from felipeharker.org.
 - **`SITE_FAMILY`** — the site links at the foot of every page: the
   portfolio, the academic projects, this report and the resume, as
   root-relative paths. They are plain links, not Next links, so the `/birds`
@@ -217,8 +219,9 @@ by the build instead of silently falling back to a default.
   `<Section>` for a plain block, `<Disclosure>` for a row inside one that
   collapses. Use these rather than writing the heading markup by hand, so every
   page stays consistent.
-- **Off-site URLs** (the repository, the eBird profile, Macaulay, Merlin) live
-  in `web/src/lib/siteConfig.ts`, so each is written once.
+- **Off-site URLs** (the repository, the eBird profile, Macaulay, Merlin, the
+  Dove Habitat site) live in `web/src/lib/siteConfig.ts`, so each is written
+  once.
 
 ## 7. Collapsible rows
 

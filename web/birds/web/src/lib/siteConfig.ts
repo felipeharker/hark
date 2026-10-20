@@ -30,7 +30,8 @@ export const ABSTRACT =
 
 /**
  * Off-site addresses used in more than one place — the repository URL alone
- * appears in the reference list and the colophon.
+ * appears in the reference list and the colophon. The Dove Habitat site is
+ * linked from the reference list and nowhere else on felipeharker.org.
  */
 export const SITE_LINKS = {
   repository: 'https://github.com/felipeharker/hark/tree/main/web/birds',
@@ -38,6 +39,7 @@ export const SITE_LINKS = {
   macaulayLibrary:
     'https://media.ebird.org/catalog?unconfirmed=incl&mediaType=photo&userId=USER8148095',
   merlin: 'https://merlin.allaboutbirds.org/',
+  doveHabitat: 'https://dove-habitat.onrender.com/',
 } as const;
 
 /**

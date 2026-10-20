@@ -4,6 +4,18 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — The birding report links the Dove Habitat site
+
+**The Dove Habitat site, dove-habitat.onrender.com, is linked from the
+birding report's Reference section, and from nowhere else on
+felipeharker.org.** The link is `SITE_LINKS.doveHabitat` in the birding
+app's `siteConfig.ts` and opens in a new tab, like every off-site link.
+*Why:* the owner's call. The cage accessory system is its own project, with
+its own site, repository and design; the birding report is where a reader
+of this site would look for it. The Dove Habitat site links nothing back: it
+has no running head, no site links and no link to the standards, and it
+carries its own stylesheet. *Replaces:* nothing; it adds one link.
+
 ## 2026-10-20 — Placeholder covers, for now
 
 **Every tile shows a placeholder block instead of a cover**, on the front

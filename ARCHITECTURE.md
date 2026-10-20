@@ -224,3 +224,4 @@ flowchart TB
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |
 | Fonts | Google Fonts, by a `<link>` on every page (the birding app's in its `layout.tsx`) | Inter and IBM Plex Mono |
 | Photos and map tiles | Macaulay Library CDN, Carto | Loaded by the birding report in the reader's browser |
+| dove-habitat.onrender.com | Render static site `dove-habitat`, from the private `dove_habitat` repository | A separate site. The birding report's Reference section links it, and nothing else here does; it links nothing back |
