@@ -1003,25 +1003,24 @@ code {
    is hovered.
    ========================================================================= */
 
-/* auto-fit: two projects take half the page each, on the same line as the
-   two columns of the grid; three take a third each. */
+/* Every tile is the same size, whatever the number in its row: a third of
+   the page, or 300px if a third is narrower. auto-fill keeps the empty
+   tracks of a short row, so two tiles, or one, stay that size rather than
+   stretching across the page. Three to a row on a wide screen, two on a
+   narrower one, one on a phone, where a tile has the whole width. */
 .work-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, max(300px, (100% - 2 * var(--work-gap)) / 3)), 1fr)
+  );
   gap: var(--space-7) var(--work-gap);
 }
 
 .work { min-width: 0; }
-
-/* A tile alone in its list stays a tile — a third of the row, as wide as
-   one of three — instead of filling the page with its cover. On a phone,
-   where every tile has the whole width, so does this one. */
-.work:only-child {
-  max-width: max(300px, calc((100% - 2 * var(--work-gap)) / 3));
-}
 
 /* An image, not a card: no border, no shadow, no rounding. */
 .work-cover {
@@ -1488,8 +1487,6 @@ code {
 }
 
 @media (max-width: 640px) {
-  .work:only-child { max-width: none; }
-
   :root {
     --size-subtitle: 18px;
     --size-abstract: 17px;

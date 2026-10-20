@@ -222,8 +222,10 @@ the accent).
 ## Work list
 
 One project or site per tile, the tiles side by side across the whole width
-of the page — as many across as fit at 300px or more, so three to a row on a
-wide screen and one on a phone. Every tile has the same seven parts in the
+of the page. Every tile is the same size — a third of the page, or 300px if
+a third is narrower — so three to a row on a wide screen and one on a phone,
+and a row of two, or of one, leaves the rest of its line empty rather than
+stretching its tiles. Every tile has the same seven parts in the
 same order; a tile without one of them omits the element.
 
 ```html
@@ -269,9 +271,7 @@ To give each kind of work a row of its own, put one `.work-list` after
 another in the section: each starts a new row, as far below the last as two
 rows within one list. The portfolio has three — Parametric Living alone,
 then the academic projects, three across, then the bird projects, two
-across. A tile alone in its list keeps a tile's width, a third of the row,
-rather than spreading its cover across the page; on a phone it has the
-whole width, like every tile.
+across. Every tile is the same size in all three.
 
 ## Entries
 

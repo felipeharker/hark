@@ -4,6 +4,16 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — Every tile the same size
+
+**A work list's tiles are all one size, whatever the number in a row**: a
+third of the page, or 300px if a third is narrower. A row of two or of one
+leaves the rest of its line empty. *Why:* the owner's call — the bird
+projects' two tiles, and Parametric Living's one, were larger than the
+academic projects'. *Replaces:* `auto-fit`, under which two tiles took half
+the page each, and the rule that kept a tile alone in its list a third
+wide (below), which this covers.
+
 ## 2026-10-20 — Parametric Living has a row of its own
 
 **The portfolio's Work section opens with a row holding one tile, Parametric
