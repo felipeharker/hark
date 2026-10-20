@@ -170,7 +170,10 @@ flowchart LR
 
 Every page on every site opens with a running head and ends with a colophon,
 each carrying the same site links, so any site is one click from any other. Links between the sites are absolute and stay in the
-same tab; links to anyone else open a new one.
+same tab, except the portfolio's tiles, which open each project in a new
+tab; links to anyone else open a new one. Dove Habitat, a project site, is
+reached from its tile, and its running head and colophon lead home to the
+portfolio alone.
 
 ```mermaid
 flowchart TB
@@ -184,6 +187,8 @@ flowchart TB
 
   home -- "a tile per project" --> proj
   home -- "birding report tile" --> birds
+  home -- "Dove Habitat tile" --> dove["hark-dove-habitat.onrender.com"]
+  dove -- "running head and colophon" --> home
   home -- "Elsewhere" --> resume
   acad --> proj
   proj -- "← Academic Projects" --> acad
@@ -209,5 +214,6 @@ flowchart TB
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |
 | The GitHub wiki | github.com/felipeharker/hark_web/wiki | A copy of `wiki/`, replaced by `.github/workflows/wiki.yml` on every push to `main` that changes it |
 | Fonts | Google Fonts, by a `<link>` on every page (the birding app's in its `layout.tsx`) | Inter and IBM Plex Mono |
-| dove-habitat.onrender.com | Render static site `dove-habitat`, from the private `dove_habitat` repository | A separate site. The birding report's Reference section links it, and nothing else in the family does; it links nothing back |
+| hark-dove-habitat.onrender.com | Render static site `hark-dove-habitat`, from the public `hark_dove_habitat` | A project site, opened from its portfolio tile and from the birding report's Reference section; its running head and colophon link the portfolio alone |
+| dove-habitat.onrender.com | Render service `dove-habitat` (the old Dove Habitat site, from `dove_habitat_archive`) | Kept only to redirect to hark-dove-habitat.onrender.com |
 | Photos and map tiles | Macaulay Library CDN, Carto | Loaded by the birding report in the reader's browser |

@@ -8,23 +8,28 @@ Its README is [`web/portfolio/README.md`](../web/portfolio/README.md).
 | Change | Where |
 |---|---|
 | The name, subtitle, location or email at the top | the masthead at the top of `site/index.html` |
-| A Work row | its `<li class="work">` in `site/index.html` |
+| A Work tile | its `<li class="work">` in `site/index.html`, in its row |
 | The About text | the About section of `site/index.html` |
 | The resume link, GitHub, LinkedIn, email | the Elsewhere section of `site/index.html` |
 
 The pages the rows link to are their own sites, each in its own repository:
 the academic projects (`hark_academic`, https://hark-academic.onrender.com/),
 the birding report (`hark_birding`, https://hark-birding.onrender.com/) and
-the resume (`hark_resume`, https://hark-resume.onrender.com/). Links to them
-are absolute and open in the same tab.
+the resume (`hark_resume`, https://hark-resume.onrender.com/), and Dove
+Habitat (`hark_dove_habitat`, https://hark-dove-habitat.onrender.com/). Links
+to them are absolute. A tile's links open its project in a new tab
+(`target="_blank" rel="noopener noreferrer"`); the running head, the site
+links and Elsewhere stay in the same tab.
 
-## Adding a row
+## Adding a tile
 
-Copy one `<li class="work">` block in `site/index.html`. Every row carries
-the same parts in the same order — cover, title, hairline, summary, stack,
-kind, link — and a row without one of them omits the element.
+The Work section is two rows, each its own `<ul class="work-list">`: the
+academic projects (three), then the bird projects (the birding report and
+Dove Habitat). Copy one `<li class="work">` block into its row. Every tile
+carries the same parts in the same order — cover, title, hairline, summary,
+stack, kind, link — and a tile without one of them omits the element.
 
-Each academic project has its own row, linking its page,
+Each academic project has its own tile in the first row, linking its page,
 `https://hark-academic.onrender.com/projects/<slug>.html`; a new project gets
 one as part of adding it (`hark_academic`'s README, "Adding a project").
 

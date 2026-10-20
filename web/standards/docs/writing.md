@@ -52,7 +52,9 @@ a copied line should come across clean.
   here".
 - **Links between the sites in the family open in the same tab** —
   `https://hark-academic.onrender.com/`, `https://hark-birding.onrender.com/`.
-  They are one body of work; moving around it is navigation.
+  They are one body of work; moving around it is navigation. The
+  portfolio's tiles are the exception: each opens its project in a new
+  tab, so the front page stays where the reader left it.
 - **Links to anyone else's site open in a new tab**, always with
   `target="_blank" rel="noopener noreferrer"`. In the birding app, spread
   `externalLinkProps(href)` from `siteConfig.ts` instead of writing the

@@ -4,8 +4,9 @@ felipeharker.org: the portfolio and the web standards. Read
 [`README.md`](README.md) first: the family of sites, the layout, and how to
 run, check and deploy it. The academic projects, the birding report and the
 resume are their own sites, in `hark_academic`, `hark_birding` and
-`hark_resume` beside this folder, each with its own `AGENTS.md`. The
-standard, the decision log and the roadmap for all four live here.
+`hark_resume` beside this folder, each with its own `AGENTS.md`; so is Dove
+Habitat, a project site, in `hark_dove_habitat`. The standard, the decision
+log and the roadmap for all of them live here.
 
 ## Rules
 
@@ -23,8 +24,9 @@ standard, the decision log and the roadmap for all four live here.
    eBird exports exactly as they are, location names included — never rename,
    hide or filter anything in them.
 4. **No links to private `github.com/felipeharker/…` repositories.** A
-   visitor gets GitHub's 404. The four public ones — `hark_web`,
-   `hark_academic`, `hark_birding`, `hark_resume` — may be linked.
+   visitor gets GitHub's 404. The public ones — `hark_web`,
+   `hark_academic`, `hark_birding`, `hark_resume`, `hark_dove_habitat` — may
+   be linked.
 5. **One stylesheet.** `web/standards/site/hark.css`, served at
    `/standards/hark.css`, is the only shared stylesheet; every page on every
    site links it (`https://felipeharker.org/standards/hark.css` from the other
@@ -49,7 +51,8 @@ standard, the decision log and the roadmap for all four live here.
    `.work-cover-placeholder`.
 10. **Links.** Within this site: relative, or root-relative (`/`,
     `/standards/`). To another site in the family: absolute (`FAMILY` in
-    `tools/sites.mjs`) and same tab. To anyone else: absolute,
+    `tools/sites.mjs`) and same tab — except a portfolio tile, which opens
+    its project in a new tab. To anyone else: absolute,
     `target="_blank" rel="noopener noreferrer"`.
 11. **Text.** Plain language; headings in Title Case, never numbered. Every
     page opens with the running head and ends with the colophon, each

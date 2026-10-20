@@ -265,6 +265,11 @@ same order; a tile without one of them omits the element.
 `.work-facts` holds everything under the cover; it carries no style of its
 own. The `<hr class="rule-soft">` in it is drawn as a short ink dash.
 
+To give each kind of work a row of its own, put one `.work-list` after
+another in the section: each starts a new row, as far below the last as two
+rows within one list. The portfolio has two — the academic projects, three
+across, then the bird projects, two across.
+
 ## Entries
 
 ```html

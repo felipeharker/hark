@@ -23,6 +23,9 @@ when it is done, with the date.
 - [x] Porkbun: resume.felipeharker.org forwards straight to
       `https://hark-resume.onrender.com/`, and academic.felipeharker.org to
       `https://hark-academic.onrender.com/`, both permanent (2026-10-20)
+- [x] Dove Habitat: `hark_dove_habitat` (public) from the private
+      `dove_habitat`, now `dove_habitat_archive`; Render `hark-dove-habitat`;
+      a tile on the portfolio; `dove-habitat` redirects (2026-10-20)
 - [ ] **Yours:** rename the local folder `CODEBASEhark` to
       `CODEBASEhark_web` (close the sessions using it first)
 

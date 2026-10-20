@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Felipe E. Harker — Portfolio</title>
-<meta name="description" content="Portfolio of Felipe E. Harker: computational design, architecture, and the tools built alongside them, with links to the academic projects, the ornithology report and the resume.">
+<meta name="description" content="Portfolio of Felipe E. Harker: computational design, architecture, and the tools built alongside them, with links to the academic projects, the ornithology report, Dove Habitat and the resume.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +19,11 @@
      --------------------------------------------------------------------------
      A single static document. No build step, no framework, no JavaScript.
      This is the front door to the other sites in felipeharker.org's family,
-     each built in its own repository. Each academic project gets a tile of
-     its own, linking its page on https://hark-academic.onrender.com/; the
-     ornithology report, a site of its own, gets one tile linking to it.
-     The resume is in Elsewhere.
+     each built in its own repository. The work is two rows of tiles, each its
+     own <ul class="work-list">: the academic projects, a tile each linking
+     its page on https://hark-academic.onrender.com/; then the bird
+     projects, the ornithology report and Dove Habitat, each a site of its
+     own. The resume is in Elsewhere.
 
      All styling is /standards/hark.css, the shared stylesheet (its source is
      web/standards/site/hark.css in this repository, hark_web). Do not add inline
@@ -30,11 +31,12 @@
      a new assets/site.css, loaded after hark.css. There are none.
 
      ADDING A TILE
-     Copy one <li class="work"> block. Every tile carries the same seven parts
-     in the same order, and a tile that drops one — a project with no stack
-     line, say — should omit the element rather than leave it empty. A link to
-     another site in the family opens in the same tab; a link anywhere else
-     opens a new one.
+     Copy one <li class="work"> block into its row. Every tile carries the
+     same seven parts in the same order, and a tile that drops one — a
+     project with no stack line, say — should omit the element rather than
+     leave it empty. A tile's three links (cover, title, address) open the
+     project in a new tab, with target="_blank" rel="noopener noreferrer";
+     the running head and the site links stay in the same tab.
 
      ADDING A COVER IMAGE
      Inside a tile's <a class="work-cover">, replace the whole
@@ -89,11 +91,12 @@
 <section class="section" id="sec-work">
 <h2 class="section-heading">Work</h2>
 
+<!-- The academic projects: one row of three. -->
 <ul class="work-list">
 
   <!-- Living Outside the Box -------------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Living Outside the Box</span>
         <span class="note">Cover pending</span>
@@ -101,7 +104,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Living Outside the Box</a>
+        <a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html" target="_blank" rel="noopener noreferrer">Living Outside the Box</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">Caixa Social: a hillside housing community in Rio built up from one pre-fabricated concrete box — a box makes a room, two make a house, five houses make a cluster.</p>
@@ -113,13 +116,13 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html" target="_blank" rel="noopener noreferrer">Project Page</a>
     </div>
   </li>
 
   <!-- Dead Mall Fall ---------------------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Dead Mall Fall</span>
         <span class="note">Cover pending</span>
@@ -127,7 +130,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Dead Mall Fall</a>
+        <a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html" target="_blank" rel="noopener noreferrer">Dead Mall Fall</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">An urban design proposal for the neighborhood around Greenspoint Mall, reworking its streets, trails and greenspaces around transit, walkability and flood mitigation.</p>
@@ -137,13 +140,13 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html" target="_blank" rel="noopener noreferrer">Project Page</a>
     </div>
   </li>
 
   <!-- Collingsworth Marketplace ----------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Collingsworth Marketplace</span>
         <span class="note">Cover pending</span>
@@ -151,7 +154,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a>
+        <a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html" target="_blank" rel="noopener noreferrer">Collingsworth Marketplace</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">A walkable mixed-use marketplace for Near Northside, adapting an existing two-block warehouse with passive cooling, ventilation and stormwater strategies.</p>
@@ -163,13 +166,18 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html" target="_blank" rel="noopener noreferrer">Project Page</a>
     </div>
   </li>
 
+</ul>
+
+<!-- The bird projects: one row of two. -->
+<ul class="work-list">
+
   <!-- Harker Ornithology Report ------------------------------------------ -->
   <li class="work">
-    <a class="work-cover" href="https://hark-birding.onrender.com/" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-birding.onrender.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Harker Ornithology Report</span>
         <span class="note">Cover pending</span>
@@ -177,7 +185,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="https://hark-birding.onrender.com/">Harker Ornithology Report</a>
+        <a href="https://hark-birding.onrender.com/" target="_blank" rel="noopener noreferrer">Harker Ornithology Report</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">A record of field observations, checklists and media, built from eBird exports at compile time and published as a static site with a map of every location visited.</p>
@@ -189,7 +197,33 @@
         <span>eBird</span>
       </p>
       <p class="work-kind">Personal</p>
-      <a class="work-link" href="https://hark-birding.onrender.com/">Project Site</a>
+      <a class="work-link" href="https://hark-birding.onrender.com/" target="_blank" rel="noopener noreferrer">Project Site</a>
+    </div>
+  </li>
+
+  <!-- Dove Habitat ------------------------------------------------------ -->
+  <li class="work">
+    <a class="work-cover" href="https://hark-dove-habitat.onrender.com/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+      <span class="work-cover-placeholder">
+        <span class="name">Dove Habitat</span>
+        <span class="note">Cover pending</span>
+      </span>
+    </a>
+    <div class="work-facts">
+      <h3 class="work-title">
+        <a href="https://hark-dove-habitat.onrender.com/" target="_blank" rel="noopener noreferrer">Dove Habitat</a>
+      </h3>
+      <hr class="rule-soft">
+      <p class="work-summary">A modular system of 3D-printed mounts and accessories for a wire corner cage, built on one shared interface so any accessory fits on any mount.</p>
+      <p class="work-stack">
+        <span>Rhino</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>3D Printing</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>PETG</span>
+      </p>
+      <p class="work-kind">Personal</p>
+      <a class="work-link" href="https://hark-dove-habitat.onrender.com/" target="_blank" rel="noopener noreferrer">Project Site</a>
     </div>
   </li>
 

@@ -97,9 +97,14 @@ The second line shows exactly what will be published.
   never need to build again; the new `hark_birding` and `hark_resume` are
   different repositories.
 
+- **dove-habitat.onrender.com** was Dove Habitat's address until
+  2026-10-20. The `dove-habitat` service, from `dove_habitat_archive`, keeps
+  it only to redirect: Source `/*` to Destination
+  `https://hark-dove-habitat.onrender.com/*`, with the same `empty/` build.
+
 The Render project **Hark** holds `hark-site`, `hark-academic`,
-`hark-birding`, `hark-resume`, the two redirect services and `anna-grades`, a
-separate small site.
+`hark-birding`, `hark-resume`, `hark-dove-habitat`, the three redirect
+services and `anna-grades`, a separate small site.
 
 The move to four sites is tracked in
 [`planning/roadmap.md`](../planning/roadmap.md).
