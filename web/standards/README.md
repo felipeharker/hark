@@ -1,7 +1,8 @@
 # Standards
 
-The web design and development standards for every page on felipeharker.org,
-served at `/standards/`: one shared stylesheet, the rules behind it, and a
+The web design and development standards for every page on felipeharker.org
+and the sites beside it — the academic projects, the birding report, the
+resume — served at `/standards/`: one shared stylesheet, the rules behind it, and a
 page that renders all of it.
 
 ## What is here
@@ -32,7 +33,7 @@ the reader sees is numbered.
 
 Edit `site/hark.css`, document any new token or class, look at `/standards/`
 and every page the change touches, then run `node tools/check.mjs` from the
-repository root. The change reaches every page at once — there are no copies
+repository root. The change reaches every page at once — the birding report on its next build — there are no copies
 to update. The full steps are in
 [`docs/development.md`](docs/development.md#changing-the-standard) and
 [`wiki/Changing-the-Standard.md`](../../wiki/Changing-the-Standard.md).

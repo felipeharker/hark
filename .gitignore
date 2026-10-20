@@ -1,5 +1,5 @@
-# Baseline .gitignore, from the CODEBASE baseline in hark_system (archived 2026-10-19);
-# this repository's own lines are under "# This repo".
+# Baseline .gitignore, from the CODEBASE baseline in hark_system (archived 2026-10-19,
+# now hark_system_archive); this repository's own lines are under "# This repo".
 # OS / editors
 Thumbs.db
 desktop.ini
@@ -41,16 +41,9 @@ dist/
 # Local agent settings
 .claude/settings.local.json
 # This repo
-# PDFs stay out of the repository for now: board sets, the resume PDF and
-# third-party field guides are kept beside the sites, not published (see
-# planning/decisions.md). Their links are removed from the pages.
+# PDFs stay out of the repository for now (see planning/decisions.md).
 *.pdf
 # Working files for a site live in its source/ folder, beside site/; nothing
 # in source/ is published, and nothing in it is committed except its README.
 web/*/source/**
 !web/*/source/README.md
-# Generated: the birding app's copy of the shared stylesheet (see
-# web/birds/web/package.json, predev and prebuild).
-web/birds/web/src/app/hark.css
-# Personal trip-planning notes: kept on disk, not published in a public repo.
-web/birds/notebook/

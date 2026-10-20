@@ -10,8 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- The shared stylesheet, then this part of the site's own if it has one.
-     /standards/hark.css is web/standards/site/hark.css in the repository. -->
+<!-- The shared stylesheet, then this site's own if it has one.
+     /standards/hark.css is web/standards/site/hark.css in hark_web. On a
+     site other than felipeharker.org, link it by its full address:
+     https://felipeharker.org/standards/hark.css. -->
 <link rel="stylesheet" href="/standards/hark.css">
 </head>
 <body>
@@ -26,16 +28,19 @@
      ====================================================================== -->
 
 <!-- Running head -------------------------------------------------------
-     Every part of felipeharker.org, in the order of tools/sites.mjs — the
-     same links as the colophon. Put aria-current="page" on the part this
-     page is in. -->
+     Every site in the family, in the order of FAMILY in tools/sites.mjs —
+     the same links as the colophon. Put aria-current="page" on the site this
+     page is in; on that site its own link is "/", and the others' are
+     absolute. On a site other than felipeharker.org, the owner's name, the
+     Portfolio link and the standards link are absolute too:
+     https://felipeharker.org/ and https://felipeharker.org/standards/. -->
 <header class="runhead">
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
     <a href="/">Portfolio</a>
-    <a href="/academic/">Academic</a>
-    <a href="/birds/">Birding</a>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-academic.onrender.com/">Academic</a>
+    <a href="https://hark-birding.onrender.com/">Birding</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
   </nav>
 </header>
 
@@ -63,15 +68,14 @@
 </section>
 
 <!-- Colophon --------------------------------------------------------------
-     The site links: every part of felipeharker.org, in the order of
-     tools/sites.mjs. Put aria-current="page" on the part this page is in. -->
+     The site links: the same as the running head, in the same order. -->
 <footer class="colophon">
   <nav class="site-links" aria-label="Felipe E. Harker">
     <span class="site-links-owner">Felipe E. Harker</span>
     <a href="/">Portfolio</a>
-    <a href="/academic/">Academic</a>
-    <a href="/birds/">Birding</a>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-academic.onrender.com/">Academic</a>
+    <a href="https://hark-birding.onrender.com/">Birding</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
   </nav>
   <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript. Built to the <a href="/standards/">Hark web standards</a>.</p>
 </footer>

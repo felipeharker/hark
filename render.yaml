@@ -1,5 +1,7 @@
-# Render Blueprint for felipeharker.org: the whole site, one static service,
-# built from this repository's main branch.
+# Render Blueprint for felipeharker.org: the portfolio and the standards, one
+# static service, built from this repository's main branch. The academic
+# projects, the birding report and the resume are their own services, each
+# recorded in its own repository's render.yaml.
 #
 # It records the dashboard settings. Render reads this file only if it is
 # synced as a Blueprint; until then the dashboard rules, and the two must
@@ -8,13 +10,34 @@ services:
   - type: web
     name: hark-site
     runtime: static
-    repo: https://github.com/felipeharker/hark
+    repo: https://github.com/felipeharker/hark_web
     branch: main
-    buildCommand: node tools/build.mjs     # builds the birding app, assembles dist/
+    buildCommand: node tools/build.mjs     # assembles dist/
     staticPublishPath: dist
     envVars:
-      - key: NODE_VERSION                  # Next.js 16 needs 20.9 or newer
+      - key: NODE_VERSION
         value: "22"
     domains:
       - felipeharker.org
       - www.felipeharker.org
+    # The paths that moved to their own sites in 2026-10, sent there with the
+    # rest of the path (Redirects/Rewrites in the dashboard, in this order).
+    routes:
+      - type: redirect
+        source: /academic
+        destination: https://hark-academic.onrender.com/
+      - type: redirect
+        source: /academic/*
+        destination: https://hark-academic.onrender.com/*
+      - type: redirect
+        source: /birds
+        destination: https://hark-birding.onrender.com/
+      - type: redirect
+        source: /birds/*
+        destination: https://hark-birding.onrender.com/*
+      - type: redirect
+        source: /resume
+        destination: https://hark-resume.onrender.com/
+      - type: redirect
+        source: /resume/*
+        destination: https://hark-resume.onrender.com/*

@@ -6,8 +6,8 @@
  *   node tools/check.mjs
  *
  * 1. Pages      every page links the one shared stylesheet, carries links to
- *               every part of the site in its running head and its colophon,
- *               and links the standards.
+ *               every site in the family in its running head and its
+ *               colophon, and links the standards.
  * 2. Links      every internal link, image and stylesheet resolves to a file,
  *               and every same-page #anchor to an id.
  * 3. Published  a static site/ folder holds only web files — no PDFs, notes,
@@ -17,14 +17,14 @@
  *               web/standards/docs/, no documented token has gone, and
  *               every link in wiki/ resolves (tools/wiki.mjs).
  *
- * The birding app is checked from its last build (web/birds/web/out); build
- * it first, or its pages are skipped with a note.
+ * The other sites in the family — academic, birding, resume — are checked by
+ * the same kind of tool in their own repositories.
  */
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SITES, STYLESHEET, mounts, resolveUrl } from './sites.mjs';
+import { FAMILY, SITES, STYLESHEET, mounts, resolveUrl, siteLinkHref } from './sites.mjs';
 import { wikiPages } from './wiki.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -44,7 +44,6 @@ function walk(dir, out = []) {
 }
 
 const served = mounts(ROOT);
-const linked = SITES.filter((s) => s.siteLinks);
 
 // -- 1 and 2. Every page -------------------------------------------------------
 
@@ -76,9 +75,9 @@ for (const site of SITES) {
     const head = html.match(/<nav class="runhead-links"[\s\S]*?<\/nav>/);
     if (!clientRendered) {
       if (!nav) problem(where, 'has no site links');
-      else for (const s of linked) if (!nav[0].includes(`href="${s.path}"`)) problem(where, `site links miss ${s.name} (${s.path})`);
+      else for (const s of FAMILY) if (!nav[0].includes(`href="${siteLinkHref(s)}"`)) problem(where, `site links miss ${s.name} (${siteLinkHref(s)})`);
       if (!head) problem(where, 'has no running head');
-      else for (const s of linked) if (!head[0].includes(`href="${s.path}"`)) problem(where, `running head misses ${s.name} (${s.path})`);
+      else for (const s of FAMILY) if (!head[0].includes(`href="${siteLinkHref(s)}"`)) problem(where, `running head misses ${s.name} (${siteLinkHref(s)})`);
       if (!html.includes('href="/standards/"') && site.path !== '/standards/') problem(where, 'does not link /standards/');
     }
 
@@ -110,11 +109,10 @@ for (const site of SITES.filter((s) => s.kind === 'static')) {
 }
 
 const stylesheet = rel(join(STANDARDS, 'site', 'hark.css'));
-const generated = 'web/birds/web/src/app/hark.css';
 for (const f of walk(join(ROOT, 'web'))) {
   const name = f.split(sep).pop();
   const r = rel(f);
-  if ((name === 'hark.css' && r !== stylesheet && r !== generated) || name === 'hark-styles.css') {
+  if ((name === 'hark.css' && r !== stylesheet) || name === 'hark-styles.css') {
     problem(r, 'is a stray copy of the shared stylesheet; link /standards/hark.css instead');
   }
 }

@@ -1,17 +1,19 @@
 /* ============================================================================
    HARK STANDARDS — SHARED STYLESHEET
    ----------------------------------------------------------------------------
-   The one stylesheet every page on felipeharker.org is built on: the
-   portfolio, the academic projects, the birding report, the resume and the
-   standards page itself. It holds the design tokens and every component
+   The one stylesheet every site in felipeharker.org's family is built on:
+   the portfolio, the academic projects, the birding report, the resume and
+   the standards page itself. It holds the design tokens and every component
    more than one kind of page needs.
 
    WHERE THIS FILE LIVES
-   hark/web/standards/site/hark.css, published at /standards/hark.css. Every
-   static page links that one address, so there are no copies to keep in
+   hark_web/web/standards/site/hark.css, published at
+   https://felipeharker.org/standards/hark.css. Every static page links that
+   one address — /standards/hark.css on felipeharker.org, the full address
+   on the academic and resume sites — so there are no copies to keep in
    step. The birding report, a Next.js app, imports it at build time: its
-   predev and prebuild scripts copy it to web/birds/web/src/app/hark.css, a
-   generated file git ignores.
+   predev and prebuild scripts fetch it to web/src/app/hark.css in
+   hark_birding, a generated file git ignores.
 
    A site may load a stylesheet of its own AFTER this one, for components no
    other site has (the birding report's map, the resume's print sheet). It
@@ -1303,18 +1305,18 @@ code {
 /* ============================================================================
    17. RUNNING HEAD AND BACK LINK
    The running head is the line across the top of every page, outside its
-   <article>: the owner's name in the left column, and a link to every part
-   of felipeharker.org from the middle — the same links as the colophon, so
-   a reader can move around the site from either end of a page. The part the
+   <article>: the owner's name in the left column, and a link to every site
+   in the family from the middle — the same links as the colophon, so a
+   reader can move between the sites from either end of a page. The site the
    reader is in is bracketed.
 
      <header class="runhead">
        <a class="runhead-owner" href="/">Felipe E. Harker</a>
        <nav class="runhead-links" aria-label="Site">
          <a href="/" aria-current="page">Portfolio</a>
-         <a href="/academic/">Academic</a>
-         <a href="/birds/">Birding</a>
-         <a href="/resume/">Resume</a>
+         <a href="https://hark-academic.onrender.com/">Academic</a>
+         <a href="https://hark-birding.onrender.com/">Birding</a>
+         <a href="https://hark-resume.onrender.com/">Resume</a>
        </nav>
      </header>
 
@@ -1376,18 +1378,18 @@ code {
 
 /* ============================================================================
    18. COLOPHON
-   The foot of every page: an ink rule, then the site links — every part of
-   felipeharker.org, the current one marked with aria-current="page" — in
-   the left column, and a line on how the page was made in the right. A
-   reader can always get from one part of the site to any other.
+   The foot of every page: an ink rule, then the site links — every site in
+   the family, the current one marked with aria-current="page" — in the left
+   column, and a line on how the page was made in the right. A reader can
+   always get from one site to any other.
 
      <footer class="colophon">
        <nav class="site-links" aria-label="Felipe E. Harker">
          <span class="site-links-owner">Felipe E. Harker</span>
          <a href="/" aria-current="page">Portfolio</a>
-         <a href="/academic/">Academic</a>
-         <a href="/birds/">Birding</a>
-         <a href="/resume/">Resume</a>
+         <a href="https://hark-academic.onrender.com/">Academic</a>
+         <a href="https://hark-birding.onrender.com/">Birding</a>
+         <a href="https://hark-resume.onrender.com/">Resume</a>
        </nav>
        <p>…</p>
      </footer>
@@ -1430,7 +1432,7 @@ code {
 
 .site-links a:hover { color: var(--color-text); }
 
-/* The part of the site the reader is in: still a link to its front page,
+/* The site the reader is in: still a link to its front page,
    but in ink, so the row says where you are as well as where you can go. */
 .site-links a[aria-current] { color: var(--color-text); }
 

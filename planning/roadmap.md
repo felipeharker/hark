@@ -1,10 +1,31 @@
 # Roadmap
 
-What is done, what is waiting, and what is next for felipeharker.org. Why
+What is done, what is waiting, and what is next for felipeharker.org and the
+sites beside it. Why
 things are the way they are is in [decisions.md](decisions.md). Tick an item
 when it is done, with the date.
 
-## Now: the move to one repository (started 2026-10-19)
+## Now: four repositories, four sites (2026-10-20)
+
+- [x] Rename every archived `hark_*` repository to `<name>_archive`
+      (2026-10-20)
+- [x] Make `hark_academic`, `hark_birding` and `hark_resume` (public) from
+      this repository's `web/academic`, `web/birds` and `web/resume`, with
+      their own tools, READMEs and agent guides (2026-10-20)
+- [x] Render static sites `hark-academic`, `hark-birding`, `hark-resume` on
+      their `onrender.com` addresses (2026-10-20)
+- [x] Rename `hark` to `hark_web`; the portfolio and the standard link the
+      new sites (2026-10-20)
+- [ ] `hark-site` redirects: `/academic/*`, `/birds/*`, `/resume/*` → the
+      new sites
+- [ ] The old redirect services (`hark-birding-redirect`,
+      `hark-resume-redirect`) point at the new sites
+- [ ] Porkbun: resume.felipeharker.org forwards to the new resume site;
+      academic.felipeharker.org forwards to the academic site
+- [ ] **Yours:** rename the local folder `CODEBASEhark` to
+      `CODEBASEhark_web` (close the sessions using it first)
+
+## Before: the move to one repository (started 2026-10-19)
 
 The site moved from three repositories and three Render services to this one
 repository and one service.
@@ -71,10 +92,13 @@ Decided (the reasons are in [decisions.md](decisions.md)):
 ## Next
 
 - **Covers for every tile**: the three academic projects, on the portfolio
-  and on `/academic/`, and the birding report. Each is a placeholder for now.
-- **A check on every push.** A GitHub Actions workflow running
-  `node tools/check.mjs` and the birding build, so a broken link never
-  reaches `main`.
+  and on the academic site, and the birding report. Each is a placeholder for now.
+- **A check on every push.** A GitHub Actions workflow in each repository
+  running its `node tools/check.mjs` (and, in `hark_birding`, the build),
+  so a broken link never reaches `main`.
+- **Rebuilding the birding report when the standard changes.** It carries
+  the stylesheet from its last build; a deploy hook called from `hark_web`
+  could keep it in step.
 - **The GitHub wiki.** `.github/workflows/wiki.yml` publishes `wiki/` to it
   on every push to `main` that changes it (2026-10-19). **Yours:** create the
   wiki's first page on GitHub once, then run the Wiki workflow (see

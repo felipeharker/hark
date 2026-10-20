@@ -4,20 +4,23 @@
     {
       "name": "site",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/serve.mjs", "--port", "8000"],
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "--port",
+        "8000"
+      ],
       "port": 8000
     },
     {
       "name": "site-dist",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/serve.mjs", "--dist", "--port", "8001"],
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "--dist",
+        "--port",
+        "8001"
+      ],
       "port": 8001
-    },
-    {
-      "name": "birds-dev",
-      "runtimeExecutable": "cmd",
-      "runtimeArgs": ["/c", "npm --prefix web/birds/web run dev"],
-      "port": 3000
     }
   ]
 }

@@ -1,68 +1,68 @@
 # Architecture
 
-How felipeharker.org is put together: what lives where in this repository,
-how the parts relate to each other, how a change becomes the live site, and
-what sits outside the repository. The diagrams render on GitHub; every box
-names a real folder, file or service.
+How felipeharker.org and the sites beside it are put together: what lives in
+which repository, how the sites relate to each other, how a change becomes a
+live site, and what sits outside the repositories. The diagrams render on
+GitHub; every box names a real repository, folder, file or service.
 
 - [The whole system](#the-whole-system)
-- [The repository](#the-repository)
+- [This repository](#this-repository)
 - [One stylesheet](#one-stylesheet)
-- [From a commit to the live site](#from-a-commit-to-the-live-site)
+- [From a commit to a live site](#from-a-commit-to-a-live-site)
 - [The birding report's data](#the-birding-reports-data)
 - [How a reader moves around](#how-a-reader-moves-around)
-- [Outside the repository](#outside-the-repository)
+- [Outside the repositories](#outside-the-repositories)
 
 ## The whole system
 
-One repository builds one static site, served from one domain. Each part of
-the site is a folder under `web/`; one stylesheet in `web/standards/` styles
-all of them; `tools/` turns the folders into the site.
+Four public repositories build four static sites, each on its own Render
+service. `hark_web` serves felipeharker.org — the portfolio and the standard
+— and its one stylesheet styles all four.
 
 ```mermaid
 flowchart LR
-  subgraph repo["hark repository (github.com/felipeharker/hark)"]
+  subgraph web["hark_web (github.com/felipeharker/hark_web)"]
     direction TB
     standards["web/standards<br/>the shared stylesheet, its docs, the specimen page"]
     portfolio["web/portfolio<br/>the front page"]
-    academic["web/academic<br/>three University of Houston projects"]
-    birds["web/birds<br/>the birding report (Next.js) and its eBird data"]
-    resume["web/resume<br/>the resume"]
-    tools["tools/<br/>sites.mjs · build.mjs · serve.mjs · check.mjs · wiki.mjs"]
-    docs["README · ARCHITECTURE · AGENTS<br/>wiki/ · planning/"]
+    planning["planning/<br/>roadmap and decisions, for every site"]
   end
+  academic["hark_academic<br/>three University of Houston projects"]
+  birds["hark_birding<br/>the birding report (Next.js) and its eBird data"]
+  resume["hark_resume<br/>the resume"]
 
   standards -. "styles" .-> portfolio
-  standards -. "styles" .-> academic
-  standards -. "styles" .-> resume
-  standards -. "copied in at build" .-> birds
-  portfolio & academic & birds & resume & standards --> tools
+  standards -. "linked by every page" .-> academic
+  standards -. "linked by the page" .-> resume
+  standards -. "fetched at build" .-> birds
 
-  tools -- "node tools/build.mjs → dist/" --> render["Render static site 'hark-site'<br/>hark-site.onrender.com"]
-  render --> domain["felipeharker.org"]
+  web --> s1["Render 'hark-site'<br/>felipeharker.org"]
+  academic --> s2["Render 'hark-academic'<br/>hark-academic.onrender.com"]
+  birds --> s3["Render 'hark-birding'<br/>hark-birding.onrender.com"]
+  resume --> s4["Render 'hark-resume'<br/>hark-resume.onrender.com"]
 ```
 
-| Path on felipeharker.org | Folder published | What it is |
+| Address | Repository, folder published | What it is |
 |---|---|---|
-| `/` | `web/portfolio/site/` | The front page: a tile for each academic project and one for the birding report, About, Elsewhere |
-| `/academic/` | `web/academic/site/` | Living Outside the Box, Dead Mall Fall, Collingsworth Marketplace — a page each |
-| `/birds/` | `web/birds/web/out/` (built) | The Harker Ornithology Report: map, locations, media, field notes, one page per checklist |
-| `/resume/` | `web/resume/site/` | The resume, printable |
-| `/standards/` | `web/standards/site/` | The specimen page, and `/standards/hark.css` itself |
+| https://felipeharker.org/ | `hark_web`, `web/portfolio/site/` | The front page: a tile for each academic project and one for the birding report, About, Elsewhere |
+| https://felipeharker.org/standards/ | `hark_web`, `web/standards/site/` | The specimen page, and `/standards/hark.css` itself |
+| https://hark-academic.onrender.com/ | `hark_academic`, `site/` | Living Outside the Box, Dead Mall Fall, Collingsworth Marketplace — a page each |
+| https://hark-birding.onrender.com/ | `hark_birding`, `web/out/` (built) | The Harker Ornithology Report: map, locations, media, field notes, one page per checklist |
+| https://hark-resume.onrender.com/ | `hark_resume`, `site/` | The resume, printable |
 
-## The repository
+## This repository
 
 ```mermaid
 flowchart LR
-  root["hark/"]
+  root["hark_web/"]
   root --> rootfiles["README.md · ARCHITECTURE.md · AGENTS.md · CLAUDE.md<br/>render.yaml · .gitignore · .gitattributes · .node-version"]
   root --> tools["tools/"]
   root --> wiki["wiki/<br/>how-to guides"]
-  root --> workflows[".github/workflows/<br/>wiki.yml"]
   root --> planning["planning/<br/>roadmap.md · decisions.md"]
+  root --> workflows[".github/workflows/<br/>wiki.yml"]
   root --> web["web/"]
 
-  tools --> t1["sites.mjs<br/>every part: its path and its folder"]
+  tools --> t1["sites.mjs<br/>the parts served here, and the family"]
   tools --> t2["build.mjs<br/>assembles dist/ for Render"]
   tools --> t3["serve.mjs<br/>serves the site locally"]
   tools --> t4["check.mjs<br/>checks pages, links, files, docs"]
@@ -70,52 +70,40 @@ flowchart LR
 
   web --> s["standards/"]
   web --> p["portfolio/"]
-  web --> a["academic/"]
-  web --> b["birds/"]
-  web --> r["resume/"]
 
   s --> s1["site/hark.css · site/index.html · site/specimen/"]
   s --> s2["docs/ design · components · writing · development"]
   s --> s3["templates/page.html"]
 
   p --> p1["site/index.html"]
-
-  a --> a1["site/index.html · site/projects/ · site/assets/"]
-  a --> a2["source/ (git-ignored)<br/>board PDFs, Rhino model"]
-
-  b --> b1["web/ — the Next.js app<br/>src/ · field-notes/ · out/ (built)"]
-  b --> b2["observation-data/<br/>eBird CSV exports, archive/"]
-  b --> b3["notebook/ (git-ignored)<br/>trip notes, field guides"]
-  b --> b4["README.md · user_guide.md"]
-
-  r --> r1["site/index.html · site/assets/site.css"]
-  r --> r2["resume.md (reference copy, not published)"]
 ```
 
 Every part keeps what it publishes in a `site/` folder and nothing else
-there: no Markdown, notes, models or PDFs. Working files sit beside it in
-`source/` (or the birding report's `notebook/`), which git ignores. The
-birding report is the one part with a build: its app writes `web/out/`.
+there: no Markdown, notes, models or PDFs. The other three repositories have
+the same shape at their root — `site/`, git-ignored `source/` (or the birding
+report's `notebook/`), and `tools/` with `site.mjs`, `serve.mjs` and
+`check.mjs` — except the birding report, whose app in `web/` writes
+`web/out/`.
 
 ## One stylesheet
 
-There is one shared stylesheet, `web/standards/site/hark.css`. Nothing copies
-it except the birding app, which needs it at build time.
+There is one shared stylesheet, `web/standards/site/hark.css` in this
+repository. Nothing copies it except the birding app, which needs it at
+build time.
 
 ```mermaid
 flowchart LR
-  css["web/standards/site/hark.css<br/>tokens + every shared component"]
-  css -- "published as" --> url["/standards/hark.css"]
+  css["hark_web: web/standards/site/hark.css<br/>tokens + every shared component"]
+  css -- "published as" --> url["https://felipeharker.org/standards/hark.css"]
 
-  url -- "&lt;link&gt;" --> pp["portfolio pages"]
-  url -- "&lt;link&gt;" --> ap["academic pages"]
-  url -- "&lt;link&gt;" --> rp["resume page"]
-  url -- "&lt;link&gt;" --> sp["specimen page"]
-  rp --- rcss["web/resume/site/assets/site.css<br/>narrower column, print sheet"]
-  sp --- scss["specimen/specimen.css<br/>swatches and samples"]
+  url -- "&lt;link href=/standards/hark.css&gt;" --> pp["portfolio and specimen pages"]
+  url -- "&lt;link&gt;, full address" --> ap["hark_academic pages"]
+  url -- "&lt;link&gt;, full address" --> rp["hark_resume page"]
+  rp --- rcss["site/assets/site.css<br/>narrower column, print sheet"]
+  pp --- scss["specimen/specimen.css<br/>swatches and samples"]
 
-  css -- "predev · prebuild · prelint copy" --> gen["web/birds/web/src/app/hark.css<br/>(generated, git-ignored)"]
-  gen -- "import, first" --> layout["birds app: layout.tsx"]
+  url -- "predev · prebuild · prelint fetch" --> gen["hark_birding: web/src/app/hark.css<br/>(generated, git-ignored)"]
+  gen -- "import, first" --> layout["birding app: layout.tsx"]
   layout --- bcss["styles_primary.css · styles_map.css<br/>the report's own components"]
 
   docs["web/standards/docs/<br/>design.md (tokens) · components.md (classes)"]
@@ -124,47 +112,44 @@ flowchart LR
   check -. "compares" .-> css
 ```
 
-A part's own stylesheet loads after `hark.css`, may read and redefine its
-tokens, and holds only what no other part needs. A component a second part
-needs moves into `hark.css`.
+A site's own stylesheet loads after `hark.css`, may read and redefine its
+tokens, and holds only what no other site needs. A component a second site
+needs moves into `hark.css`. A change to `hark.css` reaches the static sites
+as soon as `hark-site` deploys, and the birding report on its next build.
 
-## From a commit to the live site
+## From a commit to a live site
+
+Each repository deploys on its own; this is `hark_web`'s path. The others
+are the same, without the build step for the static ones, and with
+`cd web && npm ci && npm run build` for the birding report.
 
 ```mermaid
 flowchart LR
   dev["edit in web/…"] --> serve["node tools/serve.mjs<br/>localhost:8000, from source"]
   dev --> check["node tools/check.mjs<br/>stylesheet · site links · internal links<br/>published files · docs"]
   check --> push["git push origin main"]
-  push --> gh["GitHub<br/>felipeharker/hark"]
-  gh -- "auto-deploy" --> build
-
-  subgraph build["Render: node tools/build.mjs"]
-    direction TB
-    nb["web/birds/web:<br/>npm ci && npm run build → out/"]
-    copy["copy each part's folder to its path"]
-    nb --> copy
-  end
-
-  sites["tools/sites.mjs"] -. "paths and folders" .-> copy
-  copy --> dist["dist/<br/>/ · /academic/ · /birds/ · /resume/ · /standards/"]
+  push --> gh["GitHub<br/>felipeharker/hark_web"]
+  gh -- "auto-deploy" --> build["Render: node tools/build.mjs<br/>copy each part's folder to its path"]
+  sites["tools/sites.mjs"] -. "paths and folders" .-> build
+  build --> dist["dist/<br/>/ · /standards/<br/>stylesheet links fingerprinted"]
   dist -- "publish directory" --> live["felipeharker.org"]
 ```
 
-`tools/sites.mjs` is the one list of parts: the build, the local server and
-the check all read it, so a new part of the site is added there once.
+`tools/sites.mjs` lists the parts served here and the family of sites; the
+build, the local server and the check all read it.
 `node tools/build.mjs && node tools/serve.mjs --dist` shows exactly what
 Render will publish.
 
 ## The birding report's data
 
 Nothing about birds is written into markup. Every page is built from files
-at build time; images and map tiles come from outside services when a
-reader opens the page.
+in `hark_birding` at build time; images and map tiles come from outside
+services when a reader opens the page.
 
 ```mermaid
 flowchart LR
   ebird["eBird / Macaulay Library<br/>exports"] -- "replace by hand" --> csv
-  subgraph data["web/birds"]
+  subgraph data["hark_birding"]
     csv["observation-data/<br/>ebird-data-latest.csv<br/>ebird-media-latest.csv"]
     notes["web/field-notes/<br/>field-note-N.md"]
     config["web/src/lib/siteConfig.ts<br/>title, abstract, links"]
@@ -175,7 +160,7 @@ flowchart LR
   config --> home
   page --> home["HomeDocument<br/>map · locations · media · field notes"]
   parse --> cl["src/app/checklist/[id]/<br/>one page per checklist"]
-  home & cl --> out["web/out/ → /birds/"]
+  home & cl --> out["web/out/ → hark-birding.onrender.com"]
 
   out -. "photos, at view time" .-> ml["Macaulay Library CDN"]
   out -. "basemap, at view time" .-> carto["Carto basemap tiles"]
@@ -183,19 +168,19 @@ flowchart LR
 
 ## How a reader moves around
 
-Every page ends with the same site links, so any part of the site is one
-click from any other. Links between parts are root-relative and stay in the
+Every page on every site opens with a running head and ends with a colophon,
+each carrying the same site links, so any site is one click from any other. Links between the sites are absolute and stay in the
 same tab; links to anyone else open a new one.
 
 ```mermaid
 flowchart TB
-  home["/ — Portfolio"]
-  acad["/academic/"]
-  proj["/academic/projects/…"]
-  birds["/birds/"]
-  check["/birds/checklist/…"]
-  resume["/resume/"]
-  std["/standards/"]
+  home["felipeharker.org — Portfolio"]
+  acad["hark-academic.onrender.com"]
+  proj["…/projects/…"]
+  birds["hark-birding.onrender.com"]
+  check["…/checklist/…"]
+  resume["hark-resume.onrender.com"]
+  std["felipeharker.org/standards/"]
 
   home -- "a tile per project" --> proj
   home -- "birding report tile" --> birds
@@ -205,23 +190,24 @@ flowchart TB
   birds --> check
   check -- "← location index" --> birds
 
-  footer["site links at the foot of every page:<br/>Portfolio · Academic · Birding · Resume<br/>and the Hark web standards"]
+  footer["running head and colophon of every page:<br/>Portfolio · Academic · Birding · Resume<br/>and the Hark web standards"]
   footer -.-> home & acad & birds & resume & std
 ```
 
-## Outside the repository
+## Outside the repositories
 
 | What | Where | Relationship |
 |---|---|---|
-| The live site | Render static site `hark-site` (project Hark, workspace Harker-Hub) | Builds `main` on every push; serves felipeharker.org and www |
-| The GitHub wiki | github.com/felipeharker/hark/wiki | A copy of `wiki/`, replaced by `.github/workflows/wiki.yml` on every push to `main` that changes it |
-| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service; `resume` → Porkbun's URL forwarding |
-| resume.felipeharker.org | Porkbun URL forwarding | A permanent redirect to `/resume/`; nothing on Render |
-| birds.felipeharker.org | Render service `hark-birding-redirect` (the old birding site) | Kept only to redirect to `/birds/` |
-| resume-site-0rfl.onrender.com | Render service `hark-resume-redirect` (the old resume site) | Kept only to redirect to `/resume/` |
-| `hark_portfolio`, `hark_resume`, `hark_birding` | GitHub, archived | The three repositories this one replaced; read-only, with their histories |
-| `hark_system` | GitHub, archived | The old CODEBASE standards: its web standard now lives here, its Rhino / Grasshopper and repository standards in `parametric_living_standards` |
+| The live sites | Render static sites `hark-site`, `hark-academic`, `hark-birding`, `hark-resume` (project Hark, workspace Harker-Hub) | Each builds its repository's `main` on every push; `hark-site` serves felipeharker.org and www |
+| The old paths | `hark-site`'s Redirects/Rewrites | `/academic/*`, `/birds/*`, `/resume/*` → the same path on the new site |
+| DNS | Porkbun | `felipeharker.org` A record → Render; `www` CNAME → `hark-site.onrender.com`; `birds` CNAME → the birding redirect service; `resume` and `academic` → Porkbun's URL forwarding |
+| resume.felipeharker.org, academic.felipeharker.org | Porkbun URL forwarding | Permanent redirects to the resume's and the academic site's front pages; nothing on Render |
+| birds.felipeharker.org | Render service `hark-birding-redirect` (the old birding site) | Kept only to redirect to hark-birding.onrender.com |
+| resume-site-0rfl.onrender.com | Render service `hark-resume-redirect` (the old resume site) | Kept only to redirect to hark-resume.onrender.com |
+| `hark_portfolio_archive`, `hark_resume_archive`, `hark_birding_archive` | GitHub, archived | The three repositories the 2026-10-19 monorepo replaced; read-only, with their histories. None of the current repositories was made from them |
+| `hark_system_archive`, `hark_references_archive`, `hark_parametric_*_archive` | GitHub, archived | The old CODEBASE standards, an unused references repository, and the old parametric repositories |
 | `CODEBASE\parametric` | the private `parametric_*` repositories | The Rhino and Grasshopper work and its own standards; nothing here depends on it |
+| The GitHub wiki | github.com/felipeharker/hark_web/wiki | A copy of `wiki/`, replaced by `.github/workflows/wiki.yml` on every push to `main` that changes it |
 | Fonts | Google Fonts, by a `<link>` on every page (the birding app's in its `layout.tsx`) | Inter and IBM Plex Mono |
+| dove-habitat.onrender.com | Render static site `dove-habitat`, from the private `dove_habitat` repository | A separate site. The birding report's Reference section links it, and nothing else in the family does; it links nothing back |
 | Photos and map tiles | Macaulay Library CDN, Carto | Loaded by the birding report in the reader's browser |
-| dove-habitat.onrender.com | Render static site `dove-habitat`, from the private `dove_habitat` repository | A separate site. The birding report's Reference section links it, and nothing else here does; it links nothing back |

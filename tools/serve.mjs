@@ -7,10 +7,9 @@
  *   node tools/serve.mjs --port 8000
  *
  * From source, each path is mapped to its folder (tools/sites.mjs), so an
- * edit to a static page shows on the next refresh with no build. The
- * birding app is served from its last build (web/birds/web/out): run
- * `npm run build` in web/birds/web to refresh it, or `npm run dev` there to
- * work on it alone at http://localhost:3000/birds/.
+ * edit to a page shows on the next refresh with no build. The site links to
+ * the academic projects, the birding report and the resume lead to their
+ * live sites; each is served locally from its own repository.
  */
 
 import { createServer } from 'node:http';

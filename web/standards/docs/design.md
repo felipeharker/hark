@@ -34,7 +34,7 @@ looks.
   is alone in its column; a section is named by a 12px label.
 - **Brackets mark the left column.** The kicker, the abstract and contents
   labels and every section heading are drawn in brackets — "[ About ]" — and
-  so is the current part of the site in the running head. Nothing else is
+  so is the current site in the running head. Nothing else is
   bracketed. The brackets are drawn by the stylesheet, never typed.
 - **Two faces, two jobs.** Inter for anything a person wrote; IBM Plex Mono
   for anything read off a record. A stack line, a dateline, a URL and a table

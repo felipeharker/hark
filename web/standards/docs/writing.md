@@ -50,9 +50,9 @@ a copied line should come across clean.
 
 - **Link the words that name the place.** "my <a>CV</a>", never "click
   here".
-- **Links between parts of felipeharker.org are root-relative and open in
-  the same tab** — `/academic/`, `/birds/`. It is one site; moving around it
-  is navigation.
+- **Links between the sites in the family open in the same tab** —
+  `https://hark-academic.onrender.com/`, `https://hark-birding.onrender.com/`.
+  They are one body of work; moving around it is navigation.
 - **Links to anyone else's site open in a new tab**, always with
   `target="_blank" rel="noopener noreferrer"`. In the birding app, spread
   `externalLinkProps(href)` from `siteConfig.ts` instead of writing the

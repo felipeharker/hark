@@ -4,6 +4,47 @@ Why felipeharker.org is built the way it is. Newest first. Each entry says
 what was decided, why, and what it replaced; reverse one by adding a new
 entry, not by editing an old one.
 
+## 2026-10-20 — Four repositories, four sites
+
+**The academic projects, the birding report and the resume are their own
+repositories and their own sites.** `hark_academic`, `hark_birding` and
+`hark_resume` hold what was `web/academic`, `web/birds` and `web/resume`
+here, as it stood at b1008cc, with fresh histories; each is a Render static
+site on its free `onrender.com` address (`hark-academic`, `hark-birding`,
+`hark-resume`). This repository, renamed `hark_web`, keeps the portfolio,
+the standard, and the planning and wiki for all four. *Why:* the user's
+call — each body of work in a repository of its own. *Replaces:* "One
+domain, with paths" (2026-10-19, below), and the monorepo's single deploy.
+
+**Built from this repository, never from the archives.** The new
+repositories were made from what was here, not from the earlier
+`hark_birding` and `hark_resume`. Those, and every other archived `hark_*`
+repository, were renamed `<name>_archive` (unarchived for the rename, then
+archived again) so the names were free.
+
+**Still one stylesheet.** `web/standards/site/hark.css` stays here, served
+at `https://felipeharker.org/standards/hark.css`. The academic and resume
+pages link it by that full address; the birding app fetches it at build time
+instead of copying it from a sibling folder. *Why:* one standard with no
+copies, as before. *The cost:* the other sites show the standard as it is
+deployed, without the fingerprint `hark-site`'s build adds (so for a few
+minutes after a deploy they may get the last one), and the birding report
+only after its next build, whose fetch is the one thing it downloads
+besides its packages.
+
+**Links between the sites are absolute and open in the same tab.** The
+running heads, the site links and the portfolio's tiles point at the
+`onrender.com` addresses directly, not at a forwarding address, so a link
+never takes an extra hop. *Replaces:* root-relative links between parts.
+
+**The old addresses redirect, path and all.** `hark-site` sends
+`/academic/*`, `/birds/*` and `/resume/*` to the same path on the new
+sites; birds.felipeharker.org and resume-site-0rfl.onrender.com redirect
+straight to the new sites; resume.felipeharker.org and a new
+academic.felipeharker.org are Porkbun URL forwarding to their front pages.
+*Why:* nothing that linked the old paths breaks, and no custom domain is
+added on Render.
+
 ## 2026-10-20 — The birding report links the Dove Habitat site
 
 **The Dove Habitat site, dove-habitat.onrender.com, is linked from the

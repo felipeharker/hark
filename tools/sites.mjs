@@ -1,17 +1,19 @@
 /**
- * Every part of felipeharker.org: the path it is served at, and the folder
- * its published files come from. tools/build.mjs, tools/serve.mjs and
- * tools/check.mjs all read this list, so a new part of the site is added
- * here once.
+ * felipeharker.org, and the family of sites it belongs to.
+ * tools/build.mjs, tools/serve.mjs and tools/check.mjs all read this file.
+ *
+ * SITES are the parts this repository serves:
  *
  *   path       where it is served, always with a trailing slash
  *   dir        the folder published at that path, relative to the repository
  *   kind       'static' — the folder is the site, as it is
- *              'next'   — a Next.js app; `npm run build` in `app` writes `dir`
- *   siteLinks  true when it appears in the site links at the foot of every
- *              page (see web/standards/docs/components.md, "Colophon")
  *
- * Order matters for the site links: it is the order they appear in.
+ * FAMILY is every site in the site links at the foot of every page, in the
+ * order they appear (see web/standards/docs/components.md, "Colophon"). The
+ * portfolio is served from here; the others are their own sites, each built
+ * from its own repository and linked by its absolute address. The same list
+ * is in tools/site.mjs in hark_academic, hark_birding and hark_resume; change
+ * it in all four at once.
  */
 
 import { existsSync, statSync } from 'node:fs';
@@ -20,17 +22,24 @@ import { join, normalize } from 'node:path';
 export const DOMAIN = 'https://felipeharker.org';
 
 export const SITES = [
-  { name: 'Portfolio', path: '/', dir: 'web/portfolio/site', kind: 'static', siteLinks: true },
-  { name: 'Academic', path: '/academic/', dir: 'web/academic/site', kind: 'static', siteLinks: true },
-  { name: 'Birding', path: '/birds/', dir: 'web/birds/web/out', app: 'web/birds/web', kind: 'next', siteLinks: true },
-  { name: 'Resume', path: '/resume/', dir: 'web/resume/site', kind: 'static', siteLinks: true },
-  { name: 'Standards', path: '/standards/', dir: 'web/standards/site', kind: 'static', siteLinks: false },
+  { name: 'Portfolio', path: '/', dir: 'web/portfolio/site', kind: 'static' },
+  { name: 'Standards', path: '/standards/', dir: 'web/standards/site', kind: 'static' },
 ];
 
-/** The one shared stylesheet, as every page links it. */
+export const FAMILY = [
+  { name: 'Portfolio', url: 'https://felipeharker.org/', repo: 'hark_web' },
+  { name: 'Academic', url: 'https://hark-academic.onrender.com/', repo: 'hark_academic' },
+  { name: 'Birding', url: 'https://hark-birding.onrender.com/', repo: 'hark_birding' },
+  { name: 'Resume', url: 'https://hark-resume.onrender.com/', repo: 'hark_resume' },
+];
+
+/** The href a site link carries: root-relative on felipeharker.org, absolute to the others. */
+export const siteLinkHref = (site) => (site.url.startsWith(`${DOMAIN}/`) ? site.url.slice(DOMAIN.length) : site.url);
+
+/** The one shared stylesheet, as every page here links it. */
 export const STYLESHEET = '/standards/hark.css';
 
-/** Where each path is served from, longest path first so /academic/ wins over /. */
+/** Where each path is served from, longest path first so /standards/ wins over /. */
 export function mounts(root) {
   return [...SITES]
     .sort((a, b) => b.path.length - a.path.length)

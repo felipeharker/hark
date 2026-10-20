@@ -18,13 +18,14 @@
      FELIPE E. HARKER — PORTFOLIO
      --------------------------------------------------------------------------
      A single static document. No build step, no framework, no JavaScript.
-     This is the front door to the other felipeharker.org sites. Each academic
-     project gets a tile of its own, linking its page under /academic/projects/;
-     the ornithology report, a site of its own, gets one tile linking to it.
+     This is the front door to the other sites in felipeharker.org's family,
+     each built in its own repository. Each academic project gets a tile of
+     its own, linking its page on https://hark-academic.onrender.com/; the
+     ornithology report, a site of its own, gets one tile linking to it.
      The resume is in Elsewhere.
 
      All styling is /standards/hark.css, the shared stylesheet (its source is
-     web/standards/site/hark.css in this repository). Do not add inline
+     web/standards/site/hark.css in this repository, hark_web). Do not add inline
      `style` attributes: a rule this page needs and the standard lacks goes in
      a new assets/site.css, loaded after hark.css. There are none.
 
@@ -32,7 +33,7 @@
      Copy one <li class="work"> block. Every tile carries the same seven parts
      in the same order, and a tile that drops one — a project with no stack
      line, say — should omit the element rather than leave it empty. A link to
-     another felipeharker.org site opens in the same tab; a link anywhere else
+     another site in the family opens in the same tab; a link anywhere else
      opens a new one.
 
      ADDING A COVER IMAGE
@@ -50,10 +51,10 @@
 
      For now every tile shows a placeholder, not a cover
      (planning/decisions.md). When covers return, an academic project's tile
-     shows that project's own cover, root-relative
-     (/academic/assets/covers/<slug>.jpg), so there is one file per cover and
-     the two pages cannot drift apart. Its summary and stack match its tile
-     on /academic/.
+     shows that project's own cover, from the academic site
+     (https://hark-academic.onrender.com/assets/covers/<slug>.jpg), so there
+     is one file per cover and the two pages cannot drift apart. Its summary
+     and stack match its tile on the academic site.
      ====================================================================== -->
 
 <!-- Running head ------------------------------------------------------- -->
@@ -61,9 +62,9 @@
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
     <a href="/" aria-current="page">Portfolio</a>
-    <a href="/academic/">Academic</a>
-    <a href="/birds/">Birding</a>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-academic.onrender.com/">Academic</a>
+    <a href="https://hark-birding.onrender.com/">Birding</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
   </nav>
 </header>
 
@@ -92,7 +93,7 @@
 
   <!-- Living Outside the Box -------------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="/academic/projects/living-outside-the-box.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Living Outside the Box</span>
         <span class="note">Cover pending</span>
@@ -100,7 +101,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="/academic/projects/living-outside-the-box.html">Living Outside the Box</a>
+        <a href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Living Outside the Box</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">Caixa Social: a hillside housing community in Rio built up from one pre-fabricated concrete box — a box makes a room, two make a house, five houses make a cluster.</p>
@@ -112,13 +113,13 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="/academic/projects/living-outside-the-box.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/living-outside-the-box.html">Project Page</a>
     </div>
   </li>
 
   <!-- Dead Mall Fall ---------------------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="/academic/projects/dead-mall-fall.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Dead Mall Fall</span>
         <span class="note">Cover pending</span>
@@ -126,7 +127,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="/academic/projects/dead-mall-fall.html">Dead Mall Fall</a>
+        <a href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Dead Mall Fall</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">An urban design proposal for the neighborhood around Greenspoint Mall, reworking its streets, trails and greenspaces around transit, walkability and flood mitigation.</p>
@@ -136,13 +137,13 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="/academic/projects/dead-mall-fall.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/dead-mall-fall.html">Project Page</a>
     </div>
   </li>
 
   <!-- Collingsworth Marketplace ----------------------------------------- -->
   <li class="work">
-    <a class="work-cover" href="/academic/projects/collingsworth-marketplace.html" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Collingsworth Marketplace</span>
         <span class="note">Cover pending</span>
@@ -150,7 +151,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="/academic/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a>
+        <a href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Collingsworth Marketplace</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">A walkable mixed-use marketplace for Near Northside, adapting an existing two-block warehouse with passive cooling, ventilation and stormwater strategies.</p>
@@ -162,13 +163,13 @@
         <span>Urban Planning</span>
       </p>
       <p class="work-kind">Academic</p>
-      <a class="work-link" href="/academic/projects/collingsworth-marketplace.html">Project Page</a>
+      <a class="work-link" href="https://hark-academic.onrender.com/projects/collingsworth-marketplace.html">Project Page</a>
     </div>
   </li>
 
   <!-- Harker Ornithology Report ------------------------------------------ -->
   <li class="work">
-    <a class="work-cover" href="/birds/" aria-hidden="true" tabindex="-1">
+    <a class="work-cover" href="https://hark-birding.onrender.com/" aria-hidden="true" tabindex="-1">
       <span class="work-cover-placeholder">
         <span class="name">Harker Ornithology Report</span>
         <span class="note">Cover pending</span>
@@ -176,7 +177,7 @@
     </a>
     <div class="work-facts">
       <h3 class="work-title">
-        <a href="/birds/">Harker Ornithology Report</a>
+        <a href="https://hark-birding.onrender.com/">Harker Ornithology Report</a>
       </h3>
       <hr class="rule-soft">
       <p class="work-summary">A record of field observations, checklists and media, built from eBird exports at compile time and published as a static site with a map of every location visited.</p>
@@ -188,7 +189,7 @@
         <span>eBird</span>
       </p>
       <p class="work-kind">Personal</p>
-      <a class="work-link" href="/birds/">Project Site</a>
+      <a class="work-link" href="https://hark-birding.onrender.com/">Project Site</a>
     </div>
   </li>
 
@@ -201,7 +202,7 @@
 
 <p class="body-text">I graduated from the University of Houston&rsquo;s Hines College of Architecture and Design in 2024 with a Bachelor of Architecture. Since then I have worked in commercial signage and architectural products — custom perforated panel systems, facades, exterior cladding — across the design, fabrication and installation pipeline, and led the effort to bring parametric and computational practice into that work.</p>
 
-<p class="body-text">Most of what I build is infrastructure for other people&rsquo;s work: Grasshopper definitions and Python scripts that keep a model in step with a scope that keeps moving, plug-ins that standardise a process somebody was doing by hand, and reference documents that make any of it findable a year later. The ornithology report is that same instinct applied to my own material, and so is my <a href="/resume/">CV</a>, kept as a page of static HTML rather than an attachment.</p>
+<p class="body-text">Most of what I build is infrastructure for other people&rsquo;s work: Grasshopper definitions and Python scripts that keep a model in step with a scope that keeps moving, plug-ins that standardise a process somebody was doing by hand, and reference documents that make any of it findable a year later. The ornithology report is that same instinct applied to my own material, and so is my <a href="https://hark-resume.onrender.com/">CV</a>, kept as a page of static HTML rather than an attachment.</p>
 
 <p class="body-text">Before that I spent three years as a staff photographer for the McGovern College of the Arts, covering performances, exhibitions and concerts, and edited UH: Close Up, an architecture and documentary photography page. Outside work I run, follow college football, and go birding — which is where the ornithology report came from.</p>
 
@@ -213,7 +214,7 @@
 
 <ul class="reference-list">
   <li>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
     <span class="desc">Education, experience and skills, on one printable page.</span>
   </li>
   <li>
@@ -236,9 +237,9 @@
   <nav class="site-links" aria-label="Felipe E. Harker">
       <span class="site-links-owner">Felipe E. Harker</span>
       <a href="/" aria-current="page">Portfolio</a>
-      <a href="/academic/">Academic</a>
-      <a href="/birds/">Birding</a>
-      <a href="/resume/">Resume</a>
+      <a href="https://hark-academic.onrender.com/">Academic</a>
+      <a href="https://hark-birding.onrender.com/">Birding</a>
+      <a href="https://hark-resume.onrender.com/">Resume</a>
     </nav>
   <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript. Built to the <a href="/standards/">Hark web standards</a>.</p>
 </footer>

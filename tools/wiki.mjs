@@ -28,7 +28,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const WIKI = join(ROOT, 'wiki');
 
 /** The repository the wiki belongs to; links out of wiki/ point here. */
-export const REPO = 'https://github.com/felipeharker/hark';
+export const REPO = 'https://github.com/felipeharker/hark_web';
 
 /** One link target, as the wiki needs it, or a problem. */
 function rewrite(target) {

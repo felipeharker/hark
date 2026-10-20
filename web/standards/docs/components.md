@@ -328,18 +328,22 @@ own. The `<hr class="rule-soft">` in it is drawn as a short ink dash.
 ## Running head
 
 The line across the top of every page, before its `<article>`: the owner's
-name in the left column, and a link to every part of felipeharker.org from
-the middle — the same links as the colophon, in the same order, so a reader
-can move around the site from either end of a page.
+name in the left column, and a link to every site in felipeharker.org's
+family from the middle — the same links as the colophon, in the same order,
+so a reader can move between the sites from either end of a page. This is
+the portfolio's; on another site, its own link is `/` with
+`aria-current="page"`, and the owner's name and the Portfolio link are
+absolute, `https://felipeharker.org/`. Every link in it opens in the same
+tab.
 
 ```html
 <header class="runhead">
   <a class="runhead-owner" href="/">Felipe E. Harker</a>
   <nav class="runhead-links" aria-label="Site">
     <a href="/" aria-current="page">Portfolio</a>
-    <a href="/academic/">Academic</a>
-    <a href="/birds/">Birding</a>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-academic.onrender.com/">Academic</a>
+    <a href="https://hark-birding.onrender.com/">Birding</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
   </nav>
 </header>
 ```
@@ -348,9 +352,10 @@ can move around the site from either end of a page.
 |---|---|
 | `.runhead` | The `<header>` of the page, outside its `<article>`, in the same frame as `.doc` and laid on the grid. |
 | `.runhead-owner` | The owner's name, linking to the front page, in the left column. |
-| `.runhead-links` | The `<nav>` of every part of the site, in the right column. The link to the part the reader is in carries `aria-current="page"` and is bracketed. |
+| `.runhead-links` | The `<nav>` of every site in the family, in the right column. The link to the site the reader is in carries `aria-current="page"` and is bracketed. |
 
-`tools/check.mjs` fails if a page's running head misses a part of the site.
+`tools/check.mjs`, in every repository, fails if a page's running head misses
+a site.
 
 ## Back link
 
@@ -364,18 +369,20 @@ can move around the site from either end of a page.
 
 ## Colophon
 
-The foot of every page: the site links — every part of felipeharker.org, so a
+The foot of every page: the site links — every site in the family, so a
 reader can always get from one to any other — then a line on how the page was
-made. It is the last thing inside `.doc`.
+made. It is the last thing inside `.doc`. On a site other than
+felipeharker.org, the standards link is absolute:
+`https://felipeharker.org/standards/`.
 
 ```html
 <footer class="colophon">
   <nav class="site-links" aria-label="Felipe E. Harker">
     <span class="site-links-owner">Felipe E. Harker</span>
     <a href="/" aria-current="page">Portfolio</a>
-    <a href="/academic/">Academic</a>
-    <a href="/birds/">Birding</a>
-    <a href="/resume/">Resume</a>
+    <a href="https://hark-academic.onrender.com/">Academic</a>
+    <a href="https://hark-birding.onrender.com/">Birding</a>
+    <a href="https://hark-resume.onrender.com/">Resume</a>
   </nav>
   <p>Set in Inter and IBM Plex Mono. Static HTML; no framework and no JavaScript.
      Built to the <a href="/standards/">Hark web standards</a>.</p>
@@ -385,9 +392,10 @@ made. It is the last thing inside `.doc`.
 | Class | What it is |
 |---|---|
 | `.colophon` | The footer block, laid on the grid: an ink rule, then the site links on the left and small grey lines on the right. |
-| `.site-links` | The row of links to every part of the site, in small caps, in the order of [`tools/sites.mjs`](../../../tools/sites.mjs). |
+| `.site-links` | The row of links to every site in the family, in small caps, in the order of `FAMILY` in [`tools/sites.mjs`](../../../tools/sites.mjs). |
 | `.site-links-owner` | The name that leads the row. |
 
-The link to the part the reader is in carries `aria-current="page"` and is
-set in ink; the rest are grey. `tools/check.mjs` fails if a page's site links miss a
-part of the site, or if the page does not link `/standards/`.
+The link to the site the reader is in carries `aria-current="page"` and is
+set in ink; the rest are grey. `tools/check.mjs`, in every repository, fails
+if a page's site links miss a site, or if the page does not link the
+standards.

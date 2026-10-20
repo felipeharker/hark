@@ -1,45 +1,46 @@
-# hark
+# hark_web
 
-Everything on [felipeharker.org](https://felipeharker.org/), in one
-repository: the portfolio, the academic projects, the birding report, the
-resume, and the web standards they are all built to. One folder per part of
-the site, one shared stylesheet, one deploy.
+[felipeharker.org](https://felipeharker.org/): the portfolio, and the web
+standards that it and the sites beside it are built to. It is the front of a
+family of four sites, each in its own repository and on its own Render
+service, all linked from here and from each other:
 
-| Part | Served at | Folder | What it holds |
+| Site | Address | Repository | What it holds |
 |---|---|---|---|
-| Portfolio | [`/`](https://felipeharker.org/) | [`web/portfolio/`](web/portfolio/) | The front page: a tile for each academic project and one for the birding report, About, contact. |
-| Academic | [`/academic/`](https://felipeharker.org/academic/) | [`web/academic/`](web/academic/) | Architecture and urban design projects from the University of Houston, a page each. |
-| Birding | [`/birds/`](https://felipeharker.org/birds/) | [`web/birds/`](web/birds/) | The Harker Ornithology Report: eBird observations, checklists, media and field notes. Next.js. |
-| Resume | [`/resume/`](https://felipeharker.org/resume/) | [`web/resume/`](web/resume/) | The resume, as one printable page. |
-| Standards | [`/standards/`](https://felipeharker.org/standards/) | [`web/standards/`](web/standards/) | The web design and development standards, the shared stylesheet, and a page that renders it. |
+| Portfolio | https://felipeharker.org/ | `hark_web`, this one ([`web/portfolio/`](web/portfolio/)) | The front page: a tile for each academic project and one for the birding report, About, contact. |
+| Standards | https://felipeharker.org/standards/ | `hark_web`, this one ([`web/standards/`](web/standards/)) | The web design and development standards, the one shared stylesheet, and a page that renders it. |
+| Academic | https://hark-academic.onrender.com/ | [`hark_academic`](https://github.com/felipeharker/hark_academic) | Architecture and urban design projects from the University of Houston, a page each. |
+| Birding | https://hark-birding.onrender.com/ | [`hark_birding`](https://github.com/felipeharker/hark_birding) | The Harker Ornithology Report: eBird observations, checklists, media and field notes. Next.js. |
+| Resume | https://hark-resume.onrender.com/ | [`hark_resume`](https://github.com/felipeharker/hark_resume) | The resume, as one printable page. |
+
+Every page on every site links the one stylesheet served from here,
+`https://felipeharker.org/standards/hark.css`, and ends with the same site
+links. The decision log and the roadmap for all four live here, in
+[`planning/`](planning/).
 
 ## Layout
 
 ```
-hark/
+hark_web/
   README.md           this page
-  ARCHITECTURE.md     diagrams: how the parts, the stylesheet, the build and the services relate
+  ARCHITECTURE.md     diagrams: how the sites, the stylesheet, the builds and the services relate
   AGENTS.md           rules for coding agents (CLAUDE.md points here)
   render.yaml         the Render service, recorded
   tools/
-    sites.mjs         every part of the site: its path and its folder
-    serve.mjs         serve the whole site locally, from source
+    sites.mjs         the parts served here, and the family of sites
+    serve.mjs         serve the site locally, from source
     check.mjs         check pages, links, published files and docs
     build.mjs         build the site into dist/ for Render
     wiki.mjs          publish wiki/ as the GitHub wiki
   web/
     standards/        the standard: site/hark.css, docs/, the specimen page
     portfolio/        site/ is published at /
-    academic/         site/ is published at /academic/
-    birds/            web/out/ (the Next.js build) is published at /birds/
-    resume/           site/ is published at /resume/
   wiki/               how-to guides: running, editing, deploying
+  planning/           the roadmap and the decision log, for every site
   .github/workflows/  wiki.yml: publishes wiki/ to the GitHub wiki
-  planning/           the roadmap and the decision log
 ```
 
-Each part keeps what it publishes in `site/` and nothing else there; working
-files (models, board PDFs) sit beside it in `source/`, ignored by git.
+Each part keeps what it publishes in `site/` and nothing else there.
 
 ## Quick start
 
@@ -49,13 +50,10 @@ Node 20.9 or newer, nothing else.
 node tools/serve.mjs
 ```
 
-serves the whole site at http://localhost:8000/ — every static page straight
-from its source, so an edit shows on the next refresh. The birding report is
-served from its last build; build it once first:
-
-```bash
-cd web/birds/web && npm install && npm run build
-```
+serves the portfolio and the standards at http://localhost:8000/, straight
+from source, so an edit shows on the next refresh. The site links to the
+other sites lead to them, live; each is served locally from its own
+repository with the same command.
 
 Before a commit:
 
@@ -66,12 +64,11 @@ node tools/check.mjs
 ## Where to read next
 
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** — the system in diagrams: the
-  repository, the one stylesheet, the build and deploy, the birding data,
-  how a reader moves between parts, and the services outside the repository.
-- **[wiki/](wiki/Home.md)** — how to do things: run the site, edit each part,
-  add a project, update the bird data, change the standard, deploy. The same
-  pages are the repository's
-  [GitHub wiki](https://github.com/felipeharker/hark/wiki).
+  repositories, the one stylesheet, the builds and deploys, how a reader
+  moves between sites, and the services outside the repositories.
+- **[wiki/](wiki/Home.md)** — how to do things: run the site, edit the
+  portfolio, change the standard, deploy. The same pages are the
+  repository's [GitHub wiki](https://github.com/felipeharker/hark_web/wiki).
 - **[web/standards/](web/standards/)** — the rules every page follows:
   [design](web/standards/docs/design.md),
   [components](web/standards/docs/components.md),
@@ -84,14 +81,15 @@ node tools/check.mjs
 
 ## Deploying
 
-One Render static site, deployed from `main` on every push: build command
-`node tools/build.mjs`, publish directory `dist`. See
-[wiki/Deploying.md](wiki/Deploying.md).
+One Render static site, `hark-site`, deployed from `main` on every push:
+build command `node tools/build.mjs`, publish directory `dist`. Its redirect
+rules send the old paths `/academic/`, `/birds/` and `/resume/` to the new
+sites. See [wiki/Deploying.md](wiki/Deploying.md).
 
 ## Elsewhere in CODEBASE
 
-The Rhino and Grasshopper work, with its own standards, lives in a separate
-workspace, `CODEBASE\parametric` (the private `parametric_*` repositories).
-Nothing here depends on it. The web standards live here, with the site they
-govern. The old `hark_system` repository, which held the CODEBASE standards,
-is archived.
+`hark_academic`, `hark_birding` and `hark_resume` sit beside this folder in
+`CODEBASE`. The Rhino and Grasshopper work, with its own standards, lives in
+a separate workspace, `CODEBASE\parametric` (the private `parametric_*`
+repositories); nothing here depends on it. The earlier `hark_*` repositories
+are archived under `<name>_archive`.

@@ -1,8 +1,9 @@
 # Portfolio
 
 The front of felipeharker.org, served at `/`: one page. It introduces the
-work, links the other parts of the site — the academic projects, the birding
-report, the resume — and says how to get in touch.
+work, links the other sites in the family — the academic projects, the
+birding report, the resume, each built in its own repository — and says how
+to get in touch.
 
 ## Layout
 
@@ -15,17 +16,18 @@ web/portfolio/
 
 The page has no images of its own. For now every tile shows a placeholder
 block, not a cover (`planning/decisions.md`). When covers return, each
-academic tile shows its project's cover from the academic part
-(`/academic/assets/covers/<slug>.jpg`), so there is one file per cover; a
+academic tile shows its project's cover from the academic site
+(`https://hark-academic.onrender.com/assets/covers/<slug>.jpg`), so there is
+one file per cover; a
 cover for the birding report would go in `site/assets/covers/`.
 
 ## The page
 
 | Section | What it holds |
 |---|---|
-| Work | a tile for each academic project, linking its page under `/academic/projects/`, and one for the birding report (`/birds/`); every cover a placeholder for now |
+| Work | a tile for each academic project, linking its page on https://hark-academic.onrender.com/, and one for the birding report (https://hark-birding.onrender.com/); every cover a placeholder for now |
 | About | the biography |
-| Elsewhere | the resume (`/resume/`), GitHub, LinkedIn, email |
+| Elsewhere | the resume (https://hark-resume.onrender.com/), GitHub, LinkedIn, email |
 
 Alexandria is left out for now, by decision — see `planning/decisions.md`.
 
@@ -34,8 +36,8 @@ Alexandria is left out for now, by decision — see `planning/decisions.md`.
 | Want to change | Edit |
 |---|---|
 | A row, the About text, Elsewhere | `site/index.html` (the comment at its top says how to add a row or a cover) |
-| A cover | `site/assets/covers/<name>.jpg`: a 3:2 JPEG, 1500 x 1000 or smaller; an academic project's is its own, in `web/academic/site/assets/covers/` |
-| An academic project's tile | its `<li class="work">` in `site/index.html`, kept in step with its tile on `/academic/` |
+| A cover | `site/assets/covers/<name>.jpg`: a 3:2 JPEG, 1500 x 1000 or smaller; an academic project's is its own, in `site/assets/covers/` in `hark_academic` |
+| An academic project's tile | its `<li class="work">` in `site/index.html`, kept in step with its tile on the academic site |
 | Anything shared — type, colour, the work list, the footer | the standard: `web/standards/` |
 
 There is no stylesheet of its own: everything on the page is the shared
@@ -51,4 +53,4 @@ hovered, then the title, a short dash and the facts under it. It began as the
 previous portfolio's large-cover-left rows, without their drop shadows, hover
 lift, orange accent, serif body face and fixed sidebar, and became tiles with
 the minimal standard (`planning/decisions.md`). It is a shared component of
-the standard, used by `/academic/` too.
+the standard, used by the academic site too.
